@@ -10,8 +10,8 @@
 Kingdom Hearts II Final Mix from the [Epic Games Store](https://store.epicgames.com/en-US/discover/kingdom-hearts) or [Steam](https://store.steampowered.com/app/2552430/KINGDOM_HEARTS_HD_1525_ReMIX/)
 
 - Follow this Guide to set up these requirements [KH2Rando.com](https://tommadness.github.io/KH2Randomizer/setup/Panacea-ModLoader/)
-    1. Version 25.01.26.0 or greater OpenKH Mod Manager with Panacea
-    2. Lua Backend from the OpenKH Mod Manager
+    1. Version 25.01.26.0 or greater OpenKH Mod Manager
+    2. Panacea and Lua Backend from the OpenKH Mod Manager
     3. Install the mod `KH2FM-Mods-Num/GoA-ROM-Edition` using OpenKH Mod Manager
 - Needed for Archipelago 
     1. [ArchipelagoKH2Client.exe](https://github.com/ArchipelagoMW/Archipelago/releases)
@@ -82,6 +82,8 @@ Enter The room's port number into the top box <b> where the x's are</b> and pres
 
 - Loading into Simulated Twilight Town Instead of the GOA.
     - To fix this look over the guide at [KH2Rando.com](https://tommadness.github.io/KH2Randomizer/setup/Panacea-ModLoader/). Specifically the Panacea and Lua Backend Steps.
+- Installing a seed from the standalone offline Seed Generator available via the guide
+    - Install the zip file provided by the generated Archipelago output.
 
 <h2 style="text-transform:none"; >Best Practices</h2>
 
