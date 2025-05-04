@@ -101,6 +101,7 @@ class HundredAcreWood(Toggle):
 class SuperBosses(Toggle):
     """
     Toggle whether to include checks behind Super Bosses.
+    If Final Rest Door is set to Superbosses these locations are also included.
     """
     display_name = "Super Bosses"
 
@@ -114,10 +115,6 @@ class Cups(Choice):
     Hades Cup: Hades Cup is included in addition to Phil, Pegasus, and Hercules cups. If Super Bosses are enabled, then Ice Titan is included
     """
     display_name = "Cups"
-    option_off = 0
-    option_cups = 1
-    option_hades_cup = 2
-    default = 0
 
 class FinalRestDoorKey(Choice):
     """
@@ -149,6 +146,20 @@ class EndoftheWorldUnlock(Choice):
     option_lucky_emblems = 1
     default = 1
 
+class FinalRestDoor(Choice):
+    """Determines what conditions need to be met to manifest the door in Final Rest, allowing the player to challenge Ansem.
+    
+    Reports: A certain number of Ansem's Reports are required, determined by the "Reports to Open Final Rest Door" option
+    Puppies: Having all 99 puppies is required
+    Postcards: Turning in all 10 postcards is required
+    Superbosses: Defeating Sephiroth, Unknown, Kurt Zisa, and Phantom are required
+    """
+    display_name = "Final Rest Door"
+    option_reports = 0
+    option_puppies = 1
+    option_postcards = 2
+    option_superbosses = 3
+
 class RequiredPostcards(Range):
     """
     If "Final Rest Door Key" is set to "Postcards", defines how many postcards are required.
@@ -177,17 +188,11 @@ class RequiredPuppies(Choice):
 
 class PuppyValue(Range):
     """
-    Determines how many dalmation puppies are given when a puppy item is found.
-    """
-    display_name = "Puppy Value"
-    default = 3
-    range_start = 1
-    range_end = 99
-
-class RandomizePuppies(DefaultOnToggle):
-    """
-    If OFF, the "Puppy" item is worth 3 puppies and puppies are placed in vanilla locations.
-    If ON, the "Puppy" item is worth an amount of puppies defined by "Puppy Value", and are shuffled randomly.
+    Determines how dalmatian puppies are shuffled into the pool.
+    Full: All puppies are in one location
+    Triplets: Puppies are found in triplets just as they are in the base game
+    Individual: One puppy can be found per location
+    Vanilla: Puppies appear in triplets in the same location as the vanilla game
     """
     display_name = "Randomize Puppies"
 
@@ -447,7 +452,7 @@ class RandomizePostcards(Choice):
 
     All: All Postcards are randomized
     Chests: Only the 3 Postcards in chests are randomized
-    Vanilla: Postcards are in their original location
+    Vanilla: Postcards are in their original locations
     """
     display_name = "Randomize Postcards"
     option_all = 0
