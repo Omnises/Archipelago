@@ -16,7 +16,7 @@ from .items import create_item_label_to_code_map, item_table, key_items, filler_
 from .locations import create_location_label_to_id_map, FFXLocation
 from .regions import create_regions
 from .options import FFXOptions
-from .generate import generate_output, FFXProcedurePatch
+from .generate import generate_output
 
 
 class FFXWebWorld(WebWorld):
@@ -37,13 +37,7 @@ class FFXWebWorld(WebWorld):
 
 
 class FFXSettings(settings.Group):
-    class FFXTakaraFile(settings.UserFilePath):
-        """File name of your Final Fantasy X Takara File"""
-        description = "Final Fantasy X Takara File"
-        copy_to = "takara.bin"
-        md5s = [FFXProcedurePatch.hash]
-
-    takara_file: FFXTakaraFile = FFXTakaraFile(FFXTakaraFile.copy_to)
+    pass
 
 
 class FFXWorld(World):
