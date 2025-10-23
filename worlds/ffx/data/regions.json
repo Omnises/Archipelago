@@ -30,7 +30,7 @@
     "overdrives": [],
     "other": [],
     "leads_to": [],
-    "rules": []
+    "rules": ["Geosgaeno"]
   },
 
   {
@@ -775,7 +775,7 @@
     "id": 68,
     "treasures": [],
     "party_members": [],
-    "bosses": [],
+    "bosses": [40],
     "overdrives": [],
     "other": [],
     "leads_to": [],

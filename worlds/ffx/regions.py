@@ -1,6 +1,7 @@
 from BaseClasses import Entrance, ItemClassification, Region, Location, LocationProgressType, CollectionState
 import json
 import pkgutil
+import typing
 from typing import NamedTuple
 
 from .locations import FFXLocation, FFXTreasureLocations, FFXPartyMemberLocations, FFXBossLocations, \
@@ -9,6 +10,11 @@ from .rules import ruleDict
 from .items import party_member_items
 from worlds.generic.Rules import add_rule
 from ..AutoWorld import World
+
+if typing.TYPE_CHECKING:
+    from .__init__ import FFXWorld
+else:
+    FFXWorld = object
 
 class RegionData(dict):
     @property
@@ -40,7 +46,7 @@ class RegionData(dict):
         return self["rules"]
 
 
-def create_regions(world, player) -> None:
+def create_regions(world: FFXWorld, player) -> None:
     def create_region_locations(region_name, treasures):
         region = Region(region_name, player, world.multiworld)
         for treasure_id in treasures:
@@ -92,7 +98,8 @@ def create_regions(world, player) -> None:
         #     new_region.locations.append(new_location)
         #     all_locations.append(new_location)
 
-        add_locations_by_ids(new_region, region_data.party_members, FFXPartyMemberLocations)
+        # TODO: Implement in client
+        # add_locations_by_ids(new_region, region_data.party_members, FFXPartyMemberLocations)
         # for id in region_data.party_members:
         #     print(region_data.name, id)
         #     location = [x for x in FFXPartyMemberLocations if x.location_id == id][0]
@@ -112,7 +119,8 @@ def create_regions(world, player) -> None:
         #     new_region.locations.append(new_location)
         #     all_locations.append(new_location)
 
-        add_locations_by_ids(new_region, region_data.overdrives, FFXOverdriveLocations)
+        # TODO: Implement in client
+        # add_locations_by_ids(new_region, region_data.overdrives, FFXOverdriveLocations)
         # for id in region_data.overdrives:
         #     print(region_data.name, id)
         #     location = [x for x in FFXOverdriveLocations if x.location_id == id][0]
@@ -122,7 +130,8 @@ def create_regions(world, player) -> None:
         #     new_region.locations.append(new_location)
         #     all_locations.append(new_location)
 
-        add_locations_by_ids(new_region, region_data.other, FFXOtherLocations)
+        # TODO: Implement in client
+        #add_locations_by_ids(new_region, region_data.other, FFXOtherLocations)
         # for id in region_data.other:
         #     print(region_data.name, id)
         #     location = [x for x in FFXOtherLocations if x.location_id == id][0]
@@ -153,6 +162,22 @@ def create_regions(world, player) -> None:
             else:
                 new_rule = None
             menu_region.connect(other_region, rule=new_rule)
+
+
+    if not world.options.super_bosses.value:
+        world.get_location("Besaid: Dark Valefor"                    ).progress_type = LocationProgressType.EXCLUDED
+        world.get_location("Bikanel: Dark Ifrit"                     ).progress_type = LocationProgressType.EXCLUDED
+        world.get_location("Thunder Plains: Dark Ixion"              ).progress_type = LocationProgressType.EXCLUDED
+        world.get_location("Lake Macalania: Dark Shiva"              ).progress_type = LocationProgressType.EXCLUDED
+        world.get_location("Zanarkand: Dark Bahamut"                 ).progress_type = LocationProgressType.EXCLUDED
+        world.get_location("Cavern of the Stolen Fayth: Dark Yojimbo").progress_type = LocationProgressType.EXCLUDED
+        world.get_location("Mushroom Rock Road: Dark Mindy"          ).progress_type = LocationProgressType.EXCLUDED
+        world.get_location("Mushroom Rock Road: Dark Sandy"          ).progress_type = LocationProgressType.EXCLUDED
+        world.get_location("Mushroom Rock Road: Dark Cindy"          ).progress_type = LocationProgressType.EXCLUDED
+        world.get_location("Gagazet (Outside): Dark Anima"           ).progress_type = LocationProgressType.EXCLUDED
+        world.get_location("Airship: Penance"                        ).progress_type = LocationProgressType.EXCLUDED
+        world.get_location("Omega Ruins: Omega Weapon"               ).progress_type = LocationProgressType.EXCLUDED
+        #world.get_location("Monster Arena: Nemesis"                  ).progress_type = LocationProgressType.EXCLUDED
 
     # character_names = [
     #     "Tidus",

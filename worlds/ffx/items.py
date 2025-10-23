@@ -27,6 +27,7 @@ partyMemberItemOffset = 0xF000
 regionItemOffset      = 0xE000
 abilityItemOffset     = 0xD000
 gilItemOffset         = 0x1000
+trapItemOffset        = 0x9000
 
 
 
@@ -653,6 +654,10 @@ abilities: list[ItemData] = [
     ItemData("Quick Pockets", ItemClassification.progression, 0xD07E),
 ]
 
+trap_items: list[ItemData] = [ItemData(x[0], x[1], x[2] | trapItemOffset) for x in [
+    ("Stay away from the summoner", ItemClassification.trap, 0x0000),
+]]
+
 stat_abilities = [ability for ability in abilities_per_character if ability.itemID & 0xFF <= 0x26]
 
 skill_abilities = [ability for ability in abilities_per_character if ability not in stat_abilities]
@@ -675,7 +680,8 @@ AllItems = list(chain(normal_items,
                       key_items,
                       equip_items,
                       party_member_items,
-                      region_unlock_items))
+                      region_unlock_items,
+                      trap_items))
 
 filler_items: list[ItemData] = [item for item in AllItems if item.progression == ItemClassification.filler]
 

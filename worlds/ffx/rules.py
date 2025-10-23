@@ -10,6 +10,70 @@ if typing.TYPE_CHECKING:
 else:
     FFXWorld = object
 
+world_battle_levels: dict[str, int] = {
+"Baaj Temple":                 1,
+"Besaid":                      2,
+"Kilika":                      3,
+"Luca":                        4,
+"Mi'ihen Highroad":            5,
+"Mushroom Rock Road":          6,
+"Djose":                       7,
+"Moonflow":                    8,
+"Guadosalam":                  9,
+"Thunder Plains":             10,
+"Macalania":                  11,
+"Bikanel":                    12,
+"Bevelle":                    13,
+"Calm Lands":                 14,
+"Cavern of the Stolen Fayth": 14,
+"Mt. Gagazet":                15,
+"Zanarkand Ruins":            16,
+"Sin":                        17,
+"Airship":                    13,
+"Omega Ruins":                18,
+}
+
+region_to_first_visit: dict[str, str] = {
+"Baaj Temple":                "Baaj Temple 1st visit",
+"Besaid":                     "Besaid Island 1st visit",
+"Kilika":                     "Kilika 1st visit: Pre-Geneaux",
+"Luca":                       "Luca 1st visit: Pre-Oblitzerator",
+"Mi'ihen Highroad":           "Mi'ihen Highroad 1st visit: Pre-Chocobo Eater",
+"Mushroom Rock Road":         "Mushroom Rock Road 1st visit: Pre-Sinspawn Gui",
+"Djose":                      "Djose 1st visit",
+"Moonflow":                   "Moonflow 1st visit: Pre-Extractor",
+"Guadosalam":                 "Guadosalam 1st visit",
+"Thunder Plains":             "Thunder Plains 1st visit",
+"Macalania":                  "Macalania Woods 1st visit: Pre-Spherimorph",
+"Bikanel":                    "Bikanel 1st visit",
+"Bevelle":                    "Bevelle 1st visit: Pre-Isaaru",
+"Calm Lands":                 "Calm Lands 1st visit: Pre-Defender X",
+"Cavern of the Stolen Fayth": "Cavern of the Stolen Fayth 1st visit",
+"Mt. Gagazet":                "Mt. Gagazet 1st visit: Pre-Biran and Yenke",
+"Zanarkand Ruins":            "Zanarkand Ruins 1st visit: Pre-Spectral Keeper",
+"Sin":                        "Sin: Pre-Seymour Omnis",
+"Airship":                    "Airship 1st visit: Pre-Evrae",
+"Omega Ruins":                "Omega Ruins: Pre-Ultima Weapon",
+}
+
+
+
+
+def create_region_access_rule(world: FFXWorld, region_name: str):
+    region_level = world_battle_levels[region_name]
+    if region_level < 5:
+        return lambda state: state.has(f"Region: {region_name}", world.player)
+    else:
+        appropriate_level_regions = [other_region for other_region, other_level in world_battle_levels.items() if
+                                     other_region != region_name and region_level > other_level >= region_level - world.options.logic_difficulty.value]
+
+        return lambda state: state.has(f"Region: {region_name}", world.player) and any([state.can_reach_region(region_to_first_visit[other_region], world.player) for other_region in appropriate_level_regions])
+
+def create_level_rule(world: FFXWorld, level: int):
+    appropriate_level_regions = [other_region for other_region, other_level in world_battle_levels.items() if
+                                 level > other_level >= level - world.options.logic_difficulty.value]
+
+    return lambda state: any([state.can_reach_region(region_to_first_visit[other_region], world.player) for other_region in appropriate_level_regions])
 
 def create_ability_rule(world: FFXWorld, ability_name: str):
     #return lambda state: state.has_any([f"{name} Ability: {ability_name}" for name in character_names], world.player)
@@ -19,7 +83,10 @@ def create_ability_rule(world: FFXWorld, ability_name: str):
     #    print(world.item_name_to_id[ability])
     #    print(world.item_name_to_id[character])
     #print(temp)
-    return lambda state: any([state.has_all([f"{name} Ability: {ability_name}", f"Party Member: {name}"], world.player) for name in character_names])
+    if world.options.sphere_grid_randomization.value == world.options.sphere_grid_randomization.option_on:
+        return lambda state: any([state.has_all([f"{name} Ability: {ability_name}", f"Party Member: {name}"], world.player) for name in character_names])
+    else:
+        return lambda state: True
 
 
 #def create_stat_rule(world: World, stat_total: int):
@@ -41,53 +108,54 @@ def create_stat_total_rule(world: FFXWorld, num_party_members: int, stat_total: 
     return has_stat_total
 
 ruleDict: dict[str, Callable[[FFXWorld], CollectionRule]] = {
-    "Sinspawn Geneaux": lambda world: lambda state: True,
-    "Oblitzerator": lambda world: lambda state: True,
-    "Chocobo Eater": lambda world: lambda state: True,
-    "Sinspawn Gui": lambda world: lambda state: True,
-    "Extractor": lambda world: lambda state: True,
-    "Spherimorph": lambda world: lambda state: True,
-    "Crawler": lambda world: lambda state: True,
-    "Seymour/Anima": lambda world: lambda state: True,
-    "Wendigo": lambda world: lambda state: True,
-    "Evrae": lambda world: lambda state: True,
-    "Airship Sin": lambda world: lambda state: True,
-    "Overdrive Sin": lambda world: lambda state: True,
-    "Penance": lambda world: lambda state: True,
-    "Isaaru": lambda world: lambda state: True,
-    "Evrae Altana": lambda world: lambda state: True,
-    "Seymour Natus": lambda world: lambda state: True,
-    "Defender X": lambda world: lambda state: True,
-    "Biran and Yenke": lambda world: lambda state: True,
-    "Seymour Flux": lambda world: lambda state: True,
-    "Sanctuary Keeper": lambda world: lambda state: True,
-    "Spectral Keeper": lambda world: lambda state: True,
-    "Yunalesca": lambda world: lambda state: True,
-    "Seymour Omnis": lambda world: lambda state: True,
-    "Braska's Final Aeon": lambda world: lambda state: True,
-    "Ultima Weapon": lambda world: lambda state: True,
-    "Omega Weapon": lambda world: lambda state: True,
+    "Sinspawn Geneaux":    lambda world: create_level_rule(world, 3),
+    "Oblitzerator":        lambda world: create_level_rule(world, 4),
+    "Chocobo Eater":       lambda world: create_level_rule(world, 5),
+    "Sinspawn Gui":        lambda world: create_level_rule(world, 6),
+    "Extractor":           lambda world: create_level_rule(world, 8),
+    "Spherimorph":         lambda world: create_level_rule(world, 11),
+    "Crawler":             lambda world: create_level_rule(world, 11),
+    "Seymour/Anima":       lambda world: create_level_rule(world, 11),
+    "Wendigo":             lambda world: create_level_rule(world, 11),
+    "Evrae":               lambda world: create_level_rule(world, 13),
+    "Airship Sin":         lambda world: create_level_rule(world, 16),
+    "Overdrive Sin":       lambda world: create_level_rule(world, 16),
+    "Penance":             lambda world: create_level_rule(world, 18),
+    "Isaaru":              lambda world: create_level_rule(world, 13),
+    "Evrae Altana":        lambda world: create_level_rule(world, 13),
+    "Seymour Natus":       lambda world: create_level_rule(world, 13),
+    "Defender X":          lambda world: create_level_rule(world, 14),
+    "Biran and Yenke":     lambda world: create_level_rule(world, 15),
+    "Seymour Flux":        lambda world: create_level_rule(world, 15),
+    "Sanctuary Keeper":    lambda world: create_level_rule(world, 15),
+    "Spectral Keeper":     lambda world: create_level_rule(world, 16),
+    "Yunalesca":           lambda world: create_level_rule(world, 16),
+    "Seymour Omnis":       lambda world: create_level_rule(world, 17),
+    "Braska's Final Aeon": lambda world: create_level_rule(world, 17),
+    "Ultima Weapon":       lambda world: create_level_rule(world, 18),
+    "Omega Weapon":        lambda world: create_level_rule(world, 19),
+    "Geosgaeno":           lambda world: create_level_rule(world, 16),
 
-    "Baaj Temple": lambda world: lambda state: state.has("Region: Baaj Temple", world.player),
-    "Besaid": lambda world: lambda state: state.has("Region: Besaid", world.player),
-    "Kilika": lambda world: lambda state: state.has("Region: Kilika", world.player),
-    "Luca": lambda world: lambda state: state.has("Region: Luca", world.player),
-    "Mi'ihen Highroad": lambda world: lambda state: state.has("Region: Mi'ihen Highroad", world.player),
-    "Mushroom Rock Road": lambda world: lambda state: state.has("Region: Mushroom Rock Road", world.player),
-    "Djose": lambda world: lambda state: state.has("Region: Djose", world.player),
-    "Moonflow": lambda world: lambda state: state.has("Region: Moonflow", world.player),
-    "Guadosalam": lambda world: lambda state: state.has("Region: Guadosalam", world.player),
-    "Thunder Plains": lambda world: lambda state: state.has("Region: Thunder Plains", world.player),
-    "Macalania": lambda world: lambda state: state.has("Region: Macalania", world.player),
-    "Bikanel": lambda world: lambda state: state.has("Region: Bikanel", world.player),
-    "Bevelle": lambda world: lambda state: state.has("Region: Bevelle", world.player),
-    "Calm Lands": lambda world: lambda state: state.has("Region: Calm Lands", world.player),
-    "Cavern of the Stolen Fayth": lambda world: lambda state: state.has("Region: Cavern of the Stolen Fayth", world.player),
-    "Mt. Gagazet": lambda world: lambda state: state.has("Region: Mt. Gagazet", world.player),
-    "Zanarkand Ruins": lambda world: lambda state: state.has("Region: Zanarkand Ruins", world.player),
-    "Sin": lambda world: lambda state: state.has("Region: Sin", world.player),
-    "Airship": lambda world: lambda state: state.has("Region: Airship", world.player),
-    "Omega Ruins": lambda world: lambda state: state.has("Region: Omega Ruins", world.player),
+    "Baaj Temple":                lambda world: create_region_access_rule(world, "Baaj Temple"), # lambda state: state.has("Region: Baaj Temple", world.player),
+    "Besaid":                     lambda world: create_region_access_rule(world, "Besaid"),
+    "Kilika":                     lambda world: create_region_access_rule(world, "Kilika"),
+    "Luca":                       lambda world: create_region_access_rule(world, "Luca"),
+    "Mi'ihen Highroad":           lambda world: create_region_access_rule(world, "Mi'ihen Highroad"),
+    "Mushroom Rock Road":         lambda world: create_region_access_rule(world, "Mushroom Rock Road"),
+    "Djose":                      lambda world: create_region_access_rule(world, "Djose"),
+    "Moonflow":                   lambda world: create_region_access_rule(world, "Moonflow"),
+    "Guadosalam":                 lambda world: create_region_access_rule(world, "Guadosalam"),
+    "Thunder Plains":             lambda world: create_region_access_rule(world, "Thunder Plains"),
+    "Macalania":                  lambda world: create_region_access_rule(world, "Macalania"),
+    "Bikanel":                    lambda world: create_region_access_rule(world, "Bikanel"),
+    "Bevelle":                    lambda world: create_region_access_rule(world, "Bevelle"),
+    "Calm Lands":                 lambda world: create_region_access_rule(world, "Calm Lands"),
+    "Cavern of the Stolen Fayth": lambda world: create_region_access_rule(world, "Cavern of the Stolen Fayth"),
+    "Mt. Gagazet":                lambda world: create_region_access_rule(world, "Mt. Gagazet"),
+    "Zanarkand Ruins":            lambda world: create_region_access_rule(world, "Zanarkand Ruins"),
+    "Sin":                        lambda world: create_region_access_rule(world, "Sin"),
+    "Airship":                    lambda world: create_region_access_rule(world, "Airship"),
+    "Omega Ruins":                lambda world: create_region_access_rule(world, "Omega Ruins"),
 }
 
 
