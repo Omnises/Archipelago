@@ -34,11 +34,17 @@ def generate_output(world: FFXWorld, player: int, output_directory: str) -> None
     locations: dict[str, list[dict[str, int | str] | int] | str] = {x: list() for x in location_types.values()}
 
     for location in world.multiworld.get_filled_locations(player):
+        if location.is_event:
+            continue
         if location.item.player != player:
             item_id = 0
         else:
             item_id = location.item.code
-        locations[get_location_type(location.address)].append({"location_name": location.name, "location_id": location.address & 0x0FFF, "item_id": item_id, "item_name": location.item.name})
+        locations[get_location_type(location.address)].append({"location_name": location.name,
+                                                               "location_id": location.address & 0x0FFF,
+                                                               "item_id": item_id,
+                                                               "item_name": location.item.name,
+                                                               "player_name": world.multiworld.get_player_name(location.item.player)})
 
     starting_items: list[int] = list()
 

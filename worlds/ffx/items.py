@@ -32,7 +32,7 @@ trapItemOffset        = 0x9000
 
 
 
-normal_items: list[ItemData] = [ItemData(x[0], x[1], x[2] | normalItemOffset) for x in [
+normal_items: list[ItemData] = [ItemData(f"{x[0]} x {i}", x[1], x[2] | normalItemOffset | (i << 16)) for i in range(10, 100, 10) for x in [
     ("Potion",               ItemClassification.filler, 0x0000),
     ("Hi-Potion",            ItemClassification.filler, 0x0001),
     ("X-Potion",             ItemClassification.filler, 0x0002),
@@ -219,7 +219,7 @@ equip_items: list[ItemData] = [ItemData(x[0], x[1], x[2] | equipItemOffset) for 
     ("Weapon (Tidus): Brotherhood",     ItemClassification.useful, 0x0001),  # Offset=0024 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=4 {Strength +5% [8063h], Strength +10% [8064h], Waterstrike [802Ah], Sensor [8000h]}, Brotherhood }
     ("Weapon (Yuna): Astral Rod",       ItemClassification.useful, 0x0002),  # Offset=0034 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=4 {One MP Cost [800Dh], Empty, Empty, Empty} }
     ("Weapon (Lulu): Onion Knight",     ItemClassification.useful, 0x0003),  # Offset=0044 Weapon [00h], Formula=Celestial MP-based [12h], Power=16, Crit=3%, Slots=4 {No AP [8014h], Empty, Empty, Empty}, Celestial }
-    ("Weapon (Tidus): FLametongue",     ItemClassification.useful, 0x0004),  # Offset=0054 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=1 {Firestrike [801Eh]} }
+    ("Weapon (Tidus): Flametongue",     ItemClassification.useful, 0x0004),  # Offset=0054 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=1 {Firestrike [801Eh]} }
     ("Weapon (Yuna): Rod of Wisdom",    ItemClassification.useful, 0x0005),  # Offset=0064 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=1 {Magic +5% [8067h], !Magic +3% [8066h], !Sensor [8000h]} }
     ("Weapon (Kimahri): Red Armlet",    ItemClassification.useful, 0x0006),  # Offset=0074 Armor [01h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=3 {Fire Ward [801Fh], Ice Ward [8023h], Lightning Ward [8027h]} }
     ("Weapon (Lulu): Serene Bangle",    ItemClassification.useful, 0x0007),  # Offset=0084 Armor [01h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=1 {Berserk Ward [8051h]} }
@@ -347,9 +347,10 @@ region_unlock_items: list[ItemData] = [ItemData(x[0], x[1], x[2] | regionItemOff
     ("Region: Omega Ruins",                ItemClassification.progression, 21),
 ]]
 
-gil_items: list[ItemData] = [ItemData(x[0], x[1], x[2] | gilItemOffset) for x in [
-    ("1000 Gil", ItemClassification.filler, 0x0000),
-]]
+gil_items: list[ItemData] = [ItemData(f"{i*1000} Gil", ItemClassification.filler, (i << 16) | gilItemOffset) for i in range(1, 10)]
+#gil_items: list[ItemData] = [ItemData(x[0], x[1], x[2] | gilItemOffset) for x in [
+#    ("1000 Gil", ItemClassification.filler, 0x0000),
+#]]
 
 character_names = [
     "Tidus",

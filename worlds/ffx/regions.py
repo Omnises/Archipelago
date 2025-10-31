@@ -5,7 +5,7 @@ import typing
 from typing import NamedTuple
 
 from .locations import FFXLocation, FFXTreasureLocations, FFXPartyMemberLocations, FFXBossLocations, \
-    FFXOverdriveLocations, FFXOtherLocations, FFXSphereGridLocations, FFXLocationData
+    FFXOverdriveLocations, FFXOtherLocations, FFXSphereGridLocations, FFXLocationData, TreasureOffset, BossOffset
 from .rules import ruleDict
 from .items import party_member_items
 from worlds.generic.Rules import add_rule
@@ -165,18 +165,29 @@ def create_regions(world: FFXWorld, player) -> None:
 
 
     if not world.options.super_bosses.value:
-        world.get_location("Besaid: Dark Valefor"                    ).progress_type = LocationProgressType.EXCLUDED
-        world.get_location("Bikanel: Dark Ifrit"                     ).progress_type = LocationProgressType.EXCLUDED
-        world.get_location("Thunder Plains: Dark Ixion"              ).progress_type = LocationProgressType.EXCLUDED
-        world.get_location("Lake Macalania: Dark Shiva"              ).progress_type = LocationProgressType.EXCLUDED
-        world.get_location("Zanarkand: Dark Bahamut"                 ).progress_type = LocationProgressType.EXCLUDED
-        world.get_location("Cavern of the Stolen Fayth: Dark Yojimbo").progress_type = LocationProgressType.EXCLUDED
-        world.get_location("Mushroom Rock Road: Dark Mindy"          ).progress_type = LocationProgressType.EXCLUDED
-        world.get_location("Mushroom Rock Road: Dark Sandy"          ).progress_type = LocationProgressType.EXCLUDED
-        world.get_location("Mushroom Rock Road: Dark Cindy"          ).progress_type = LocationProgressType.EXCLUDED
-        world.get_location("Gagazet (Outside): Dark Anima"           ).progress_type = LocationProgressType.EXCLUDED
-        world.get_location("Airship: Penance"                        ).progress_type = LocationProgressType.EXCLUDED
-        world.get_location("Omega Ruins: Omega Weapon"               ).progress_type = LocationProgressType.EXCLUDED
+        super_boss_location_ids = [
+             2, # "Besaid: Dark Valefor"
+            19, # "Bikanel: Dark Ifrit"
+            13, # "Thunder Plains: Dark Ixion"
+            18, # "Lake Macalania: Dark Shiva"
+            38, # "Zanarkand: Dark Bahamut"
+            31, # "Cavern of the Stolen Fayth: Dark Yojimbo"
+            45, # "Mushroom Rock Road: Dark Mindy"
+            46, # "Mushroom Rock Road: Dark Sandy"
+            47, # "Mushroom Rock Road: Dark Cindy"
+            34, # "Gagazet (Outside): Dark Anima"
+            25, # "Airship: Penance"
+            44, # "Omega Ruins: Omega Weapon"
+            #30, # "Monster Arena: Nemesis"
+        ]
+        for id in super_boss_location_ids:
+            location_name = world.location_id_to_name[id | BossOffset]
+            #world.get_location(location_name).progress_type = LocationProgressType.EXCLUDED
+            world.options.exclude_locations.value.add(location_name)
+        location_name = world.location_id_to_name[332 | TreasureOffset]
+        #world.get_location(location_name).progress_type = LocationProgressType.EXCLUDED
+        world.options.exclude_locations.value.add(location_name)
+
         #world.get_location("Monster Arena: Nemesis"                  ).progress_type = LocationProgressType.EXCLUDED
 
     # character_names = [

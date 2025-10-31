@@ -53,7 +53,7 @@
     "overdrives": [],
     "other": [],
     "leads_to": [5],
-    "rules": []
+    "rules": ["Sin Fin"]
   },
   {
     "name": "Besaid Island 2nd visit",
@@ -81,7 +81,7 @@
   {
     "name": "Kilika 1st visit: Pre-Geneaux",
     "id": 7,
-    "treasures": [17, 18, 27, 28, 293, 295, 29, 292],
+    "treasures": [17, 18, 27, 28, 293, 295, 29, 291, 292],
     "party_members": [],
     "bosses": [5],
     "overdrives": [],
@@ -775,7 +775,7 @@
     "id": 68,
     "treasures": [],
     "party_members": [],
-    "bosses": [40],
+    "bosses": [],
     "overdrives": [],
     "other": [],
     "leads_to": [],

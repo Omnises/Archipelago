@@ -50,9 +50,9 @@ class SuperBosses(Toggle):
     option_on = 1
 
 
-class TrapsEnabled(Range):
+class TrapPercentage(Range):
     """
-    Sets whether traps will be shuffled into the item pool.
+    Sets the percentage of non-progression items that will be traps.
     Default is 0.
     """
     display_name = "Traps Enabled"
@@ -63,7 +63,7 @@ class TrapsEnabled(Range):
 
 class LogicDifficulty(Range):
     """
-    Sets how strict the logic is for region access. Higher is harder/ less restrictive.
+    Sets how strict the logic is for region access. Higher is harder / less restrictive.
     Default is 3.
     """
     display_name = "Logic Difficulty"
@@ -77,5 +77,5 @@ class FFXOptions(PerGameCommonOptions):
     ap_multiplier: APMultiplier
     sphere_grid_randomization: SphereGridRandomization
     super_bosses: SuperBosses
-    traps_enabled: TrapsEnabled
+    trap_percentage: TrapPercentage
     logic_difficulty: LogicDifficulty

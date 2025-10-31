@@ -6,7 +6,7 @@ from typing import ClassVar, Any, Optional
 from random import Random
 import settings
 
-from BaseClasses import Tutorial, Item, ItemClassification
+from BaseClasses import Tutorial, Item, ItemClassification, LocationProgressType
 from worlds.AutoWorld import WebWorld, World
 from Utils import visualize_regions
 
@@ -100,6 +100,13 @@ class FFXWorld(World):
 
         items_remaining = unfilled_locations - len(required_items)
 
+        for _ in self.options.exclude_locations.value:
+            self.multiworld.itempool.append(self.create_filler())
+            items_remaining -= 1
+
+        traps_remaining = int(items_remaining * self.options.trap_percentage.value / 100)
+        items_remaining = items_remaining - traps_remaining
+
         for itemName in required_items:
             self.multiworld.itempool.append(self.create_item(itemName))
 
@@ -110,8 +117,10 @@ class FFXWorld(World):
 
         self.random.shuffle(useful_items)
 
-        if self.options.traps_enabled.value > 0:
-            useful_items = [trap_items[0].itemName for _ in range(self.options.traps_enabled.value)] + useful_items
+        traps = [trap.itemName for trap in self.random.choices(trap_items, k=traps_remaining)]
+
+        for trap in traps:
+            self.multiworld.itempool.append(self.create_item(trap))
 
         for i in range(items_remaining):
             if i > len(useful_items) - 1:
@@ -124,11 +133,15 @@ class FFXWorld(World):
         return FFXItem(item.itemName, item.progression, item.itemID, self.player)
 
     def generate_basic(self) -> None:
-        victory_event = FFXItem('Victory', ItemClassification.progression, None, self.player)
+        #victory_event = FFXItem('Victory', ItemClassification.progression, None, self.player)
+
+
+        final_region = self.get_region("Sin: Braska's Final Aeon")
+        final_region.add_event("Sin: Braska's Final Aeon", "Victory", location_type=FFXLocation, item_type=FFXItem)
 
         final_aeon = self.get_location("Sin: Braska's Final Aeon")
 
-        final_aeon.place_locked_item(victory_event)
+        #final_aeon.place_locked_item(victory_event)
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
 
         match self.options.goal_requirement.value:
@@ -149,8 +162,11 @@ class FFXWorld(World):
                 for region_name, location_name in pilgrimage_events.items():
                     self.get_region(region_name).add_event(location_name, location_type=FFXLocation, item_type=FFXItem)
 
-                final_aeon.access_rule = lambda state: state.has_all(list(pilgrimage_events.values()))
+                final_aeon.access_rule = lambda state: state.has_all(list(pilgrimage_events.values()), self.player)
 
+    def fill_slot_data(self) -> dict[str, Any]:
+        slot_data = {"SeedId": self.multiworld.get_out_file_name_base(self.player)}
+        return slot_data
 
     def generate_output(self, output_directory: str) -> None:
 

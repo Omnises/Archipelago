@@ -130,9 +130,9 @@ FFXBossLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+BossOffs
     ("Zanarkand: Yunalesca",                     37, False),
     ("Zanarkand: Dark Bahamut",                  38, False),
     ("Sin: Seymour Omnis",                       39, False),
-    ("Sin: Braska's Final Aeon",                 40, False),
-    ("Sin: Contest of Aeons",                    41, False),
-    ("Sin: Yu Yevon",                            42, False),
+    #("Sin: Braska's Final Aeon",                 40, False),
+    #("Sin: Contest of Aeons",                    41, False),
+    #("Sin: Yu Yevon",                            42, False),
     ("Omega Ruins: Ultima Weapon",               43, False),
     ("Omega Ruins: Omega Weapon",                44, False),
     ("Mushroom Rock Road: Dark Mindy",           45, False),
@@ -540,10 +540,10 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Besaid: Phoenix Down x3 (Woman NPC)",                                          288, False),  # Item: 3x Phoenix Down [2006h]
     ("Besaid: 400 gil (Shirtless Man NPC)",                                          289, False),  # Gil: 400 [04h]
     ("Besaid: Ether (Green Shirt NPC)",                                              290, False),  # Item: 1x Ether [2004h]
-    # ("Treasure 291 (Trashed)",                                                     291, False),  # Item: 4x Antidote [200Ah]
-    ("Kilika: Elixir x1 (Luzzu NPC) ",                                               292, False),  # Item: 1x Elixir [2008h]
+    ("Kilika: Antidote x4 (Luzzu NPC before Ochu)",                                  291, False),  # Item: 4x Antidote [200Ah]
+    ("Kilika: Elixir x1 (Luzzu NPC after Ochu) ",                                    292, False),  # Item: 1x Elixir [2008h]
     ("Kilika: Remedy x1 (Leader NPC)",                                               293, False),  # Item: 1x Remedy [200Fh]
-    # ("Treasure 294 (Trashed)",                                                     294, False),  # Item: 3x Phoenix Down [2006h]
+    # ("Kilika: Phoenix Down x4 (Guard NPC, fight Ochu from west and run?)",         294, False),  # Item: 3x Phoenix Down [2006h]
     ("Kilika: Remedy x1 (Guard NPC)",                                                295, False),  # Item: 1x Hi-Potion [2001h]
     ("Al Bhed Ship: Potion x 3 (NPC)",                                               296, False),  # Item: 3x Potion [2000h]
     ("Djose: Variable Steel (NPC)",                                                  297, False),  # Gear: buki_get #63 [3Fh] { Tidus [00h], Weapon {Strength +3% [8062h], Empty, Empty, Empty} }
@@ -560,7 +560,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Lake Macalania: Hi-Potion x2 (NPC)",                                           308, False),  # Item: 2x Hi-Potion [2001h]
     ("Mi'ihen Highroad: Hunters Spear (Blue Shirt NPC)",                             309, False),  # Gear: buki_get #66 [42h] { Kimahri [03h], Weapon {Piercing [800Bh], Sensor [8000h], Strength +10% [8064h]} }
     ("Mi'ihen Highroad: Antidote x2 (Red Skirt NPC)",                                310, False),  # Item: 2x Antidote [200Ah]
-    ("TMi'ihen Highroad: Hi-Potion (Yellow Shirt NPC)",                              311, False),  # Item: 1x Hi-Potion [2001h]
+    ("Mi'ihen Highroad: Hi-Potion (Yellow Shirt NPC)",                               311, False),  # Item: 1x Hi-Potion [2001h]
     ("Mi'ihen Highroad: Soft x3 (Boy NPC)",                                          312, False),  # Item: 3x Soft [200Bh]
     ("Mi'ihen Highroad: Red Ring (Crusader NPC)",                                    313, False),  # Gear: buki_get #67 [43h] { Yuna [01h], Armor {HP +10% [8073h], Fire Ward [801Fh]} }
     ("Mi'ihen Highroad: Ether x1 (NPC)",                                             314, False),  # Item: 1x Ether [2004h]
