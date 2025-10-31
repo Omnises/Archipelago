@@ -460,19 +460,8 @@
     "bosses": [],
     "overdrives": [],
     "other": [],
-    "leads_to": [41, 42],
+    "leads_to": [42],
     "rules": ["Airship"]
-  },
-  {
-    "name": "Airship Secret Destinations",
-    "id": 41,
-    "treasures": [214, 368, 369, 482, 480, 481, 483],
-    "party_members": [],
-    "bosses": [],
-    "overdrives": [],
-    "other": [],
-    "leads_to": [],
-    "rules": []
   },
   {
     "name": "Airship 1st visit: Post-Evrae",
