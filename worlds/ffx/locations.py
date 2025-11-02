@@ -543,7 +543,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Kilika: Antidote x4 (Luzzu NPC before Ochu)",                                  291, False),  # Item: 4x Antidote [200Ah]
     ("Kilika: Elixir x1 (Luzzu NPC after Ochu) ",                                    292, False),  # Item: 1x Elixir [2008h]
     ("Kilika: Remedy x1 (Leader NPC)",                                               293, False),  # Item: 1x Remedy [200Fh]
-    # ("Kilika: Phoenix Down x4 (Guard NPC, fight Ochu from west and run?)",         294, False),  # Item: 3x Phoenix Down [2006h]
+    # ("Kilika: Phoenix Down x3 (Guard NPC, fight Ochu from west and run?)",         294, False),  # Item: 3x Phoenix Down [2006h]
     ("Kilika: Remedy x1 (Guard NPC)",                                                295, False),  # Item: 1x Hi-Potion [2001h]
     ("Al Bhed Ship: Potion x 3 (NPC)",                                               296, False),  # Item: 3x Potion [2000h]
     ("Djose: Variable Steel (NPC)",                                                  297, False),  # Gear: buki_get #63 [3Fh] { Tidus [00h], Weapon {Strength +3% [8062h], Empty, Empty, Empty} }

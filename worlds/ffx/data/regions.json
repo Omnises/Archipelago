@@ -222,7 +222,7 @@
     "bosses": [9, 10],
     "overdrives": [],
     "other": [],
-    "leads_to": [20],
+    "leads_to": [20, 21],
     "rules": ["Sinspawn Gui"]
   },
   {
