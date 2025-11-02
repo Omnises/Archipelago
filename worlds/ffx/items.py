@@ -241,11 +241,11 @@ equip_items: list[ItemData] = [ItemData(x[0], x[1], x[2] | equipItemOffset) for 
     ("Weapon (Lulu) 23",                ItemClassification.useful, 0x0017),  # Offset=0184 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=2 {Silencetouch [8043h], Magic +5% [8067h]} }
     ("Weapon (Rikku) 24",               ItemClassification.useful, 0x0018),  # Offset=0194 Armor [01h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=1 {SOS Shell [8059h]} }
     ("Weapon (Kimahri) 25",             ItemClassification.useful, 0x0019),  # Offset=01A4 Armor [01h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=4 {Poison Ward [803Dh], Confuse Ward [804Fh], Silence Ward [8045h], Empty} }
-    ("Weapon (Wakka) 26",               ItemClassification.useful, 0x001a),  # Offset=01B4 Weapon [00h], Formula=Celestial HP-based [11h], Power=16, Crit=3%, Slots=4 {No AP [8014h], Empty, Empty, Empty}, Celestial }
+    ("Weapon (Wakka): World Champion",  ItemClassification.useful, 0x001a),  # Offset=01B4 Weapon [00h], Formula=Celestial HP-based [11h], Power=16, Crit=3%, Slots=4 {No AP [8014h], Empty, Empty, Empty}, Celestial }
     ("Weapon (Wakka): Scout",           ItemClassification.useful, 0x001b),  # Offset=01C4 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=1 {Sensor [8000h]} }
     ("Weapon (Kimahri): Ice Lance",     ItemClassification.useful, 0x001c),  # Offset=01D4 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=2 {Piercing [800Bh], Icestrike [8022h]} }
     ("Weapon (Yuna): Moon Ring",        ItemClassification.useful, 0x001d),  # Offset=01E4 Armor [01h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=2 {SOS Shell [8059h], SOS Protect [805Ah]} }
-    ("Weapon (Auron) 30",               ItemClassification.useful, 0x001e),  # Offset=01F4 Weapon [00h], Formula=Celestial Auron [13h], Power=16, Crit=3%, Slots=4 {No AP [8014h], Empty, Empty, Empty}, Celestial }
+    ("Weapon (Auron): Masamune",        ItemClassification.useful, 0x001e),  # Offset=01F4 Weapon [00h], Formula=Celestial Auron [13h], Power=16, Crit=3%, Slots=4 {No AP [8014h], Empty, Empty, Empty}, Celestial }
     ("Weapon (Tidus) 31",               ItemClassification.useful, 0x001f),  # Offset=0204 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=1 {Counterattack [8003h]} }
     ("Weapon (Wakka) 32",               ItemClassification.useful, 0x0020),  # Offset=0214 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=1 {Evade & Counter [8004h]} }
     ("Weapon (Kimahri) 33",             ItemClassification.useful, 0x0021),  # Offset=0224 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=3 {Strength +3% [8062h], Strength +5% [8063h], Strength +10% [8064h]} }
@@ -271,12 +271,12 @@ equip_items: list[ItemData] = [ItemData(x[0], x[1], x[2] | equipItemOffset) for 
     ("Weapon (Auron) 53",               ItemClassification.useful, 0x0035),  # Offset=0364 Armor [01h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=4 {Darkproof [8048h], Deathproof [8030h], Empty, Empty} }
     ("Weapon (Yuna) 54",                ItemClassification.useful, 0x0036),  # Offset=0374 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=1 {SOS Overdrive [8010h]} }
     ("Weapon (Wakka) 55",               ItemClassification.useful, 0x0037),  # Offset=0384 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=2 {Waterstrike [802Ah], Empty} }
-    ("Weapon (Kimahri) 56",             ItemClassification.useful, 0x0038),  # Offset=0394 Weapon [00h], Formula=Celestial HP-based [11h], Power=16, Crit=3%, Slots=4 {No AP [8014h], Empty, Empty, Empty}, Celestial }
+    ("Weapon (Kimahri): Spirit Lance",  ItemClassification.useful, 0x0038),  # Offset=0394 Weapon [00h], Formula=Celestial HP-based [11h], Power=16, Crit=3%, Slots=4 {No AP [8014h], Empty, Empty, Empty}, Celestial }
     ("Weapon (Yuna) 57",                ItemClassification.useful, 0x0039),  # Offset=03A4 Armor [01h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=2 {Stone Ward [8039h], HP +5% [8072h]} }
     ("Weapon (Tidus) 58",               ItemClassification.useful, 0x003a),  # Offset=03B4 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=2 {Strength +3% [8062h], Strength +5% [8063h]} }
     ("Weapon (Lulu) 59",                ItemClassification.useful, 0x003b),  # Offset=03C4 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=4 {Magic +3% [8066h], Magic +5% [8067h], Magic +20% [8069h], Empty} }
     ("Weapon (Yuna) 60",                ItemClassification.useful, 0x003c),  # Offset=03D4 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=3 {Half MP Cost [800Ch], Empty, Empty} }
-    ("Weapon (Rikku) 61",               ItemClassification.useful, 0x003d),  # Offset=03E4 Weapon [00h], Formula=Celestial HP-based [11h], Power=16, Crit=3%, Slots=4 {No AP [8014h], Empty, Empty, Empty}, Celestial }
+    ("Weapon (Rikku): Godhand",         ItemClassification.useful, 0x003d),  # Offset=03E4 Weapon [00h], Formula=Celestial HP-based [11h], Power=16, Crit=3%, Slots=4 {No AP [8014h], Empty, Empty, Empty}, Celestial }
     ("Weapon (Yuna) 62",                ItemClassification.useful, 0x003e),  # Offset=03F4 Armor [01h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=1 {HP +10% [8073h]} }
     ("Weapon (Tidus) 63",               ItemClassification.useful, 0x003f),  # Offset=0404 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=4 {Strength +3% [8062h], Empty, Empty, Empty} }
     ("Weapon (Yuna) 64",                ItemClassification.useful, 0x0040),  # Offset=0414 Armor [01h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=2 {Stoneproof [8038h], Empty} }
