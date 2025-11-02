@@ -228,7 +228,7 @@
   {
     "name": "Mushroom Rock Road 2nd visit",
     "id": 20,
-    "treasures": [99],
+    "treasures": [99 ,47],
     "party_members": [],
     "bosses": [45, 46, 47],
     "overdrives": [],
