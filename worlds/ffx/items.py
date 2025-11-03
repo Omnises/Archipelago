@@ -301,8 +301,6 @@ equip_items: list[ItemData] = [ItemData(x[0], x[1], x[2] | equipItemOffset) for 
     ("Weapon (Rikku): Infinity",            ItemClassification.useful, 0x0053),  # Offset=0544 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=2 {One MP Cost [800Dh], Sensor [8000h]} }
     ("Weapon (Lulu): Wicked Cait Sith",     ItemClassification.useful, 0x0054),  # Offset=0554 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=4 {Deathstrike [802Eh], Empty, Empty, Empty} }
     ("Weapon (Tidus): Hrunting",            ItemClassification.useful, 0x0055),  # Offset=0564 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=1 {SOS Overdrive [8010h]} }
-    ("Weapon (Tidus) 85",                   ItemClassification.useful, 0x0055),  # Offset=0564 Weapon [00h], Formula=STR vs DEF [01h], Power=16, Crit=3%, Slots=1 {SOS Overdrive [8010h]} }
-
 ]]
 
 party_member_items: list[ItemData] = [ItemData(x[0], x[1], x[2] | partyMemberItemOffset) for x in [
