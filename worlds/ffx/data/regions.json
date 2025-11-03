@@ -222,13 +222,13 @@
     "bosses": [9, 10],
     "overdrives": [],
     "other": [],
-    "leads_to": [20],
+    "leads_to": [20, 21],
     "rules": ["Sinspawn Gui"]
   },
   {
     "name": "Mushroom Rock Road 2nd visit",
     "id": 20,
-    "treasures": [99],
+    "treasures": [99 ,47],
     "party_members": [],
     "bosses": [45, 46, 47],
     "overdrives": [],
