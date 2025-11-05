@@ -363,6 +363,17 @@ character_names = [
     #"Seymour",
 ]
 
+aeon_names = [
+    "Valefor",
+    "Ifrit",
+    "Ixion",
+    "Shiva",
+    "Bahamut",
+    "Anima",
+    "Yojimbo",
+    "Magus Sisters",
+]
+
 abilities_per_character: list[ItemData] = [ ItemData(f"{character_names[character]} {ability[0]}", ItemClassification.progression, ability[1] | abilityItemOffset | character << 8) for character in range(7) for ability in [
     # Lvl 3 lock
     # Empty node

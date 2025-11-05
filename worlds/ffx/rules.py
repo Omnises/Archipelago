@@ -4,7 +4,8 @@ from typing import Callable
 
 from BaseClasses import CollectionState
 from worlds.generic.Rules import add_rule, CollectionRule
-from .items import character_names, stat_abilities, item_to_stat_value
+from .items import character_names, stat_abilities, item_to_stat_value, aeon_names
+
 if typing.TYPE_CHECKING:
     from .__init__ import FFXWorld
 else:
@@ -107,35 +108,44 @@ def create_stat_total_rule(world: FFXWorld, num_party_members: int, stat_total: 
         #return False
     return has_stat_total
 
+def create_min_party_rule(world: FFXWorld, num_characters: int) -> CollectionRule:
+    return lambda state: state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, num_characters)
+
+def create_min_swimmers_rule(world: FFXWorld, num_characters: int) -> CollectionRule:
+    return lambda state: state.has_from_list_unique([f"Party Member: {name}" for name in ["Tidus", "Wakka", "Rikku"]], world.player, num_characters)
+
+def create_min_summon_rule(world: FFXWorld, num_aeons: int) -> CollectionRule:
+    return lambda state: state.has(f"Party Member: Yuna", world.player) and state.has_from_list_unique([f"Party Member: {name}" for name in aeon_names], world.player, num_aeons)
+
 ruleDict: dict[str, Callable[[FFXWorld], CollectionRule]] = {
-    "Sin Fin":             lambda world: lambda state: create_level_rule(world,  2)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Sinspawn Geneaux":    lambda world: lambda state: create_level_rule(world,  3)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Oblitzerator":        lambda world: lambda state: create_level_rule(world,  4)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Chocobo Eater":       lambda world: lambda state: create_level_rule(world,  5)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Sinspawn Gui":        lambda world: lambda state: create_level_rule(world,  6)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Extractor":           lambda world: lambda state: create_level_rule(world,  8)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in ["Tidus", "Wakka", "Rikku"]], world.player, 2), # At least 2 swimmers
-    "Spherimorph":         lambda world: lambda state: create_level_rule(world, 11)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Crawler":             lambda world: lambda state: create_level_rule(world, 11)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Seymour/Anima":       lambda world: lambda state: create_level_rule(world, 11)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Wendigo":             lambda world: lambda state: create_level_rule(world, 11)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Evrae":               lambda world: lambda state: create_level_rule(world, 13)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Airship Sin":         lambda world: lambda state: create_level_rule(world, 16)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Overdrive Sin":       lambda world: lambda state: create_level_rule(world, 16)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Penance":             lambda world: lambda state: create_level_rule(world, 18)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Isaaru":              lambda world: lambda state: create_level_rule(world, 13)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Evrae Altana":        lambda world: lambda state: create_level_rule(world, 13)(state) and state.has_all             ([f"Party Member: {name}" for name in ["Tidus", "Wakka", "Rikku"]], world.player), # All swimmers
-    "Seymour Natus":       lambda world: lambda state: create_level_rule(world, 13)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Defender X":          lambda world: lambda state: create_level_rule(world, 14)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Biran and Yenke":     lambda world: lambda state: create_level_rule(world, 15)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Seymour Flux":        lambda world: lambda state: create_level_rule(world, 15)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Sanctuary Keeper":    lambda world: lambda state: create_level_rule(world, 15)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Spectral Keeper":     lambda world: lambda state: create_level_rule(world, 16)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Yunalesca":           lambda world: lambda state: create_level_rule(world, 16)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Seymour Omnis":       lambda world: lambda state: create_level_rule(world, 17)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Braska's Final Aeon": lambda world: lambda state: create_level_rule(world, 17)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Ultima Weapon":       lambda world: lambda state: create_level_rule(world, 18)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Omega Weapon":        lambda world: lambda state: create_level_rule(world, 19)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
-    "Geosgaeno":           lambda world: lambda state: create_level_rule(world, 16)(state) and state.has_from_list_unique([f"Party Member: {name}" for name in character_names], world.player, 3),
+    "Sin Fin":             lambda world: lambda state: create_level_rule(world,  2)(state) and create_min_party_rule   (world, 3),
+    "Sinspawn Geneaux":    lambda world: lambda state: create_level_rule(world,  3)(state) and create_min_party_rule   (world, 3),
+    "Oblitzerator":        lambda world: lambda state: create_level_rule(world,  4)(state) and create_min_party_rule   (world, 3),
+    "Chocobo Eater":       lambda world: lambda state: create_level_rule(world,  5)(state) and create_min_party_rule   (world, 3),
+    "Sinspawn Gui":        lambda world: lambda state: create_level_rule(world,  6)(state) and create_min_party_rule   (world, 3),
+    "Extractor":           lambda world: lambda state: create_level_rule(world,  8)(state) and create_min_swimmers_rule(world, 2), # At least 2 swimmers
+    "Spherimorph":         lambda world: lambda state: create_level_rule(world, 11)(state) and create_min_party_rule   (world, 3),
+    "Crawler":             lambda world: lambda state: create_level_rule(world, 11)(state) and create_min_party_rule   (world, 3),
+    "Seymour/Anima":       lambda world: lambda state: create_level_rule(world, 11)(state) and create_min_party_rule   (world, 3),
+    "Wendigo":             lambda world: lambda state: create_level_rule(world, 11)(state) and create_min_party_rule   (world, 3),
+    "Evrae":               lambda world: lambda state: create_level_rule(world, 13)(state) and create_min_party_rule   (world, 3),
+    "Airship Sin":         lambda world: lambda state: create_level_rule(world, 16)(state) and create_min_party_rule   (world, 3),
+    "Overdrive Sin":       lambda world: lambda state: create_level_rule(world, 16)(state) and create_min_party_rule   (world, 3),
+    "Penance":             lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3),
+    "Isaaru":              lambda world: lambda state: create_level_rule(world, 13)(state) and create_min_summon_rule  (world, 2),    # Yuna + 2 summons
+    "Evrae Altana":        lambda world: lambda state: create_level_rule(world, 13)(state) and create_min_swimmers_rule(world, 3), # All swimmers
+    "Seymour Natus":       lambda world: lambda state: create_level_rule(world, 13)(state) and create_min_party_rule   (world, 3),
+    "Defender X":          lambda world: lambda state: create_level_rule(world, 14)(state) and create_min_party_rule   (world, 3),
+    "Biran and Yenke":     lambda world: lambda state: create_level_rule(world, 15)(state) and create_min_party_rule   (world, 3),
+    "Seymour Flux":        lambda world: lambda state: create_level_rule(world, 15)(state) and create_min_party_rule   (world, 3),
+    "Sanctuary Keeper":    lambda world: lambda state: create_level_rule(world, 15)(state) and create_min_party_rule   (world, 3),
+    "Spectral Keeper":     lambda world: lambda state: create_level_rule(world, 16)(state) and create_min_party_rule   (world, 3),
+    "Yunalesca":           lambda world: lambda state: create_level_rule(world, 16)(state) and create_min_party_rule   (world, 3),
+    "Seymour Omnis":       lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3),
+    "Braska's Final Aeon": lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3),
+    "Ultima Weapon":       lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3),
+    "Omega Weapon":        lambda world: lambda state: create_level_rule(world, 19)(state) and create_min_party_rule   (world, 3),
+    "Geosgaeno":           lambda world: lambda state: create_level_rule(world, 16)(state) and create_min_party_rule   (world, 3),
 
     "Baaj Temple":                lambda world: create_region_access_rule(world, "Baaj Temple"), # lambda state: state.has("Region: Baaj Temple", world.player),
     "Besaid":                     lambda world: create_region_access_rule(world, "Besaid"),
