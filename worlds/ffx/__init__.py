@@ -58,6 +58,7 @@ class FFXWorld(World):
 
     item_name_to_id = create_item_label_to_code_map()
     location_name_to_id = create_location_label_to_id_map()
+    explicit_indirect_conditions = False
 
     def get_filler_item_name(self) -> str:
         filler = [x.itemName for x in filler_items]
@@ -133,36 +134,7 @@ class FFXWorld(World):
         return FFXItem(item.itemName, item.progression, item.itemID, self.player)
 
     def generate_basic(self) -> None:
-        #victory_event = FFXItem('Victory', ItemClassification.progression, None, self.player)
-
-
-        final_region = self.get_region("Sin: Braska's Final Aeon")
-        final_region.add_event("Sin: Braska's Final Aeon", "Victory", location_type=FFXLocation, item_type=FFXItem)
-
-        final_aeon = self.get_location("Sin: Braska's Final Aeon")
-
-        #final_aeon.place_locked_item(victory_event)
-        self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
-
-        match self.options.goal_requirement.value:
-            case self.options.goal_requirement.option_none:
-                pass
-            case self.options.goal_requirement.option_party_members:
-                final_aeon.access_rule = lambda state: state.has_all(
-                    [character.itemName for character in party_member_items], self.player)
-            case self.options.goal_requirement.option_pilgrimage:
-                pilgrimage_events = {
-                    "S.S. Liki 1st visit": "Pilgrimage: Besaid",
-                    "S.S. Winno 1st visit": "Pilgrimage: Kilika",
-                    "Djose 1st visit": "Pilgrimage: Djose",
-                    "Lake Macalania 1st visit: Post-Wendigo": "Pilgrimage: Macalania",
-                    "Bevelle 1st visit: Post-Seymour Natus": "Pilgrimage: Bevelle",
-                    "Zanarkand Ruins 1st visit: Post-Yunalesca": "Pilgrimage: Zanarkand Ruins",
-                }
-                for region_name, location_name in pilgrimage_events.items():
-                    self.get_region(region_name).add_event(location_name, location_type=FFXLocation, item_type=FFXItem)
-
-                final_aeon.access_rule = lambda state: state.has_all(list(pilgrimage_events.values()), self.player)
+        pass
 
     def fill_slot_data(self) -> dict[str, Any]:
         slot_data = {"SeedId": self.multiworld.get_out_file_name_base(self.player)}

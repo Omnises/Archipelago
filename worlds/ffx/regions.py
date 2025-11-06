@@ -7,7 +7,7 @@ from typing import NamedTuple
 from .locations import FFXLocation, FFXTreasureLocations, FFXPartyMemberLocations, FFXBossLocations, \
     FFXOverdriveLocations, FFXOtherLocations, FFXSphereGridLocations, FFXLocationData, TreasureOffset, BossOffset
 from .rules import ruleDict
-from .items import party_member_items
+from .items import party_member_items, FFXItem
 from worlds.generic.Rules import add_rule
 from ..AutoWorld import World
 
@@ -153,6 +153,7 @@ def create_regions(world: FFXWorld, player) -> None:
                 new_rule = None
             curr_region.connect(other_region, rule=new_rule)
 
+    top_level_regions: list[tuple[Region, Entrance]] = []
     for region_id, other_region in region_dict.items():
         if len(other_region.entrances) == 0:
             rules = region_rules.get(region_id)
@@ -161,8 +162,14 @@ def create_regions(world: FFXWorld, player) -> None:
                 new_rule = lambda state, rule_list=rule_lambdas: all([rule(state) for rule in rule_list])
             else:
                 new_rule = None
-            menu_region.connect(other_region, rule=new_rule)
+            menu_entrance: Entrance = menu_region.connect(other_region, rule=new_rule)
+            top_level_regions.append((other_region, menu_entrance))
 
+    #for this_region, _ in top_level_regions:
+    #    for other_region, menu_entrance in top_level_regions:
+    #        if this_region == other_region:
+    #            continue
+    #        world.multiworld.register_indirect_condition(this_region, menu_entrance)
 
     if not world.options.super_bosses.value:
         super_boss_location_ids = [
@@ -187,6 +194,35 @@ def create_regions(world: FFXWorld, player) -> None:
         location_name = world.location_id_to_name[332 | TreasureOffset]
         #world.get_location(location_name).progress_type = LocationProgressType.EXCLUDED
         world.options.exclude_locations.value.add(location_name)
+
+
+
+    final_region = world.get_region("Sin: Braska's Final Aeon")
+    final_region.add_event("Sin: Braska's Final Aeon", "Victory", location_type=FFXLocation, item_type=FFXItem)
+    final_aeon = world.get_location("Sin: Braska's Final Aeon")
+
+    #final_aeon.place_locked_item(victory_event)
+
+    world.multiworld.completion_condition[world.player] = lambda state: state.has("Victory", world.player)
+    match world.options.goal_requirement.value:
+        case world.options.goal_requirement.option_none:
+            pass
+        case world.options.goal_requirement.option_party_members:
+            final_aeon.access_rule = lambda state: state.has_all(
+                [character.itemName for character in party_member_items], world.player)
+        case world.options.goal_requirement.option_pilgrimage:
+            pilgrimage_events = {
+                "S.S. Liki 1st visit": "Pilgrimage: Besaid",
+                "S.S. Winno 1st visit": "Pilgrimage: Kilika",
+                "Djose 1st visit": "Pilgrimage: Djose",
+                "Lake Macalania 1st visit: Post-Wendigo": "Pilgrimage: Macalania",
+                "Bevelle 1st visit: Post-Seymour Natus": "Pilgrimage: Bevelle",
+                "Zanarkand Ruins 1st visit: Post-Yunalesca": "Pilgrimage: Zanarkand Ruins",
+            }
+            for region_name, location_name in pilgrimage_events.items():
+                world.get_region(region_name).add_event(location_name, location_type=FFXLocation, item_type=FFXItem)
+            final_aeon.access_rule = lambda state: state.has_all(list(pilgrimage_events.values()), world.player)
+
 
         #world.get_location("Monster Arena: Nemesis"                  ).progress_type = LocationProgressType.EXCLUDED
 
