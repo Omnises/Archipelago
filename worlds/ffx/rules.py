@@ -161,5 +161,38 @@ ruleDict: dict[str, Callable[[FFXWorld], CollectionRule]] = {
 
 
 def set_rules(world: FFXWorld, player) -> None:
-    pass
     #add_rule(world.multiworld.get_region("Kilika 1st visit: Post-Geneaux", player).entrances[0], ruleDict["Sinspawn Geneaux"](world))
+    add_rule(world.multiworld.get_location("Moon Sigil", player),
+             lambda state: state.has_all({"Party Member: Yojimbo","Party Member: Anima","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Valefor Fight First Reward (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Valefor Post First Fight Reward (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Ifrit Fight (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ixion","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Ifrit Post First Fight Reward (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ixion","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Ixion Fight (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Ixion Post First Fight Reward (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Ixion Post First Fight Reward (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Shiva Fight (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Shiva Post First Fight Reward (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Bahamut Post First Fight Reward (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Yojimbo Fight (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Memeber: Bahamut","Party Member: Anima","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Yojimbo Post First Fight Reward (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Memeber: Bahamut","Party Member: Anima","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Anima Fight (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Memeber: Bahamut","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Anima Post First Fight Reward (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Memeber: Bahamut","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Magus Sisters Fight (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Memeber: Bahamut","Party Member: Anima","Party Member: Yojimbo"}, player))
+    add_rule(world.multiworld.get_location("Calm Lands: Magus Sisters Post First Fight Reward (Remiem Tower)", player),
+             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Memeber: Bahamut","Party Member: Anima","Party Member: Yojimbo"}, player))
