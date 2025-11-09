@@ -172,37 +172,5 @@ ruleDict: dict[str, Callable[[FFXWorld], CollectionRule]] = {
 
 def set_rules(world: FFXWorld, player) -> None:
     #add_rule(world.multiworld.get_region("Kilika 1st visit: Post-Geneaux", player).entrances[0], ruleDict["Sinspawn Geneaux"](world))
-    add_rule(world.multiworld.get_location("Moon Sigil", player),
-             lambda state: state.has_all({"Party Member: Yojimbo","Party Member: Anima","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Valefor Fight First Reward (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Valefor Post First Fight Reward (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Ifrit Fight (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ixion","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Ifrit Post First Fight Reward (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ixion","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Ixion Fight (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Ixion Post First Fight Reward (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Ixion Post First Fight Reward (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Shiva","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Shiva Fight (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Shiva Post First Fight Reward (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Bahamut","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Bahamut Post First Fight Reward (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Member: Anima","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Yojimbo Fight (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Memeber: Bahamut","Party Member: Anima","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Yojimbo Post First Fight Reward (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Memeber: Bahamut","Party Member: Anima","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Anima Fight (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Memeber: Bahamut","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Anima Post First Fight Reward (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Memeber: Bahamut","Party Member: Yojimbo","Party Member: Magus Sisters"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Magus Sisters Fight (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Memeber: Bahamut","Party Member: Anima","Party Member: Yojimbo"}, player))
-    add_rule(world.multiworld.get_location("Calm Lands: Magus Sisters Post First Fight Reward (Remiem Tower)", player),
-             lambda state: state.has_any({"Party Member: Valefor","Party Member: Ifrit","Party Member: Ixion","Party Member: Shiva","Party Memeber: Bahamut","Party Member: Anima","Party Member: Yojimbo"}, player))
+    #Airship: Rin All Al Bhed Primers
+    add_rule(world.get_location(world.location_id_to_name[405 | TreasureOffset]), lambda state: state.has_all("Al Bhed Primer I""Al Bhed Primer I","Al Bhed Primer II","Al Bhed Primer III","Al Bhed Primer IV","Al Bhed Primer V","Al Bhed Primer VI","Al Bhed Primer VII","Al Bhed Primer VIII","Al Bhed Primer IX","Al Bhed Primer X","Al Bhed Primer XI","Al Bhed Primer XII","Al Bhed Primer XIII","Al Bhed Primer XIV","Al Bhed Primer XV","Al Bhed Primer XVI","Al Bhed Primer XVII","Al Bhed Primer XVIII","Al Bhed Primer XIX","Al Bhed Primer XX","Al Bhed Primer XXI","Al Bhed Primer XXII","Al Bhed Primer XXIII","Al Bhed Primer XXIV","Al Bhed Primer XXV","Al Bhed Primer XXVI",))
