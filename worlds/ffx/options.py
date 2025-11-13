@@ -6,9 +6,10 @@ from Options import Choice, DefaultOnToggle, Option, Range, Toggle, PerGameCommo
 
 class GoalRequirement(Choice):
     """
-    Sets the requirement to start the final battles. Defeating Yu Yevon is always the goal
+    Sets the requirement to start the final battles. Defeating Yu Yevon is always the goal.
     None: No requirements.
-    Party Members: Requires unlocking all party members.
+    Party Members: Requires unlocking a number of party members (not counting Aeons).
+    Party Members and Aeons: Requires unlocking a number of party members (including Aeons).
     Pilgrimage: Complete all the temples.
     """
     display_name = "Goal Requirement"
@@ -16,6 +17,18 @@ class GoalRequirement(Choice):
     option_none = 0
     option_party_members = 1
     option_pilgrimage = 2
+    option_party_members_and_aeons = 3
+
+
+class RequiredPartyMembers(Range):
+    """
+    Sets how many party members are required if goal_requirement is set to party_members or party_members_and_aeons.
+    Default is 7. Max is 8 for party_members, 16 for party_members_and_aeons.
+    """
+    display_name = "Required Party Members"
+    default = 7
+    range_start = 1
+    range_end = 16
 
 
 class APMultiplier(Range):
@@ -50,6 +63,17 @@ class SuperBosses(Toggle):
     option_on = 1
 
 
+class MiniGames(Toggle):
+    """
+    Sets whether minigames (blitzball, lightning dodging, etc.) are included or not. If off they will only have filler items.
+    Default is off.
+    """
+    display_name = "Minigames"
+    default = 0
+    option_off = 0
+    option_on = 1
+
+
 class TrapPercentage(Range):
     """
     Sets the percentage of non-progression items that will be traps.
@@ -74,8 +98,10 @@ class LogicDifficulty(Range):
 @dataclass
 class FFXOptions(PerGameCommonOptions):
     goal_requirement: GoalRequirement
+    required_party_members: RequiredPartyMembers
     ap_multiplier: APMultiplier
     sphere_grid_randomization: SphereGridRandomization
     super_bosses: SuperBosses
+    mini_games: MiniGames
     trap_percentage: TrapPercentage
     logic_difficulty: LogicDifficulty

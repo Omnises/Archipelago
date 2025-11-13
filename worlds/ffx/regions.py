@@ -57,9 +57,13 @@ def create_regions(world: FFXWorld, player) -> None:
             region.locations.append(new_location)
         return region
 
-    def add_locations_by_ids(region: Region, location_ids: list[int], location_data: list[FFXLocationData]):
+    def add_locations_by_ids(region: Region, location_ids: list[int], location_data: list[FFXLocationData], location_type: str = ""):
         for id in location_ids:
-            location = [x for x in location_data if x.location_id == id][0]
+            locations = [x for x in location_data if x.location_id == id]
+            if len(locations) != 1:
+                #print(f"Ambiguous or invalid location id {id} ({location_type}) in Region {region.name}. Found {locations}")
+                continue
+            location = locations[0]
             new_location = FFXLocation(player, location.name, location.rom_address, region)
             if location.missable:
                 new_location.progress_type = LocationProgressType.EXCLUDED
@@ -88,7 +92,7 @@ def create_regions(world: FFXWorld, player) -> None:
         if len(region_data.rules) > 0:
             region_rules[region_data.id] = region_data.rules
 
-        add_locations_by_ids(new_region, region_data.treasures, FFXTreasureLocations)
+        add_locations_by_ids(new_region, region_data.treasures, FFXTreasureLocations, "Treasure")
         # for id in region_data.treasures:
         #     print(region_data.name, id)
         #     location = [x for x in FFXTreasureLocations if x.location_id == id][0]
@@ -99,7 +103,7 @@ def create_regions(world: FFXWorld, player) -> None:
         #     all_locations.append(new_location)
 
         # TODO: Implement in client
-        # add_locations_by_ids(new_region, region_data.party_members, FFXPartyMemberLocations)
+        # add_locations_by_ids(new_region, region_data.party_members, FFXPartyMemberLocations, "Party Member")
         # for id in region_data.party_members:
         #     print(region_data.name, id)
         #     location = [x for x in FFXPartyMemberLocations if x.location_id == id][0]
@@ -109,7 +113,7 @@ def create_regions(world: FFXWorld, player) -> None:
         #     new_region.locations.append(new_location)
         #     all_locations.append(new_location)
 
-        add_locations_by_ids(new_region, region_data.bosses, FFXBossLocations)
+        add_locations_by_ids(new_region, region_data.bosses, FFXBossLocations, "Boss")
         # for id in region_data.bosses:
         #     print(region_data.name, id)
         #     location = [x for x in FFXBossLocations if x.location_id == id][0]
@@ -120,7 +124,7 @@ def create_regions(world: FFXWorld, player) -> None:
         #     all_locations.append(new_location)
 
         # TODO: Implement in client
-        # add_locations_by_ids(new_region, region_data.overdrives, FFXOverdriveLocations)
+        # add_locations_by_ids(new_region, region_data.overdrives, FFXOverdriveLocations, "Overdrive")
         # for id in region_data.overdrives:
         #     print(region_data.name, id)
         #     location = [x for x in FFXOverdriveLocations if x.location_id == id][0]
@@ -131,7 +135,7 @@ def create_regions(world: FFXWorld, player) -> None:
         #     all_locations.append(new_location)
 
         # TODO: Implement in client
-        #add_locations_by_ids(new_region, region_data.other, FFXOtherLocations)
+        add_locations_by_ids(new_region, region_data.other, FFXOtherLocations, "Other")
         # for id in region_data.other:
         #     print(region_data.name, id)
         #     location = [x for x in FFXOtherLocations if x.location_id == id][0]
@@ -195,6 +199,33 @@ def create_regions(world: FFXWorld, player) -> None:
         #world.get_location(location_name).progress_type = LocationProgressType.EXCLUDED
         world.options.exclude_locations.value.add(location_name)
 
+    if not world.options.mini_games.value:
+        mini_game_location_ids = [
+            337, # "Calm Lands: Elixir x1 (Wobbly Chocobo Minigame Reward)"
+            338, # "Calm Lands: Lv. 1 Key Sphere x1 (Dodger Chocobo Minigame Reward)"
+            339, # "Calm Lands: Lv. 2 Key Sphere x1 x1 (Hyper Dodger Chocobo Minigame Reward)"
+            340, # "Calm Lands: Lv. 3 Key Sphere x1 x1 (Catcher Chocobo Minigame Reward)"
+            417, # "Calm Lands: Elixir x1 (Chocobo Race Reward)"
+            418, # "Calm Lands: Megalixir x1 (Chocobo Race Reward)"
+            419, # "Calm Lands: Three Stars x60 (Chocobo Race Reward)"
+            420, # "Calm Lands: Pendulum x30 (Chocobo Race Reward)"
+            421, # "Calm Lands: Wings to Discovery x30 (Chocobo Race Reward)"
+            189, # "Thunder Plains: Megalixir x4 (Dodging Minigame Reward)",
+            190, # "Thunder Plains: HP Sphere x3 (Dodging Minigame Reward)",
+            191, # "Thunder Plains: Strength Sphere x3 (Dodging Minigame Reward)",
+            192, # "Thunder Plains: MP Sphere x2 (Dodging Minigame Reward)",
+            193, # "Thunder Plains: Mega-Potion x2 (Dodging Minigame Reward)",
+            194, # "Thunder Plains: X-Potion x2 (Dodging Minigame Reward)",
+            497, # "Story Win vs. Luca Goers Reward",
+            274, # "Sun Sigil",
+            278, # "Venus Sigil",
+            277, # "Saturn Sigil",
+            279, # "Mercury Sigil",
+        ]
+        for id in mini_game_location_ids:
+            location_name = world.location_id_to_name[id | TreasureOffset]
+            #world.get_location(location_name).progress_type = LocationProgressType.EXCLUDED
+            world.options.exclude_locations.value.add(location_name)
 
 
     final_region = world.get_region("Sin: Braska's Final Aeon")
@@ -208,8 +239,11 @@ def create_regions(world: FFXWorld, player) -> None:
         case world.options.goal_requirement.option_none:
             pass
         case world.options.goal_requirement.option_party_members:
-            final_aeon.access_rule = lambda state: state.has_all(
-                [character.itemName for character in party_member_items], world.player)
+            final_aeon.access_rule = lambda state: state.has_from_list_unique(
+                [character.itemName for character in party_member_items[:8]], world.player, min(world.options.required_party_members.value, 8))
+        case world.options.goal_requirement.option_party_members_and_aeons:
+            final_aeon.access_rule = lambda state: state.has_from_list_unique(
+                [character.itemName for character in party_member_items], world.player, world.options.required_party_members.value)
         case world.options.goal_requirement.option_pilgrimage:
             pilgrimage_events = {
                 "S.S. Liki 1st visit": "Pilgrimage: Besaid",

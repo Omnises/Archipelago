@@ -12,11 +12,13 @@ from Utils import visualize_regions
 
 from .client import FFXClient
 
-from .items import create_item_label_to_code_map, item_table, key_items, filler_items, AllItems, FFXItem, party_member_items, stat_abilities, skill_abilities, region_unlock_items, trap_items
+from .items import create_item_label_to_code_map, item_table, key_items, filler_items, AllItems, FFXItem, \
+    party_member_items, stat_abilities, skill_abilities, region_unlock_items, trap_items, equip_items
 from .locations import create_location_label_to_id_map, FFXLocation
 from .regions import create_regions
 from .options import FFXOptions
 from .generate import generate_output
+from .rules import set_rules
 
 
 class FFXWebWorld(WebWorld):
@@ -73,6 +75,16 @@ class FFXWorld(World):
 
         for item in key_items:
             required_items.append(item.itemName)
+
+        # Progressive celestial weapons and Brotherhood
+        for item in equip_items:
+            if item.progression == ItemClassification.progression:
+                if item.itemID & 0x0FFF == 0x0001:
+                    # Brotherhood
+                    required_items.extend([item.itemName]*2)
+                else:
+                    # Celestial
+                    required_items.extend([item.itemName]*3)
 
         # for item in skill_abilities:
         #     required_items.append(item.itemName)
@@ -132,6 +144,9 @@ class FFXWorld(World):
     def create_item(self, name: str) -> Item:
         item = item_table[name]
         return FFXItem(item.itemName, item.progression, item.itemID, self.player)
+
+    def set_rules(self) -> None:
+        set_rules(self)
 
     def generate_basic(self) -> None:
         pass
