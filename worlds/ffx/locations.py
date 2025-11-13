@@ -27,19 +27,21 @@ OverdriveModeOffset: int = 0x5000
 OtherOffset: int = 0x6000
 SphereGridOffset: int = 0x7000
 
-location_types: Dict[int, str] = {TreasureOffset: "Treasure",
-BossOffset: "Boss",
-PartyMemberOffset: "PartyMember",
-OverdriveOffset: "Overdrive",
-OverdriveModeOffset: "OverdriveMode",
-OtherOffset: "Other",
-SphereGridOffset: "SphereGrid",}
+location_types: Dict[int, str] = {
+    TreasureOffset: "Treasure",
+    BossOffset: "Boss",
+    PartyMemberOffset: "PartyMember",
+    OverdriveOffset: "Overdrive",
+    OverdriveModeOffset: "OverdriveMode",
+    OtherOffset: "Other",
+    SphereGridOffset: "SphereGrid",
+}
 
 def get_location_type(location_id: int):
     return location_types[location_id & 0xF000]
 
 encounter_to_id = {
-    "Baaj Temple: Klikk Defeated"              : ["bjyt04_00"],
+    "Baaj Temple: Klikk Defeated"              : ["bjyt04_01"],
     "Al Bhed Ship: Tros Defeated"              : ["cdsp07_00"],
     "Besaid: Dark Valefor"                     : ["bsil07_70"],
     "S.S. Liki: Sin Fin"                       : ["slik02_00"],
@@ -215,18 +217,33 @@ FFXOtherLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+OtherOf
     ("Al Bhed Primer XXV",              25, False),
     ("Al Bhed Primer XXVI",             26, False),
 
-    ("Jecht Sphere - Macalania Woods",  27, False),
-    ("Jecht Sphere - Besaid",           28, False),
-    ("Jecht Sphere - S.S. Liki",        29, False),
-    ("Jecht Sphere - Luca",             30, False),
-    ("Jecht Sphere - Mi'ihen Oldroad",  31, False),
-    ("Auron's Sphere - Mushroom Rock",  32, False),
-    ("Jecht Sphere - Moonflow",         33, False),
-    ("Jecht Sphere - Thunder Plains",   34, False),
-    ("Braska's Sphere - Mt. Gagazet",   35, False),
+    #("Jecht Sphere - Macalania Woods",  27, False),
+    #("Jecht Sphere - Besaid",           28, False),
+    #("Jecht Sphere - S.S. Liki",        29, False),
+    #("Jecht Sphere - Luca",             30, False),
+    #("Jecht Sphere - Mi'ihen Oldroad",  31, False),
+    #("Auron's Sphere - Mushroom Rock",  32, False),
+    #("Jecht Sphere - Moonflow",         33, False),
+    #("Jecht Sphere - Thunder Plains",   34, False),
+    #("Braska's Sphere - Mt. Gagazet",   35, False),
 
-    ("S.S. Winno: Jecht Shot",  36, False),
+    #("S.S. Winno: Jecht Shot",  36, False),
     ("Brotherhood Upgrade",     37, False),
+
+    ("Caladbolg Crest Upgrade",      38, False),
+    ("Caladbolg Sigil Upgrade",      39, False),
+    ("Nirvana Crest Upgrade",        40, False),
+    ("Nirvana Sigil Upgrade",        41, False),
+    ("Masamune Crest Upgrade",       42, False),
+    ("Masamune Sigil Upgrade",       43, False),
+    ("Spirit Lance Crest Upgrade",   44, False),
+    ("Spirit Lance Sigil Upgrade",   45, False),
+    ("World Champion Crest Upgrade", 46, False),
+    ("World Champion Sigil Upgrade", 47, False),
+    ("Onion Knight Crest Upgrade",   48, False),
+    ("Onion Knight Sigil Upgrade",   49, False),
+    ("Godhand Crest Upgrade",        50, False),
+    ("Godhand Sigil Upgrade",        51, False),
 ]]
 
 FFXPartyMemberLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+PartyMemberOffset, *location) for location in [
