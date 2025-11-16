@@ -51,9 +51,9 @@
     "party_members": [],
     "bosses": [3, 4],
     "overdrives": [],
-    "other": [],
+    "other": [3],
     "leads_to": [5],
-    "rules": ["Sin Fin"]
+    "rules": ["Sin Fin", "Sinspawn Echuilles"]
   },
   {
     "name": "Besaid Island 2nd visit",

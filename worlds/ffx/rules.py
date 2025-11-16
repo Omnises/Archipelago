@@ -120,7 +120,8 @@ def create_min_summon_rule(world: FFXWorld, num_aeons: int) -> CollectionRule:
     return lambda state: state.has(f"Party Member: Yuna", world.player) and state.has_from_list_unique([f"Party Member: {name}" for name in aeon_names], world.player, num_aeons)
 
 ruleDict: dict[str, Callable[[FFXWorld], CollectionRule]] = {
-    "Sin Fin":             lambda world: lambda state: create_level_rule(world,  2)(state) and create_min_party_rule   (world, 3)(state),
+    "Sin Fin":             lambda world: lambda state: create_level_rule(world,  2)(state) and create_min_party_rule   (world, 3)(state) and state.has("Party Member: Wakka", world.player),
+    "Sinspawn Echuilles":  lambda world: lambda state: create_level_rule(world,  2)(state) and create_min_swimmers_rule(world, 2)(state),
     "Sinspawn Geneaux":    lambda world: lambda state: create_level_rule(world,  3)(state) and create_min_party_rule   (world, 3)(state),
     "Oblitzerator":        lambda world: lambda state: create_level_rule(world,  4)(state) and create_min_party_rule   (world, 3)(state),
     "Chocobo Eater":       lambda world: lambda state: create_level_rule(world,  5)(state) and create_min_party_rule   (world, 3)(state),
@@ -147,7 +148,7 @@ ruleDict: dict[str, Callable[[FFXWorld], CollectionRule]] = {
     "Braska's Final Aeon": lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
     "Ultima Weapon":       lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
     "Omega Weapon":        lambda world: lambda state: create_level_rule(world, 19)(state) and create_min_party_rule   (world, 3)(state),
-    "Geosgaeno":           lambda world: lambda state: create_level_rule(world, 16)(state) and create_min_party_rule   (world, 3)(state),
+    "Geosgaeno":           lambda world: lambda state: create_level_rule(world, 16)(state) and create_min_swimmers_rule(world, 3)(state),
 
     "Baaj Temple":                lambda world: create_region_access_rule(world, "Baaj Temple"), # lambda state: state.has("Region: Baaj Temple", world.player),
     "Besaid":                     lambda world: create_region_access_rule(world, "Besaid"),
@@ -216,38 +217,30 @@ def set_rules(world: FFXWorld) -> None:
 
 
     # TODO: Implement Other locations
-    #celestial_upgrades = [
-    #    (38, 0x25, "Sun"),
-    #    (40, 0x24, "Moon"),
-    #    (42, 0x1e, "Mars"),
-    #    (44, 0x38, "Saturn"),
-    #    (46, 0x1a, "Jupiter"),
-    #    (48, 0x03, "Venus"),
-    #    (50, 0x3d, "Mercury"),
-    #]
-    #for crest_id, weapon_id, celestial in celestial_upgrades:
-    #    add_rule(world.get_location(world.location_id_to_name[crest_id | OtherOffset]),
-    #             lambda state: state.has_all(["Celestial Mirror",
-    #                                          world.item_id_to_name[weapon_id | equipItemOffset],
-    #                                          f"{celestial} Crest",
-    #                                          ], world.player))
-    #    add_rule(world.get_location(world.location_id_to_name[crest_id+1 | OtherOffset]),
-    #             lambda state: state.has_all(["Celestial Mirror",
-    #                                          world.item_id_to_name[weapon_id | equipItemOffset],
-    #                                          f"{celestial} Crest",
-    #                                          f"{celestial} Sigil",
-    #                                          ], world.player))
+    celestial_upgrades = [
+        (38, 0x25, "Sun"),
+        (40, 0x24, "Moon"),
+        (42, 0x1e, "Mars"),
+        (44, 0x38, "Saturn"),
+        (46, 0x1a, "Jupiter"),
+        (48, 0x03, "Venus"),
+        (50, 0x3d, "Mercury"),
+    ]
+    for crest_id, weapon_id, celestial in celestial_upgrades:
+        add_rule(world.get_location(world.location_id_to_name[crest_id | OtherOffset]),
+                 lambda state: state.has_all(["Celestial Mirror",
+                                              world.item_id_to_name[weapon_id | equipItemOffset],
+                                              f"{celestial} Crest",
+                                              ], world.player))
+        add_rule(world.get_location(world.location_id_to_name[crest_id+1 | OtherOffset]),
+                 lambda state: state.has_all(["Celestial Mirror",
+                                              world.item_id_to_name[weapon_id | equipItemOffset],
+                                              f"{celestial} Crest",
+                                              f"{celestial} Sigil",
+                                              ], world.player))
 
 
     # Complete Al Bhed Primers
     al_bhed_primers = [item.itemName for item in key_items[0x4:0x1D+1]]
     add_rule(world.get_location(world.location_id_to_name[405 | TreasureOffset]),
              lambda state: state.has_all(al_bhed_primers, world.player))
-
-    # Jupiter Sigil (Blitzball). Require 6 regions in logic?
-    #add_rule(world.get_location(world.location_id_to_name[334 | TreasureOffset]), lambda state: len([x for x in [state.can_reach_region(region_name, world.player) for region_name in region_to_first_visit.keys()] if x]) >= 6)
-
-
-    #for location_id in [379, 381, 383, 385, 334, 388, 390, 392, 275]:
-    #    print(world.get_location(world.location_id_to_name[location_id | TreasureOffset]))
-    #    add_rule(world.get_location(world.location_id_to_name[location_id]), lambda state: state.has_all([f"Party Member: {name}" for name in [aeon_names[-3:]]]))
