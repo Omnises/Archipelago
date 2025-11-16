@@ -201,7 +201,6 @@ def create_regions(world: FFXWorld, player) -> None:
 
     if not world.options.mini_games.value:
         mini_game_location_ids = [
-            337, # "Calm Lands: Elixir x1 (Wobbly Chocobo Minigame Reward)"
             338, # "Calm Lands: Lv. 1 Key Sphere x1 (Dodger Chocobo Minigame Reward)"
             339, # "Calm Lands: Lv. 2 Key Sphere x1 x1 (Hyper Dodger Chocobo Minigame Reward)"
             340, # "Calm Lands: Lv. 3 Key Sphere x1 x1 (Catcher Chocobo Minigame Reward)"
@@ -222,6 +221,7 @@ def create_regions(world: FFXWorld, player) -> None:
             277, # "Saturn Sigil",
             279, # "Mercury Sigil",
             244, # "Jupiter Sigil",
+            114, # "Caladbolg"
         ]
         for id in mini_game_location_ids:
             location_name = world.location_id_to_name[id | TreasureOffset]

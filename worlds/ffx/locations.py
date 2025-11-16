@@ -380,7 +380,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Celestial Mirror",                                                             111, False),  # Key Item: Celestial Mirror [A003h]
     # ("Treasure 112 (Trashed)",                                                     112, False),  # Item: 1x Potion [2000h]
     ("Nirvana",                                                                      113, False),  # Gear: buki_get #36 [24h] { Yuna [01h], Weapon Formula=Celestial MP-based [12h] {No AP [8014h], Empty, Empty, Empty} }
-    ("Caladblog",                                                                    114, False),  # Gear: buki_get #37 [25h] { Tidus [00h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
+    ("Caladbolg",                                                                    114, False),  # Gear: buki_get #37 [25h] { Tidus [00h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
     ("Calm Lands: 10000 gil (Chest)",                                                115, False),  # Gil: 10000 [64h]
     ("Calm Lands: 5000 gil (Chest)",                                                 116, False),  # Gil: 5000 [32h]
     ("Calm Lands: Lv. 2 Key Sphere x1 (Chest)",                                      117, False),  # Item: 1x Lv. 2 Key Sphere [2052h]
