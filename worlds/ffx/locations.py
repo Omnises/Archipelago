@@ -660,7 +660,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Calm Lands: Anima Post First Fight Reward (Remiem Tower)",                     391, False),  # Item: 10x Mana Sphere [2047h]
     ("Calm Lands: Magus Sisters Fight (Remiem Tower)",                               392, False),  # Item: 40x Shining Gem [202Ah]
     ("Calm Lands: Magus Sisters Post First Fight Reward (Remiem Tower)",             393, False),  # Item: 12x Power Sphere [2046h]
-    ("Treasure 394 (Trashed)",                                                       394, False),  # Item: 1x Teleport Sphere [2062h]
+    ("Lake Macalania: Teleport Sphere x1 (Butterfly Game after Airship)",            394, False),  # Item: 1x Teleport Sphere [2062h]
     ("Home: Skill Sphere x1 (Al Bhed Quiz Chest)",                                   395, False),  # Item: 1x Skill Sphere [204Dh]
     ("Home: Skill Sphere x1 (Al Bhed Password Chest)",                               396, False),  # Item: 1x Special Sphere [204Ch]
     ("Home: Skill Sphere x1 (Al Bhed Vocabulary Chest)",                             397, False),  # Item: 1x Friend Sphere [2061h]

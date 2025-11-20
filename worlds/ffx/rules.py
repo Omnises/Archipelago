@@ -228,12 +228,12 @@ def set_rules(world: FFXWorld) -> None:
     ]
     for crest_id, weapon_id, celestial in celestial_upgrades:
         add_rule(world.get_location(world.location_id_to_name[crest_id | OtherOffset]),
-                 lambda state: state.has_all(["Celestial Mirror",
+                 lambda state, weapon_id=weapon_id, celestial=celestial: state.has_all(["Celestial Mirror",
                                               world.item_id_to_name[weapon_id | equipItemOffset],
                                               f"{celestial} Crest",
                                               ], world.player))
         add_rule(world.get_location(world.location_id_to_name[crest_id+1 | OtherOffset]),
-                 lambda state: state.has_all(["Celestial Mirror",
+                 lambda state, weapon_id=weapon_id, celestial=celestial: state.has_all(["Celestial Mirror",
                                               world.item_id_to_name[weapon_id | equipItemOffset],
                                               f"{celestial} Crest",
                                               f"{celestial} Sigil",
