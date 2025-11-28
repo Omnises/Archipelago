@@ -49,7 +49,7 @@ encounter_to_id = {
     "Kilika: Lord Ochu"                        : ["klyt00_00"],
     "Kilika: Sinspawn Geneaux"                 : ["klyt01_00"],
     "Luca: Oblitzerator defeated"              : ["cdsp02_00"],
-    "Mi'Hen Highroad: Chocobo Eater"           : ["mihn02_00"],
+    "Mi'ihen Highroad: Chocobo Eater"           : ["mihn02_00"],
     "Mushroom Rock Road: Sinspawn Gui"         : ["kino02_00"],
     "Mushroom Rock Road: Sinspawn Gui 2"       : ["kino03_10"],
     "Moonflow: Extractor"                      : ["genk09_00"],
@@ -63,7 +63,7 @@ encounter_to_id = {
     "Airship: Evrae"                           : ["hiku15_00"],
     "Airship: Sin Left Fin"                    : ["ssbt00_00"],
     "Airship: Sin Right Fin"                   : ["ssbt01_00"],
-    "Airship: Sinspawn Genais"                 : ["ssbt02_00"],
+    "Airship: Sinspawn Genais and Core"        : ["ssbt02_00"],
     "Airship: Overdrive Sin"                   : ["ssbt03_00"],
     "Airship: Penance"                         : ["hiku15_70"],
     "Bevelle: Isaaru"                          : ["bvyt09_12"], # Probably?
@@ -88,19 +88,20 @@ encounter_to_id = {
     "Mushroom Rock Road: Dark Mindy"           : ["kino00_70", "kino01_70", "kino01_72", "kino05_71"],
     "Mushroom Rock Road: Dark Sandy"           : ["kino00_70", "kino01_70", "kino01_72", "kino05_70"],
     "Mushroom Rock Road: Dark Cindy"           : ["kino00_70", "kino01_70", "kino01_71"],
+    "Baaj Temple: Geosgaeno"                   : ["bjyt02_02"],
 }
 
 
 FFXBossLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+BossOffset, *location) for location in [
-    ("Baaj Temple: Klikk Defeated",               0, False),
-    ("Al Bhed Ship: Tros Defeated",               1, False),
+    ("Baaj Temple: Klikk",                        0, False),
+    ("Al Bhed Ship: Tros",                        1, False),
     ("Besaid: Dark Valefor",                      2, False),
     ("S.S. Liki: Sin Fin",                        3, False),
     ("S.S. Liki: Sinspawn Echuilles",             4, False),
     ("Kilika: Lord Ochu",                         5, False),
     ("Kilika: Sinspawn Geneaux",                  6, False),
-    ("Luca: Oblitzerator defeated",               7, False),
-    ("Mi'Hen Highroad: Chocobo Eater",            8, False),
+    ("Luca: Oblitzerator",                        7, False),
+    ("Mi'ihen Highroad: Chocobo Eater",            8, False),
     ("Mushroom Rock Road: Sinspawn Gui",          9, False),
     ("Mushroom Rock Road: Sinspawn Gui 2",       10, False),
     #("Mushroom Rock Road: Dark Magus Sisters",   11, False),
@@ -115,7 +116,7 @@ FFXBossLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+BossOffs
     ("Airship: Evrae",                           20, False),
     ("Airship: Sin Left Fin",                    21, False),
     ("Airship: Sin Right Fin",                   22, False),
-    ("Airship: Sinspawn Genais",                 23, False),
+    ("Airship: Sinspawn Genais and Core",        23, False),
     ("Airship: Overdrive Sin",                   24, False),
     ("Airship: Penance",                         25, False),
     ("Bevelle: Isaaru",                          26, False),
@@ -140,6 +141,7 @@ FFXBossLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+BossOffs
     ("Mushroom Rock Road: Dark Mindy",           45, False),
     ("Mushroom Rock Road: Dark Sandy",           46, False),
     ("Mushroom Rock Road: Dark Cindy",           47, False),
+    ("Baaj Temple: Geosgaeno",                   48, False),
 ]]
 
 FFXOverdriveLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+OverdriveOffset, *location) for location in [
@@ -360,9 +362,9 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Besaid: Hi-Potion x1(Chest)",                                                   91, False),  # Item: 1x Hi-Potion [2001h]
     ("Besaid: Antidote x2 (Chest)",                                                   92, False),  # Item: 2x Antidote [200Ah]
     ("World Champion",                                                                93, False),  # Gear: buki_get #26 [1Ah] { Wakka [04h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
-    ("Mi'Hen Highroad: Scout (Donate 100 gil to Operation)",                          94, False),  # Gear: buki_get #27 [1Bh] { Wakka [04h], Weapon {Sensor [8000h]} }
-    ("Mi'Hen Highroad: Ice Lance (Donate 1000 gil to Operation)",                     95, False),  # Gear: buki_get #28 [1Ch] { Kimahri [03h], Weapon {Piercing [800Bh], Icestrike [8022h]} }
-    ("Mi'Hen Highroad: Moon Ring (Donate 10000 gil to Operation)",                    96, False),  # Gear: buki_get #29 [1Dh] { Yuna [01h], Armor {SOS Shell [8059h], SOS Protect [805Ah]} }
+    ("Mi'ihen Highroad: Scout (Donate 100 gil to Operation)",                          94, False),  # Gear: buki_get #27 [1Bh] { Wakka [04h], Weapon {Sensor [8000h]} }
+    ("Mi'ihen Highroad: Ice Lance (Donate 1000 gil to Operation)",                     95, False),  # Gear: buki_get #28 [1Ch] { Kimahri [03h], Weapon {Piercing [800Bh], Icestrike [8022h]} }
+    ("Mi'ihen Highroad: Moon Ring (Donate 10000 gil to Operation)",                    96, False),  # Gear: buki_get #29 [1Dh] { Yuna [01h], Armor {SOS Shell [8059h], SOS Protect [805Ah]} }
     ("Mi'ihen Highroad: Mega-Potion (NPC)",                                           97, False),  # Item: 2x Mega-Potion [2003h]
     ("Mushroom Rock Road: Hi-Potion x1 (Chest) (Aftermath)",                          98, False),  # Item: 1x Hi-Potion [2001h]
     ("Masamune",                                                                      99, False),  # Gear: buki_get #30 [1Eh] { Auron [02h], Weapon Formula=Celestial Auron [13h] {No AP [8014h], Empty, Empty, Empty} }
@@ -452,7 +454,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Thunder Plains: Ether x1 (Chest)",                                             183, False),  # Item: 1x Ether [2004h]
     ("Thunder Plains: Remedy x1 (Chest)",                                            184, False),  # Item: 1x Remedy [200Fh]
     ("Thunder Plains: 2000 gil (Chest)",                                             185, False),  # Gil: 2000 [14h]
-    ("Mi'Hen Highroad Echo Ring (Win Aeon Fight)",                                   186, False),  # Gear: buki_get #74 [4Ah] { Yuna [01h], Armor {HP +10% [8073h], Silence Ward [8045h]} }
+    ("Mi'ihen Highroad Echo Ring (Win Aeon Fight)",                                   186, False),  # Gear: buki_get #74 [4Ah] { Yuna [01h], Armor {HP +10% [8073h], Silence Ward [8045h]} }
     ("Calm Lands: Power Spheres x30 (NPC)",                                          187, False),  # Item: 30x Power Sphere [2046h]
     ("Spirit Lance",                                                                 188, False),  # Gear: buki_get #56 [38h] { Kimahri [03h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
     ("Thunder Plains: X-Potion x2 (Dodging Minigame Reward)",                        189, False),  # Item: 2x X-Potion [2002h]
@@ -558,7 +560,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Besaid: 400 gil (Shirtless Man NPC)",                                          289, False),  # Gil: 400 [04h]
     ("Besaid: Ether (Green Shirt NPC)",                                              290, False),  # Item: 1x Ether [2004h]
     ("Kilika: Antidote x4 (Luzzu NPC before Ochu)",                                  291, False),  # Item: 4x Antidote [200Ah]
-    ("Kilika: Elixir x1 (Luzzu NPC after Ochu) ",                                    292, False),  # Item: 1x Elixir [2008h]
+    ("Kilika: Elixir x1 (Luzzu NPC after Ochu)",                                     292, False),  # Item: 1x Elixir [2008h]
     ("Kilika: Remedy x1 (Leader NPC)",                                               293, False),  # Item: 1x Remedy [200Fh]
     # ("Kilika: Phoenix Down x3 (Guard NPC, fight Ochu from west and run?)",         294, False),  # Item: 3x Phoenix Down [2006h]
     ("Kilika: Remedy x1 (Guard NPC)",                                                295, False),  # Item: 1x Hi-Potion [2001h]

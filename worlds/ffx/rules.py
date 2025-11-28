@@ -6,7 +6,7 @@ from BaseClasses import CollectionState
 from worlds.generic.Rules import add_rule, CollectionRule
 from . import key_items
 from .items import character_names, stat_abilities, item_to_stat_value, aeon_names, region_unlock_items, equipItemOffset
-from .locations import TreasureOffset, OtherOffset
+from .locations import TreasureOffset, OtherOffset, BossOffset
 
 if typing.TYPE_CHECKING:
     from .__init__ import FFXWorld
@@ -22,7 +22,7 @@ world_battle_levels: dict[str, int] = {
 "Mushroom Rock Road":          6,
 "Djose":                       7,
 "Moonflow":                    8,
-"Guadosalam":                  9,
+"Guadosalam":                  1,
 "Thunder Plains":             10,
 "Macalania":                  11,
 "Bikanel":                    12,
@@ -150,6 +150,15 @@ ruleDict: dict[str, Callable[[FFXWorld], CollectionRule]] = {
     "Omega Weapon":        lambda world: lambda state: create_level_rule(world, 19)(state) and create_min_party_rule   (world, 3)(state),
     "Geosgaeno":           lambda world: lambda state: create_level_rule(world, 16)(state) and create_min_swimmers_rule(world, 3)(state),
 
+    "Dark Valefor":        lambda world: lambda state: create_level_rule(world, 19)(state) and create_min_party_rule   (world, 3)(state) and state.has("Party Member: Yuna", world.player),
+    "Dark Ifrit":          lambda world: lambda state: create_level_rule(world, 19)(state) and create_min_party_rule   (world, 3)(state),
+    "Dark Ixion":          lambda world: lambda state: create_level_rule(world, 19)(state) and create_min_party_rule   (world, 3)(state),
+    "Dark Shiva":          lambda world: lambda state: create_level_rule(world, 19)(state) and create_min_party_rule   (world, 3)(state),
+    "Dark Bahamut":        lambda world: lambda state: create_level_rule(world, 19)(state) and create_min_party_rule   (world, 3)(state),
+    "Dark Anima":          lambda world: lambda state: create_level_rule(world, 19)(state) and create_min_party_rule   (world, 3)(state),
+    "Dark Yojimbo":        lambda world: lambda state: create_level_rule(world, 19)(state) and create_min_party_rule   (world, 3)(state),
+    "Dark Magus Sisters":  lambda world: lambda state: create_level_rule(world, 19)(state) and create_min_party_rule   (world, 3)(state),
+
     "Baaj Temple":                lambda world: create_region_access_rule(world, "Baaj Temple"), # lambda state: state.has("Region: Baaj Temple", world.player),
     "Besaid":                     lambda world: create_region_access_rule(world, "Besaid"),
     "Kilika":                     lambda world: create_region_access_rule(world, "Kilika"),
@@ -194,6 +203,30 @@ def set_rules(world: FFXWorld) -> None:
     # Send Belgemine? (Moon sigil)
     add_rule(world.get_location(world.location_id_to_name[275 | TreasureOffset]), lambda state: state.has(f"Party Member: Yuna", world.player) and state.has_all([f"Party Member: {name}" for name in ["Yojimbo", "Anima", "Magus Sisters"]], world.player))
 
+
+    ## Dark Aeons
+    dark_aeons = [
+        ( 2, "Dark Valefor"      ),  # "Besaid: Dark Valefor
+        (13, "Dark Ifrit"        ),  # "Thunder Plains: Dark Ixion
+        (18, "Dark Ixion"        ),  # "Lake Macalania: Dark Shiva
+        (19, "Dark Shiva"        ),  # "Bikanel: Dark Ifrit
+        (31, "Dark Bahamut"      ),  # "Cavern of the Stolen Fayth: Dark Yojimbo
+        (34, "Dark Anima"        ),  # "Gagazet (Outside): Dark Anima
+        (38, "Dark Yojimbo"      ),  # "Zanarkand: Dark Bahamut
+        (45, "Dark Magus Sisters"),  # "Mushroom Rock Road: Dark Mindy
+        (46, "Dark Magus Sisters"),  # "Mushroom Rock Road: Dark Sandy
+        (47, "Dark Magus Sisters"),  # "Mushroom Rock Road: Dark Cindy
+    ]
+    for location_id, aeon in dark_aeons:
+        add_rule(world.get_location(world.location_id_to_name[location_id | BossOffset]),
+                 ruleDict[aeon](world))
+
+
+
+
+
+
+
     celestial_weapon_locations = [
         5,
         93,
@@ -214,6 +247,10 @@ def set_rules(world: FFXWorld) -> None:
     # Celestial Mirror
     add_rule(world.get_location(world.location_id_to_name[111 | TreasureOffset]),
              lambda state: state.has("Cloudy Mirror", world.player))
+
+    # Mercury Sigil
+    add_rule(world.get_location(world.location_id_to_name[279 | TreasureOffset]),
+             lambda state: state.can_reach_region("Airship 1st visit: Post-Evrae", world.player))
 
 
     # TODO: Implement Other locations
