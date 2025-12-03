@@ -62,6 +62,52 @@ class FFXWorld(World):
     location_name_to_id = create_location_label_to_id_map()
     explicit_indirect_conditions = False
 
+    # Universal Tracker
+    tracker_world = {
+        "map_page_maps": ["maps/maps.json"],
+        "map_page_locations": [
+            "locations/Aeons.json",
+            "locations/Airship.json",
+            "locations/Al Bhed Primers.json",
+            "locations/Al Bhed Ship.json",
+            "locations/Baaj Temple.json",
+            "locations/Besaid.json",
+            "locations/Bevelle.json",
+            "locations/Bikanel.json",
+            "locations/Calm Lands.json",
+            "locations/Cavern of the Stolen Fayth.json",
+            "locations/Celestial.json",
+            "locations/Djose.json",
+            "locations/Guadosalam.json",
+            "locations/Inside Sin.json",
+            "locations/Kilika.json",
+            "locations/Luca.json",
+            "locations/Macalania.json",
+            "locations/Miihen Highroad.json",
+            "locations/Monster Arena.json",
+            "locations/Moonflow.json",
+            "locations/Mt. Gagazet.json",
+            "locations/Mushroom Rock Road.json",
+            "locations/Omega Ruins.json",
+            "locations/Overdrives.json",
+            "locations/Remiem Temple.json",
+            "locations/S.S. Liki.json",
+            "locations/S.S. Winno.json",
+            "locations/Spira.json",
+            "locations/Super Bosses.json",
+            "locations/Thunder Plains.json",
+            "locations/Zanarkand.json",
+        ],
+        "map_page_layouts": ["maps/maps.json"],
+        #"map_page_setting_key": "Slot:{player}:Current Map",
+        #"map_page_index": map_page_index,
+        "external_pack_key": "ut_poptracker_path",
+        #"poptracker_name_mapping": poptracker_data
+    }
+
+
+
+
     def get_filler_item_name(self) -> str:
         filler = [x.itemName for x in filler_items]
         return self.random.choice(filler)
