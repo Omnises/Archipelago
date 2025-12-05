@@ -101,7 +101,7 @@ FFXBossLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+BossOffs
     ("Kilika: Lord Ochu",                         5, False),
     ("Kilika: Sinspawn Geneaux",                  6, False),
     ("Luca: Oblitzerator",                        7, False),
-    ("Mi'ihen Highroad: Chocobo Eater",            8, False),
+    ("Mi'ihen Highroad: Chocobo Eater",           8, False),
     ("Mushroom Rock Road: Sinspawn Gui",          9, False),
     ("Mushroom Rock Road: Sinspawn Gui 2",       10, False),
     #("Mushroom Rock Road: Dark Magus Sisters",   11, False),
@@ -219,33 +219,33 @@ FFXOtherLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+OtherOf
     ("Al Bhed Primer XXV",              25, False),
     ("Al Bhed Primer XXVI",             26, False),
 
-    #("Jecht Sphere - Macalania Woods",  27, False),
-    #("Jecht Sphere - Besaid",           28, False),
-    #("Jecht Sphere - S.S. Liki",        29, False),
-    #("Jecht Sphere - Luca",             30, False),
-    #("Jecht Sphere - Mi'ihen Oldroad",  31, False),
-    #("Auron's Sphere - Mushroom Rock",  32, False),
-    #("Jecht Sphere - Moonflow",         33, False),
-    #("Jecht Sphere - Thunder Plains",   34, False),
-    #("Braska's Sphere - Mt. Gagazet",   35, False),
+    #("Jecht Sphere - Macalania Woods", 27, False),
+    #("Jecht Sphere - Besaid",          28, False),
+    #("Jecht Sphere - S.S. Liki",       29, False),
+    #("Jecht Sphere - Luca",            30, False),
+    #("Jecht Sphere - Mi'ihen Oldroad", 31, False),
+    #("Auron's Sphere - Mushroom Rock", 32, False),
+    #("Jecht Sphere - Moonflow",        33, False),
+    #("Jecht Sphere - Thunder Plains",  34, False),
+    #("Braska's Sphere - Mt. Gagazet",  35, False),
 
-    #("S.S. Winno: Jecht Shot",  36, False),
-    ("Brotherhood Upgrade",     37, False),
+    #("S.S. Winno: Jecht Shot",          36, False),
+    ("Brotherhood Upgrade",             37, False),
 
-    ("Caladbolg Crest Upgrade",      38, False),
-    ("Caladbolg Sigil Upgrade",      39, False),
-    ("Nirvana Crest Upgrade",        40, False),
-    ("Nirvana Sigil Upgrade",        41, False),
-    ("Masamune Crest Upgrade",       42, False),
-    ("Masamune Sigil Upgrade",       43, False),
-    ("Spirit Lance Crest Upgrade",   44, False),
-    ("Spirit Lance Sigil Upgrade",   45, False),
-    ("World Champion Crest Upgrade", 46, False),
-    ("World Champion Sigil Upgrade", 47, False),
-    ("Onion Knight Crest Upgrade",   48, False),
-    ("Onion Knight Sigil Upgrade",   49, False),
-    ("Godhand Crest Upgrade",        50, False),
-    ("Godhand Sigil Upgrade",        51, False),
+    ("Caladbolg Crest Upgrade",         38, False),
+    ("Caladbolg Sigil Upgrade",         39, False),
+    ("Nirvana Crest Upgrade",           40, False),
+    ("Nirvana Sigil Upgrade",           41, False),
+    ("Masamune Crest Upgrade",          42, False),
+    ("Masamune Sigil Upgrade",          43, False),
+    ("Spirit Lance Crest Upgrade",      44, False),
+    ("Spirit Lance Sigil Upgrade",      45, False),
+    ("World Champion Crest Upgrade",    46, False),
+    ("World Champion Sigil Upgrade",    47, False),
+    ("Onion Knight Crest Upgrade",      48, False),
+    ("Onion Knight Sigil Upgrade",      49, False),
+    ("Godhand Crest Upgrade",           50, False),
+    ("Godhand Sigil Upgrade",           51, False),
 ]]
 
 FFXPartyMemberLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+PartyMemberOffset, *location) for location in [
@@ -362,9 +362,9 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Besaid: Hi-Potion x1(Chest)",                                                   91, False),  # Item: 1x Hi-Potion [2001h]
     ("Besaid: Antidote x2 (Chest)",                                                   92, False),  # Item: 2x Antidote [200Ah]
     ("World Champion",                                                                93, False),  # Gear: buki_get #26 [1Ah] { Wakka [04h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
-    ("Mi'ihen Highroad: Scout (Donate 100 gil to Operation)",                          94, False),  # Gear: buki_get #27 [1Bh] { Wakka [04h], Weapon {Sensor [8000h]} }
-    ("Mi'ihen Highroad: Ice Lance (Donate 1000 gil to Operation)",                     95, False),  # Gear: buki_get #28 [1Ch] { Kimahri [03h], Weapon {Piercing [800Bh], Icestrike [8022h]} }
-    ("Mi'ihen Highroad: Moon Ring (Donate 10000 gil to Operation)",                    96, False),  # Gear: buki_get #29 [1Dh] { Yuna [01h], Armor {SOS Shell [8059h], SOS Protect [805Ah]} }
+    ("Mi'ihen Highroad: Scout (Donate 100 gil to Operation)",                         94, False),  # Gear: buki_get #27 [1Bh] { Wakka [04h], Weapon {Sensor [8000h]} }
+    ("Mi'ihen Highroad: Ice Lance (Donate 1000 gil to Operation)",                    95, False),  # Gear: buki_get #28 [1Ch] { Kimahri [03h], Weapon {Piercing [800Bh], Icestrike [8022h]} }
+    ("Mi'ihen Highroad: Moon Ring (Donate 10000 gil to Operation)",                   96, False),  # Gear: buki_get #29 [1Dh] { Yuna [01h], Armor {SOS Shell [8059h], SOS Protect [805Ah]} }
     ("Mi'ihen Highroad: Mega-Potion (NPC)",                                           97, False),  # Item: 2x Mega-Potion [2003h]
     ("Mushroom Rock Road: Hi-Potion x1 (Chest) (Aftermath)",                          98, False),  # Item: 1x Hi-Potion [2001h]
     ("Masamune",                                                                      99, False),  # Gear: buki_get #30 [1Eh] { Auron [02h], Weapon Formula=Celestial Auron [13h] {No AP [8014h], Empty, Empty, Empty} }
@@ -454,7 +454,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Thunder Plains: Ether x1 (Chest)",                                             183, False),  # Item: 1x Ether [2004h]
     ("Thunder Plains: Remedy x1 (Chest)",                                            184, False),  # Item: 1x Remedy [200Fh]
     ("Thunder Plains: 2000 gil (Chest)",                                             185, False),  # Gil: 2000 [14h]
-    ("Mi'ihen Highroad Echo Ring (Win Aeon Fight)",                                   186, False),  # Gear: buki_get #74 [4Ah] { Yuna [01h], Armor {HP +10% [8073h], Silence Ward [8045h]} }
+    ("Mi'ihen Highroad Echo Ring (Win Aeon Fight)",                                  186, False),  # Gear: buki_get #74 [4Ah] { Yuna [01h], Armor {HP +10% [8073h], Silence Ward [8045h]} }
     ("Calm Lands: Power Spheres x30 (NPC)",                                          187, False),  # Item: 30x Power Sphere [2046h]
     ("Spirit Lance",                                                                 188, False),  # Gear: buki_get #56 [38h] { Kimahri [03h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
     ("Thunder Plains: X-Potion x2 (Dodging Minigame Reward)",                        189, False),  # Item: 2x X-Potion [2002h]
