@@ -5,7 +5,7 @@ import typing
 from typing import NamedTuple
 
 from .locations import FFXLocation, FFXTreasureLocations, FFXPartyMemberLocations, FFXBossLocations, \
-    FFXOverdriveLocations, FFXOtherLocations, FFXSphereGridLocations, FFXLocationData, TreasureOffset, BossOffset
+    FFXOverdriveLocations, FFXOtherLocations, FFXSphereGridLocations, FFXLocationData, TreasureOffset, BossOffset, PartyMemberOffset
 from .rules import ruleDict
 from .items import party_member_items, FFXItem
 from worlds.generic.Rules import add_rule
@@ -103,7 +103,7 @@ def create_regions(world: FFXWorld, player) -> None:
         #     all_locations.append(new_location)
 
         # TODO: Implement in client
-        # add_locations_by_ids(new_region, region_data.party_members, FFXPartyMemberLocations, "Party Member")
+        add_locations_by_ids(new_region, region_data.party_members, FFXPartyMemberLocations, "Party Member")
         # for id in region_data.party_members:
         #     print(region_data.name, id)
         #     location = [x for x in FFXPartyMemberLocations if x.location_id == id][0]
@@ -246,17 +246,14 @@ def create_regions(world: FFXWorld, player) -> None:
             final_aeon.access_rule = lambda state: state.has_from_list_unique(
                 [character.itemName for character in party_member_items], world.player, world.options.required_party_members.value)
         case world.options.goal_requirement.option_pilgrimage:
-            pilgrimage_events = {
-                "S.S. Liki 1st visit": "Pilgrimage: Besaid",
-                "S.S. Winno 1st visit": "Pilgrimage: Kilika",
-                "Djose 1st visit": "Pilgrimage: Djose",
-                "Lake Macalania 1st visit: Post-Wendigo": "Pilgrimage: Macalania",
-                "Bevelle 1st visit: Post-Seymour Natus": "Pilgrimage: Bevelle",
-                "Zanarkand Ruins 1st visit: Post-Yunalesca": "Pilgrimage: Zanarkand Ruins",
-            }
-            for region_name, location_name in pilgrimage_events.items():
-                world.get_region(region_name).add_event(location_name, location_type=FFXLocation, item_type=FFXItem)
-            final_aeon.access_rule = lambda state: state.has_all(list(pilgrimage_events.values()), world.player)
+            final_aeon.access_rule = lambda state: (
+                state.can_reach_location(world.location_id_to_name[ 8 | PartyMemberOffset], world.player) and   # Valefor
+                state.can_reach_location(world.location_id_to_name[ 9 | PartyMemberOffset], world.player) and   # Ifrit
+                state.can_reach_location(world.location_id_to_name[10 | PartyMemberOffset], world.player) and   # Ixion
+                state.can_reach_location(world.location_id_to_name[11 | PartyMemberOffset], world.player) and   # Shiva
+                state.can_reach_location(world.location_id_to_name[12 | PartyMemberOffset], world.player) and   # Bahamut
+                state.can_reach_location(world.location_id_to_name[37 | BossOffset       ], world.player)       # Yunalesca
+            )
 
 
         #world.get_location("Monster Arena: Nemesis"                  ).progress_type = LocationProgressType.EXCLUDED
