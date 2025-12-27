@@ -103,10 +103,10 @@ normal_items: list[ItemData] = [ItemData(f"{x[0]} x {i}", x[1], x[2] | normalIte
     ("Stamina Tonic",        ItemClassification.useful, 0x0043),
     ("Mana Tonic",           ItemClassification.useful, 0x0044),
     ("Three Stars",          ItemClassification.useful, 0x0045),
-    ("[Power Sphere]",       ItemClassification.useful, 0x0046),
-    ("[Mana Sphere]",        ItemClassification.useful, 0x0047),
-    ("[Speed Sphere]",       ItemClassification.useful, 0x0048),
-    ("[Ability Sphere]",     ItemClassification.useful, 0x0049),
+    #("[Power Sphere]",       ItemClassification.useful, 0x0046), # Infinite supply
+    #("[Mana Sphere]",        ItemClassification.useful, 0x0047), # Infinite supply
+    #("[Speed Sphere]",       ItemClassification.useful, 0x0048), # Infinite supply
+    #("[Ability Sphere]",     ItemClassification.useful, 0x0049), # Infinite supply
     ("[Fortune Sphere]",     ItemClassification.useful, 0x004A),
     ("[Attribute Sphere]",   ItemClassification.useful, 0x004B),
     ("[Special Sphere]",     ItemClassification.useful, 0x004C),

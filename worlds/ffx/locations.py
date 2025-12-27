@@ -662,7 +662,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Home: Lv. 2 Key Sphere x1 (Chest)",                                            362, False),  # Item: 1x Lv. 2 Key Sphere [2052h]
     ("Home: Lv. 4 Key Sphere x4 (Chest)",                                            363, False),  # Item: 1x Lv. 4 Key Sphere [2054h]
     ("Home: 10000 gil (Chest)",                                                      364, False),  # Gil: 10000 [64h]
-    ("S.S Liki: Ace Wizard",                                                         365, False),  # Gear: buki_get #70 [46h] { Wakka [04h], Weapon {Magic +20% [8069h], Magic +10% [8068h], Magic +5% [8067h], Magic +3% [8066h]} }
+    ("S.S. Winno: Ace Wizard",                                                       365, False),  # Gear: buki_get #70 [46h] { Wakka [04h], Weapon {Magic +20% [8069h], Magic +10% [8068h], Magic +5% [8067h], Magic +3% [8066h]} }
     ("Mi'ihen Highroad: Seeker's Ring (Lose Aeon Fight)",                            366, False),  # Gear: buki_get #71 [47h] { Yuna [01h], Armor {HP +10% [8073h], Empty} }
     ("Home: Hi-Potion x2 (NPC on Ground)",                                           367, False),  # Item: 2x Hi-Potion [2001h]
     ("Mushroom Rock Road: Victorious",                                               368, False),  # Gear: buki_get #72 [48h] { Rikku [06h], Armor {Lightningproof [8028h], Fireproof [8020h], Iceproof [8024h], Empty} }
@@ -673,8 +673,8 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Moonflow: Smoke Bomb x6 (Lose Aeon Fight)",                                    373, False),  # Item: 6x Smoke Bomb [2028h]
     ("Summoner's Soul",                                                              374, False),  # Key Item: Summoner's Soul [A01Eh]
     ("Airship: Al Bhed Potion (NPC)",                                                375, False),  # Item: 4x Al Bhed Potion [2014h]
-    ("Moonflow: Lv. Key Sphere x3 (Shelinda Chest)",                                 376, False),  # Item: 3x Lv. 1 Key Sphere [2051h]
-    ("Moonflow: Lv. Key Sphere x3 (Benke and Biran Chest)",                          377, False),  # Item: 3x Lv. 1 Key Sphere [2051h]
+    ("Moonflow: Lv. 1 Key Sphere x3 (Shelinda Chest)",                                 376, False),  # Item: 3x Lv. 1 Key Sphere [2051h]
+    ("Moonflow: Lv. 1 Key Sphere x3 (Benke and Biran Chest)",                          377, False),  # Item: 3x Lv. 1 Key Sphere [2051h]
     ("Moonflow: Magic Def Sphere x1 (Chest)",                                        378, False),  # Item: 1x Magic Def Sphere [205Ah]
     ("Calm Lands: Valefor Fight First Reward (Remiem Tower)",                        379, False),  # Item: 4x Lightning Gem [201Fh]
     ("Calm Lands: Valefor Post First Fight Reward (Remiem Tower)",                   380, False),  # Item: 4x Power Sphere [2046h]
