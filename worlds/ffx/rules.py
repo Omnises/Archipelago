@@ -263,8 +263,6 @@ def set_rules(world: FFXWorld) -> None:
     add_rule(world.get_location(world.location_id_to_name[279 | TreasureOffset]),
              lambda state: state.can_reach_region("Airship 1st visit: Post-Evrae", world.player))
 
-
-    # TODO: Implement Other locations
     celestial_upgrades = [
         (38, 0x25, "Sun"),
         (40, 0x24, "Moon"),
@@ -292,3 +290,8 @@ def set_rules(world: FFXWorld) -> None:
     al_bhed_primers = [item.itemName for item in key_items[0x4:0x1D+1]]
     add_rule(world.get_location(world.location_id_to_name[405 | TreasureOffset]),
              lambda state: state.has_all(al_bhed_primers, world.player))
+
+    # TODO: Disabled for now due to multiple bugs related to this location (Ship softlocks + possible Macalania softlock)
+    # Clasko S.S. Liki second visit (Talk to Clasko before Crawler and make sure to have him become a Chocobo Breeder)
+    #add_rule(world.get_location(world.location_id_to_name[336 | TreasureOffset]),
+    #         lambda state: state.can_reach_region("Lake Macalania 1st visit: Pre-Crawler", world.player))
