@@ -17,6 +17,7 @@ def setup_options_from_slot_data(world: FFXWorld) -> None:
             world.options.super_bosses.value              = world.passthrough["super_bosses"]
             world.options.mini_games.value                = world.passthrough["mini_games"]
             world.options.logic_difficulty.value          = world.passthrough["logic_difficulty"]
+            world.options.recruit_sanity.value            = world.passthrough["recruit_sanity"]
 
         else:
             world.using_ut = False
