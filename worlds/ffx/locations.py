@@ -25,7 +25,8 @@ PartyMemberOffset: int = 0x3000
 OverdriveOffset: int = 0x4000
 OverdriveModeOffset: int = 0x5000
 OtherOffset: int = 0x6000
-SphereGridOffset: int = 0x7000
+RecruitOffset: int = 0x7000
+SphereGridOffset: int = 0x8000
 
 location_types: Dict[int, str] = {
     TreasureOffset: "Treasure",
@@ -34,7 +35,8 @@ location_types: Dict[int, str] = {
     OverdriveOffset: "Overdrive",
     OverdriveModeOffset: "OverdriveMode",
     OtherOffset: "Other",
-    SphereGridOffset: "SphereGrid",
+    RecruitOffset: "Recruit",
+    SphereGridOffset: "SphereGrid"
 }
 
 def get_location_type(location_id: int):
@@ -49,7 +51,7 @@ encounter_to_id = {
     "Kilika: Lord Ochu"                        : ["klyt00_00"],
     "Kilika: Sinspawn Geneaux"                 : ["klyt01_00"],
     "Luca: Oblitzerator defeated"              : ["cdsp02_00"],
-    "Mi'Hen Highroad: Chocobo Eater"           : ["mihn02_00"],
+    "Mi'ihen Highroad: Chocobo Eater"           : ["mihn02_00"],
     "Mushroom Rock Road: Sinspawn Gui"         : ["kino02_00"],
     "Mushroom Rock Road: Sinspawn Gui 2"       : ["kino03_10"],
     "Moonflow: Extractor"                      : ["genk09_00"],
@@ -63,7 +65,7 @@ encounter_to_id = {
     "Airship: Evrae"                           : ["hiku15_00"],
     "Airship: Sin Left Fin"                    : ["ssbt00_00"],
     "Airship: Sin Right Fin"                   : ["ssbt01_00"],
-    "Airship: Sinspawn Genais"                 : ["ssbt02_00"],
+    "Airship: Sinspawn Genais and Core"        : ["ssbt02_00"],
     "Airship: Overdrive Sin"                   : ["ssbt03_00"],
     "Airship: Penance"                         : ["hiku15_70"],
     "Bevelle: Isaaru"                          : ["bvyt09_12"], # Probably?
@@ -88,19 +90,20 @@ encounter_to_id = {
     "Mushroom Rock Road: Dark Mindy"           : ["kino00_70", "kino01_70", "kino01_72", "kino05_71"],
     "Mushroom Rock Road: Dark Sandy"           : ["kino00_70", "kino01_70", "kino01_72", "kino05_70"],
     "Mushroom Rock Road: Dark Cindy"           : ["kino00_70", "kino01_70", "kino01_71"],
+    "Baaj Temple: Geosgaeno"                   : ["bjyt02_02"],
 }
 
 
 FFXBossLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+BossOffset, *location) for location in [
-    ("Baaj Temple: Klikk Defeated",               0, False),
-    ("Al Bhed Ship: Tros Defeated",               1, False),
+    ("Baaj Temple: Klikk",                        0, False),
+    ("Al Bhed Ship: Tros",                        1, False),
     ("Besaid: Dark Valefor",                      2, False),
     ("S.S. Liki: Sin Fin",                        3, False),
     ("S.S. Liki: Sinspawn Echuilles",             4, False),
     ("Kilika: Lord Ochu",                         5, False),
     ("Kilika: Sinspawn Geneaux",                  6, False),
-    ("Luca: Oblitzerator defeated",               7, False),
-    ("Mi'Hen Highroad: Chocobo Eater",            8, False),
+    ("Luca: Oblitzerator",                        7, False),
+    ("Mi'ihen Highroad: Chocobo Eater",           8, False),
     ("Mushroom Rock Road: Sinspawn Gui",          9, False),
     ("Mushroom Rock Road: Sinspawn Gui 2",       10, False),
     #("Mushroom Rock Road: Dark Magus Sisters",   11, False),
@@ -115,7 +118,7 @@ FFXBossLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+BossOffs
     ("Airship: Evrae",                           20, False),
     ("Airship: Sin Left Fin",                    21, False),
     ("Airship: Sin Right Fin",                   22, False),
-    ("Airship: Sinspawn Genais",                 23, False),
+    ("Airship: Sinspawn Genais and Core",        23, False),
     ("Airship: Overdrive Sin",                   24, False),
     ("Airship: Penance",                         25, False),
     ("Bevelle: Isaaru",                          26, False),
@@ -140,6 +143,7 @@ FFXBossLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+BossOffs
     ("Mushroom Rock Road: Dark Mindy",           45, False),
     ("Mushroom Rock Road: Dark Sandy",           46, False),
     ("Mushroom Rock Road: Dark Cindy",           47, False),
+    ("Baaj Temple: Geosgaeno",                   48, False),
 ]]
 
 FFXOverdriveLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+OverdriveOffset, *location) for location in [
@@ -217,52 +221,79 @@ FFXOtherLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+OtherOf
     ("Al Bhed Primer XXV",              25, False),
     ("Al Bhed Primer XXVI",             26, False),
 
-    #("Jecht Sphere - Macalania Woods",  27, False),
-    #("Jecht Sphere - Besaid",           28, False),
-    #("Jecht Sphere - S.S. Liki",        29, False),
-    #("Jecht Sphere - Luca",             30, False),
-    #("Jecht Sphere - Mi'ihen Oldroad",  31, False),
-    #("Auron's Sphere - Mushroom Rock",  32, False),
-    #("Jecht Sphere - Moonflow",         33, False),
-    #("Jecht Sphere - Thunder Plains",   34, False),
-    #("Braska's Sphere - Mt. Gagazet",   35, False),
+    #("Jecht Sphere - Macalania Woods", 27, False),
+    #("Jecht Sphere - Besaid",          28, False),
+    #("Jecht Sphere - S.S. Liki",       29, False),
+    #("Jecht Sphere - Luca",            30, False),
+    #("Jecht Sphere - Mi'ihen Oldroad", 31, False),
+    #("Auron's Sphere - Mushroom Rock", 32, False),
+    #("Jecht Sphere - Moonflow",        33, False),
+    #("Jecht Sphere - Thunder Plains",  34, False),
+    #("Braska's Sphere - Mt. Gagazet",  35, False),
 
-    #("S.S. Winno: Jecht Shot",  36, False),
-    ("Brotherhood Upgrade",     37, False),
+    #("S.S. Winno: Jecht Shot",          36, False),
+    ("Brotherhood Upgrade",             37, False),
 
-    ("Caladbolg Crest Upgrade",      38, False),
-    ("Caladbolg Sigil Upgrade",      39, False),
-    ("Nirvana Crest Upgrade",        40, False),
-    ("Nirvana Sigil Upgrade",        41, False),
-    ("Masamune Crest Upgrade",       42, False),
-    ("Masamune Sigil Upgrade",       43, False),
-    ("Spirit Lance Crest Upgrade",   44, False),
-    ("Spirit Lance Sigil Upgrade",   45, False),
-    ("World Champion Crest Upgrade", 46, False),
-    ("World Champion Sigil Upgrade", 47, False),
-    ("Onion Knight Crest Upgrade",   48, False),
-    ("Onion Knight Sigil Upgrade",   49, False),
-    ("Godhand Crest Upgrade",        50, False),
-    ("Godhand Sigil Upgrade",        51, False),
+    ("Caladbolg Crest Upgrade",         38, False),
+    ("Caladbolg Sigil Upgrade",         39, False),
+    ("Nirvana Crest Upgrade",           40, False),
+    ("Nirvana Sigil Upgrade",           41, False),
+    ("Masamune Crest Upgrade",          42, False),
+    ("Masamune Sigil Upgrade",          43, False),
+    ("Spirit Lance Crest Upgrade",      44, False),
+    ("Spirit Lance Sigil Upgrade",      45, False),
+    ("World Champion Crest Upgrade",    46, False),
+    ("World Champion Sigil Upgrade",    47, False),
+    ("Onion Knight Crest Upgrade",      48, False),
+    ("Onion Knight Sigil Upgrade",      49, False),
+    ("Godhand Crest Upgrade",           50, False),
+    ("Godhand Sigil Upgrade",           51, False),
 ]]
 
 FFXPartyMemberLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+PartyMemberOffset, *location) for location in [
-    ("Tidus",           0, False),
-    ("Yuna",            1, False),
-    ("Auron",           2, False),
-    ("Kimahri",         3, False),
-    ("Wakka",           4, False),
-    ("Lulu",            5, False),
-    ("Rikku",           6, False),
-    ("Seymour",         7, False),
-    ("Valefor",         8, False),
-    ("Ifrit",           9, False),
-    ("Ixion",          10, False),
-    ("Shiva",          11, False),
-    ("Bahamut",        12, False),
-    ("Anima",          13, False),
-    ("Yojimbo",        14, False),
-    ("Magus Sisters",  15, False),
+    # ("Party Member: Tidus",           0, False),
+    ("Party Member: Yuna",            1, False),
+    ("Party Member: Auron",           2, False),
+    ("Party Member: Kimahri",         3, False),
+    ("Party Member: Wakka",           4, False),
+    ("Party Member: Lulu",            5, False),
+    ("Party Member: Rikku",           6, False),
+    ("Party Member: Seymour",         7, False),
+    ("Party Member: Valefor",         8, False),
+    ("Party Member: Ifrit",           9, False),
+    ("Party Member: Ixion",          10, False),
+    ("Party Member: Shiva",          11, False),
+    ("Party Member: Bahamut",        12, False),
+    ("Party Member: Anima",          13, False),
+    ("Party Member: Yojimbo",        14, False),
+    ("Party Member: Magus Sisters",  15, False),
+]]
+
+FFXRecruitLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+RecruitOffset, *location) for location in [
+    ("Recruit: Biggs",       1, False),
+    ("Recruit: Brother",     2, False),
+    ("Recruit: Durren",      3, False),
+    ("Recruit: Jumal",       4, False),
+    ("Recruit: Kiyuri",      5, False),
+    ("Recruit: Kyou",        6, False),
+    ("Recruit: Linna",       7, False),
+    ("Recruit: Mep",         8, False),
+    ("Recruit: Mifurey",     9, False),
+    ("Recruit: Miyu",       10, False),
+    ("Recruit: Naida",      11, False),
+    ("Recruit: Nedus",      12, False),
+    ("Recruit: Rin",        13, False),
+    ("Recruit: Ropp",       14, False),
+    ("Recruit: Shaami",     15, False),
+    ("Recruit: Shuu",       16, False),
+    ("Recruit: Svanda",     17, False),
+    ("Recruit: Tatts",      18, False),
+    ("Recruit: Vilucha",    19, False),
+    ("Recruit: Wakka",      20, False),
+    ("Recruit: Wedge",      21, False),
+    ("Recruit: Yuma Guado", 22, False),
+    ("Recruit: Zalits",     23, False),
+    ("Recruit: Zev Ronso",  24, False)
 ]]
 
 FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+TreasureOffset, *location) for location in [
@@ -360,9 +391,9 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Besaid: Hi-Potion x1(Chest)",                                                   91, False),  # Item: 1x Hi-Potion [2001h]
     ("Besaid: Antidote x2 (Chest)",                                                   92, False),  # Item: 2x Antidote [200Ah]
     ("World Champion",                                                                93, False),  # Gear: buki_get #26 [1Ah] { Wakka [04h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
-    ("Mi'Hen Highroad: Scout (Donate 100 gil to Operation)",                          94, False),  # Gear: buki_get #27 [1Bh] { Wakka [04h], Weapon {Sensor [8000h]} }
-    ("Mi'Hen Highroad: Ice Lance (Donate 1000 gil to Operation)",                     95, False),  # Gear: buki_get #28 [1Ch] { Kimahri [03h], Weapon {Piercing [800Bh], Icestrike [8022h]} }
-    ("Mi'Hen Highroad: Moon Ring (Donate 10000 gil to Operation)",                    96, False),  # Gear: buki_get #29 [1Dh] { Yuna [01h], Armor {SOS Shell [8059h], SOS Protect [805Ah]} }
+    ("Mi'ihen Highroad: Scout (Donate 100 gil to Operation)",                         94, False),  # Gear: buki_get #27 [1Bh] { Wakka [04h], Weapon {Sensor [8000h]} }
+    ("Mi'ihen Highroad: Ice Lance (Donate 1000 gil to Operation)",                    95, False),  # Gear: buki_get #28 [1Ch] { Kimahri [03h], Weapon {Piercing [800Bh], Icestrike [8022h]} }
+    ("Mi'ihen Highroad: Moon Ring (Donate 10000 gil to Operation)",                   96, False),  # Gear: buki_get #29 [1Dh] { Yuna [01h], Armor {SOS Shell [8059h], SOS Protect [805Ah]} }
     ("Mi'ihen Highroad: Mega-Potion (NPC)",                                           97, False),  # Item: 2x Mega-Potion [2003h]
     ("Mushroom Rock Road: Hi-Potion x1 (Chest) (Aftermath)",                          98, False),  # Item: 1x Hi-Potion [2001h]
     ("Masamune",                                                                      99, False),  # Gear: buki_get #30 [1Eh] { Auron [02h], Weapon Formula=Celestial Auron [13h] {No AP [8014h], Empty, Empty, Empty} }
@@ -380,7 +411,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Celestial Mirror",                                                             111, False),  # Key Item: Celestial Mirror [A003h]
     # ("Treasure 112 (Trashed)",                                                     112, False),  # Item: 1x Potion [2000h]
     ("Nirvana",                                                                      113, False),  # Gear: buki_get #36 [24h] { Yuna [01h], Weapon Formula=Celestial MP-based [12h] {No AP [8014h], Empty, Empty, Empty} }
-    ("Caladblog",                                                                    114, False),  # Gear: buki_get #37 [25h] { Tidus [00h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
+    ("Caladbolg",                                                                    114, False),  # Gear: buki_get #37 [25h] { Tidus [00h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
     ("Calm Lands: 10000 gil (Chest)",                                                115, False),  # Gil: 10000 [64h]
     ("Calm Lands: 5000 gil (Chest)",                                                 116, False),  # Gil: 5000 [32h]
     ("Calm Lands: Lv. 2 Key Sphere x1 (Chest)",                                      117, False),  # Item: 1x Lv. 2 Key Sphere [2052h]
@@ -452,7 +483,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Thunder Plains: Ether x1 (Chest)",                                             183, False),  # Item: 1x Ether [2004h]
     ("Thunder Plains: Remedy x1 (Chest)",                                            184, False),  # Item: 1x Remedy [200Fh]
     ("Thunder Plains: 2000 gil (Chest)",                                             185, False),  # Gil: 2000 [14h]
-    ("Mi'Hen Highroad Echo Ring (Win Aeon Fight)",                                   186, False),  # Gear: buki_get #74 [4Ah] { Yuna [01h], Armor {HP +10% [8073h], Silence Ward [8045h]} }
+    ("Mi'ihen Highroad Echo Ring (Win Aeon Fight)",                                  186, False),  # Gear: buki_get #74 [4Ah] { Yuna [01h], Armor {HP +10% [8073h], Silence Ward [8045h]} }
     ("Calm Lands: Power Spheres x30 (NPC)",                                          187, False),  # Item: 30x Power Sphere [2046h]
     ("Spirit Lance",                                                                 188, False),  # Gear: buki_get #56 [38h] { Kimahri [03h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
     ("Thunder Plains: X-Potion x2 (Dodging Minigame Reward)",                        189, False),  # Item: 2x X-Potion [2002h]
@@ -558,7 +589,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Besaid: 400 gil (Shirtless Man NPC)",                                          289, False),  # Gil: 400 [04h]
     ("Besaid: Ether (Green Shirt NPC)",                                              290, False),  # Item: 1x Ether [2004h]
     ("Kilika: Antidote x4 (Luzzu NPC before Ochu)",                                  291, False),  # Item: 4x Antidote [200Ah]
-    ("Kilika: Elixir x1 (Luzzu NPC after Ochu) ",                                    292, False),  # Item: 1x Elixir [2008h]
+    ("Kilika: Elixir x1 (Luzzu NPC after Ochu)",                                     292, False),  # Item: 1x Elixir [2008h]
     ("Kilika: Remedy x1 (Leader NPC)",                                               293, False),  # Item: 1x Remedy [200Fh]
     # ("Kilika: Phoenix Down x3 (Guard NPC, fight Ochu from west and run?)",         294, False),  # Item: 3x Phoenix Down [2006h]
     ("Kilika: Remedy x1 (Guard NPC)",                                                295, False),  # Item: 1x Hi-Potion [2001h]
@@ -631,7 +662,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Home: Lv. 2 Key Sphere x1 (Chest)",                                            362, False),  # Item: 1x Lv. 2 Key Sphere [2052h]
     ("Home: Lv. 4 Key Sphere x4 (Chest)",                                            363, False),  # Item: 1x Lv. 4 Key Sphere [2054h]
     ("Home: 10000 gil (Chest)",                                                      364, False),  # Gil: 10000 [64h]
-    ("S.S Liki: Ace Wizard",                                                         365, False),  # Gear: buki_get #70 [46h] { Wakka [04h], Weapon {Magic +20% [8069h], Magic +10% [8068h], Magic +5% [8067h], Magic +3% [8066h]} }
+    ("S.S. Winno: Ace Wizard",                                                       365, False),  # Gear: buki_get #70 [46h] { Wakka [04h], Weapon {Magic +20% [8069h], Magic +10% [8068h], Magic +5% [8067h], Magic +3% [8066h]} }
     ("Mi'ihen Highroad: Seeker's Ring (Lose Aeon Fight)",                            366, False),  # Gear: buki_get #71 [47h] { Yuna [01h], Armor {HP +10% [8073h], Empty} }
     ("Home: Hi-Potion x2 (NPC on Ground)",                                           367, False),  # Item: 2x Hi-Potion [2001h]
     ("Mushroom Rock Road: Victorious",                                               368, False),  # Gear: buki_get #72 [48h] { Rikku [06h], Armor {Lightningproof [8028h], Fireproof [8020h], Iceproof [8024h], Empty} }
@@ -642,8 +673,8 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Moonflow: Smoke Bomb x6 (Lose Aeon Fight)",                                    373, False),  # Item: 6x Smoke Bomb [2028h]
     ("Summoner's Soul",                                                              374, False),  # Key Item: Summoner's Soul [A01Eh]
     ("Airship: Al Bhed Potion (NPC)",                                                375, False),  # Item: 4x Al Bhed Potion [2014h]
-    ("Moonflow: Lv. Key Sphere x3 (Shelinda Chest)",                                 376, False),  # Item: 3x Lv. 1 Key Sphere [2051h]
-    ("Moonflow: Lv. Key Sphere x3 (Benke and Biran Chest)",                          377, False),  # Item: 3x Lv. 1 Key Sphere [2051h]
+    ("Moonflow: Lv. 1 Key Sphere x3 (Shelinda Chest)",                                 376, False),  # Item: 3x Lv. 1 Key Sphere [2051h]
+    ("Moonflow: Lv. 1 Key Sphere x3 (Benke and Biran Chest)",                          377, False),  # Item: 3x Lv. 1 Key Sphere [2051h]
     ("Moonflow: Magic Def Sphere x1 (Chest)",                                        378, False),  # Item: 1x Magic Def Sphere [205Ah]
     ("Calm Lands: Valefor Fight First Reward (Remiem Tower)",                        379, False),  # Item: 4x Lightning Gem [201Fh]
     ("Calm Lands: Valefor Post First Fight Reward (Remiem Tower)",                   380, False),  # Item: 4x Power Sphere [2046h]
@@ -660,7 +691,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Calm Lands: Anima Post First Fight Reward (Remiem Tower)",                     391, False),  # Item: 10x Mana Sphere [2047h]
     ("Calm Lands: Magus Sisters Fight (Remiem Tower)",                               392, False),  # Item: 40x Shining Gem [202Ah]
     ("Calm Lands: Magus Sisters Post First Fight Reward (Remiem Tower)",             393, False),  # Item: 12x Power Sphere [2046h]
-    ("Treasure 394 (Trashed)",                                                       394, False),  # Item: 1x Teleport Sphere [2062h]
+    ("Lake Macalania: Teleport Sphere x1 (Butterfly Game after Airship)",            394, False),  # Item: 1x Teleport Sphere [2062h]
     ("Home: Skill Sphere x1 (Al Bhed Quiz Chest)",                                   395, False),  # Item: 1x Skill Sphere [204Dh]
     ("Home: Skill Sphere x1 (Al Bhed Password Chest)",                               396, False),  # Item: 1x Special Sphere [204Ch]
     ("Home: Skill Sphere x1 (Al Bhed Vocabulary Chest)",                             397, False),  # Item: 1x Friend Sphere [2061h]
@@ -788,6 +819,7 @@ allLocations = list(chain(FFXTreasureLocations,
                           FFXOverdriveLocations,
                           FFXOverdriveModeLocations,
                           FFXOtherLocations,
+                          FFXRecruitLocations,
                           *FFXSphereGridLocations))
 
 def create_location_label_to_id_map() -> Dict[str, int]:

@@ -5,7 +5,7 @@ import typing
 from typing import NamedTuple
 
 from .locations import FFXLocation, FFXTreasureLocations, FFXPartyMemberLocations, FFXBossLocations, \
-    FFXOverdriveLocations, FFXOtherLocations, FFXSphereGridLocations, FFXLocationData, TreasureOffset, BossOffset
+    FFXOverdriveLocations, FFXOtherLocations, FFXRecruitLocations, FFXSphereGridLocations, FFXLocationData, TreasureOffset, BossOffset, PartyMemberOffset, RecruitOffset
 from .rules import ruleDict
 from .items import party_member_items, FFXItem
 from worlds.generic.Rules import add_rule
@@ -38,6 +38,9 @@ class RegionData(dict):
     @property
     def other(self) -> list[int]:
         return self["other"]
+    @property
+    def recruits(self) -> list[int]:
+        return self["recruits"]
     @property
     def leads_to(self) -> list[int]:
         return self["leads_to"]
@@ -103,7 +106,7 @@ def create_regions(world: FFXWorld, player) -> None:
         #     all_locations.append(new_location)
 
         # TODO: Implement in client
-        # add_locations_by_ids(new_region, region_data.party_members, FFXPartyMemberLocations, "Party Member")
+        add_locations_by_ids(new_region, region_data.party_members, FFXPartyMemberLocations, "Party Member")
         # for id in region_data.party_members:
         #     print(region_data.name, id)
         #     location = [x for x in FFXPartyMemberLocations if x.location_id == id][0]
@@ -144,6 +147,8 @@ def create_regions(world: FFXWorld, player) -> None:
         #         new_location.progress_type = LocationProgressType.EXCLUDED
         #     new_region.locations.append(new_location)
         #     all_locations.append(new_location)
+
+        add_locations_by_ids(new_region, region_data.recruits, FFXRecruitLocations, "Recruit")
 
     for region_data in region_data_list:
         curr_region = region_dict[region_data.id]
@@ -201,7 +206,6 @@ def create_regions(world: FFXWorld, player) -> None:
 
     if not world.options.mini_games.value:
         mini_game_location_ids = [
-            337, # "Calm Lands: Elixir x1 (Wobbly Chocobo Minigame Reward)"
             338, # "Calm Lands: Lv. 1 Key Sphere x1 (Dodger Chocobo Minigame Reward)"
             339, # "Calm Lands: Lv. 2 Key Sphere x1 x1 (Hyper Dodger Chocobo Minigame Reward)"
             340, # "Calm Lands: Lv. 3 Key Sphere x1 x1 (Catcher Chocobo Minigame Reward)"
@@ -221,12 +225,21 @@ def create_regions(world: FFXWorld, player) -> None:
             278, # "Venus Sigil",
             277, # "Saturn Sigil",
             279, # "Mercury Sigil",
+            244, # "Jupiter Sigil",
+            114, # "Caladbolg"
         ]
         for id in mini_game_location_ids:
             location_name = world.location_id_to_name[id | TreasureOffset]
             #world.get_location(location_name).progress_type = LocationProgressType.EXCLUDED
             world.options.exclude_locations.value.add(location_name)
 
+    if not world.options.recruit_sanity.value:
+        recruit_location_ids = []
+        for location in FFXRecruitLocations:
+            recruit_location_ids.append(location.location_id)
+        for id in recruit_location_ids:
+            location_name = world.location_id_to_name[id | RecruitOffset]
+            world.options.exclude_locations.value.add(location_name)
 
     final_region = world.get_region("Sin: Braska's Final Aeon")
     final_region.add_event("Sin: Braska's Final Aeon", "Victory", location_type=FFXLocation, item_type=FFXItem)
@@ -245,17 +258,14 @@ def create_regions(world: FFXWorld, player) -> None:
             final_aeon.access_rule = lambda state: state.has_from_list_unique(
                 [character.itemName for character in party_member_items], world.player, world.options.required_party_members.value)
         case world.options.goal_requirement.option_pilgrimage:
-            pilgrimage_events = {
-                "S.S. Liki 1st visit": "Pilgrimage: Besaid",
-                "S.S. Winno 1st visit": "Pilgrimage: Kilika",
-                "Djose 1st visit": "Pilgrimage: Djose",
-                "Lake Macalania 1st visit: Post-Wendigo": "Pilgrimage: Macalania",
-                "Bevelle 1st visit: Post-Seymour Natus": "Pilgrimage: Bevelle",
-                "Zanarkand Ruins 1st visit: Post-Yunalesca": "Pilgrimage: Zanarkand Ruins",
-            }
-            for region_name, location_name in pilgrimage_events.items():
-                world.get_region(region_name).add_event(location_name, location_type=FFXLocation, item_type=FFXItem)
-            final_aeon.access_rule = lambda state: state.has_all(list(pilgrimage_events.values()), world.player)
+            final_aeon.access_rule = lambda state: (
+                state.can_reach_location(world.location_id_to_name[ 8 | PartyMemberOffset], world.player) and   # Valefor
+                state.can_reach_location(world.location_id_to_name[ 9 | PartyMemberOffset], world.player) and   # Ifrit
+                state.can_reach_location(world.location_id_to_name[10 | PartyMemberOffset], world.player) and   # Ixion
+                state.can_reach_location(world.location_id_to_name[11 | PartyMemberOffset], world.player) and   # Shiva
+                state.can_reach_location(world.location_id_to_name[12 | PartyMemberOffset], world.player) and   # Bahamut
+                state.can_reach_location(world.location_id_to_name[37 | BossOffset       ], world.player)       # Yunalesca
+            )
 
 
         #world.get_location("Monster Arena: Nemesis"                  ).progress_type = LocationProgressType.EXCLUDED

@@ -4,7 +4,7 @@ Archipelago World definition for Final Fantasy X
 
 from typing import ClassVar, Any, Optional
 from random import Random
-import settings
+from settings import Group, FilePath
 
 from BaseClasses import Tutorial, Item, ItemClassification, LocationProgressType
 from worlds.AutoWorld import WebWorld, World
@@ -14,11 +14,12 @@ from .client import FFXClient
 
 from .items import create_item_label_to_code_map, item_table, key_items, filler_items, AllItems, FFXItem, \
     party_member_items, stat_abilities, skill_abilities, region_unlock_items, trap_items, equip_items
-from .locations import create_location_label_to_id_map, FFXLocation
+from .locations import create_location_label_to_id_map, FFXLocation, allLocations
 from .regions import create_regions
 from .options import FFXOptions
 from .generate import generate_output
-from .rules import set_rules
+from .rules import set_rules, world_battle_levels
+from .ut import tracker_world, setup_options_from_slot_data
 
 
 class FFXWebWorld(WebWorld):
@@ -38,8 +39,13 @@ class FFXWebWorld(WebWorld):
     tutorials = [setup_en]
 
 
-class FFXSettings(settings.Group):
-    pass
+class FFXSettings(Group):
+    class UTPoptrackerPath(FilePath):
+        """Path to the user's FFX Poptracker Pack."""
+        description = "FFX Poptracker Pack zip file"
+        required = False
+
+    ut_poptracker_path: UTPoptrackerPath | str = UTPoptrackerPath()
 
 
 class FFXWorld(World):
@@ -61,6 +67,18 @@ class FFXWorld(World):
     item_name_to_id = create_item_label_to_code_map()
     location_name_to_id = create_location_label_to_id_map()
     explicit_indirect_conditions = False
+
+    # Universal Tracker
+    tracker_world = tracker_world
+    ut_can_gen_without_yaml = True
+    using_ut: bool
+
+    @staticmethod
+    def interpret_slot_data(slot_data: dict[str, Any]) -> dict[str, Any]:
+        return slot_data
+
+    def generate_early(self) -> None:
+        setup_options_from_slot_data(self)
 
     def get_filler_item_name(self) -> str:
         filler = [x.itemName for x in filler_items]
@@ -92,13 +110,13 @@ class FFXWorld(World):
         # for item in stat_abilities:
         #     required_items.extend([item.itemName for _ in range(1)])
 
-        #self.random.shuffle(region_unlock_items)
-        starting_region = self.random.choice(region_unlock_items[:min(self.options.logic_difficulty.value, 3)]) # Baaj, Besaid, or Kilika
-        #starting_region = region_unlock_items[0]
+        possible_starting_regions = [f"Region: {region}" for region, level in world_battle_levels.items() if
+                                     level <= min(self.options.logic_difficulty.value, 3)]
+        starting_region = self.random.choice(possible_starting_regions)
 
-        self.multiworld.push_precollected(self.create_item(starting_region.itemName))
+        self.multiworld.push_precollected(self.create_item(starting_region))
         for item in region_unlock_items:
-            if item != starting_region:
+            if item.itemName != starting_region:
                 required_items.append(item.itemName)
 
         starting_character = party_member_items[0]
@@ -152,7 +170,17 @@ class FFXWorld(World):
         pass
 
     def fill_slot_data(self) -> dict[str, Any]:
-        slot_data = {"SeedId": self.multiworld.get_out_file_name_base(self.player)}
+        slot_data = {
+            "SeedId": self.multiworld.get_out_file_name_base(self.player),
+            # Options
+            "goal_requirement": self.options.goal_requirement.value,
+            "required_party_members": self.options.required_party_members.value,
+            "sphere_grid_randomization": self.options.sphere_grid_randomization.value,
+            "super_bosses": self.options.super_bosses.value,
+            "mini_games": self.options.mini_games.value,
+            "logic_difficulty": self.options.logic_difficulty.value,
+            "recruit_sanity": self.options.recruit_sanity.value
+        }
         return slot_data
 
     def generate_output(self, output_directory: str) -> None:

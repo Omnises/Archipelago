@@ -21,5 +21,6 @@ Defeat Yu Yevon. Depending on options the final battle may be locked until you f
 ## Credits:
 Peppy and Evelyn - Developers of Fahrenheit (modding framework for FFX). They've also provided a lot of support.\
 Omnises - Modified CSR for use with AP and provided some help with the APWorld.\
+Andrewki - Created the Poptracker pack and contributed to the client, APWorld, and the modified CSR.\
 Pepen - Helped a bunch by organizing all the testing.\
 Aqua - Created the initial FFX thread in the AP Discord.
