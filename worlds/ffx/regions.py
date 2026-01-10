@@ -7,7 +7,7 @@ from typing import NamedTuple
 from .locations import FFXLocation, FFXTreasureLocations, FFXPartyMemberLocations, FFXBossLocations, \
     FFXOverdriveLocations, FFXOtherLocations, FFXRecruitLocations, FFXSphereGridLocations, FFXLocationData, TreasureOffset, BossOffset, PartyMemberOffset, RecruitOffset
 from .rules import ruleDict
-from .items import party_member_items, FFXItem
+from .items import party_member_items, key_items, FFXItem
 from worlds.generic.Rules import add_rule
 from ..AutoWorld import World
 
@@ -73,6 +73,32 @@ def create_regions(world: FFXWorld, player) -> None:
             region.locations.append(new_location)
             all_locations.append(new_location)
 
+    def goal_requirement_rule(state):    
+        match world.options.goal_requirement.value:
+            case world.options.goal_requirement.option_none:
+                return True
+            case world.options.goal_requirement.option_party_members:
+                return state.has_from_list_unique(
+                        [character.itemName for character in party_member_items[:8]], world.player, min(world.options.required_party_members.value, 8))
+            case world.options.goal_requirement.option_party_members_and_aeons:
+                return state.has_from_list_unique(
+                        [character.itemName for character in party_member_items], world.player, world.options.required_party_members.value)
+            case world.options.goal_requirement.option_pilgrimage:
+                return (
+                    state.can_reach_location(world.location_id_to_name[ 8 | PartyMemberOffset], world.player) and   # Valefor
+                    state.can_reach_location(world.location_id_to_name[ 9 | PartyMemberOffset], world.player) and   # Ifrit
+                    state.can_reach_location(world.location_id_to_name[10 | PartyMemberOffset], world.player) and   # Ixion
+                    state.can_reach_location(world.location_id_to_name[11 | PartyMemberOffset], world.player) and   # Shiva
+                    state.can_reach_location(world.location_id_to_name[12 | PartyMemberOffset], world.player) and   # Bahamut
+                    state.can_reach_location(world.location_id_to_name[37 | BossOffset       ], world.player)       # Yunalesca
+                )
+    
+    def primer_requirement_rule(state):
+        if world.options.required_primers.value > 0:
+            return state.has_from_list_unique(
+                [primer.itemName for primer in key_items[4:30]], world.player, world.options.required_primers.value) 
+        else:
+            return True
 
 
     menu_region = Region("Menu", player, world.multiworld)
@@ -249,25 +275,8 @@ def create_regions(world: FFXWorld, player) -> None:
 
     #final_aeon.place_locked_item(victory_event)
 
-    world.multiworld.completion_condition[world.player] = lambda state: state.has("Victory", world.player)
-    match world.options.goal_requirement.value:
-        case world.options.goal_requirement.option_none:
-            pass
-        case world.options.goal_requirement.option_party_members:
-            final_aeon.access_rule = lambda state: state.has_from_list_unique(
-                [character.itemName for character in party_member_items[:8]], world.player, min(world.options.required_party_members.value, 8))
-        case world.options.goal_requirement.option_party_members_and_aeons:
-            final_aeon.access_rule = lambda state: state.has_from_list_unique(
-                [character.itemName for character in party_member_items], world.player, world.options.required_party_members.value)
-        case world.options.goal_requirement.option_pilgrimage:
-            final_aeon.access_rule = lambda state: (
-                state.can_reach_location(world.location_id_to_name[ 8 | PartyMemberOffset], world.player) and   # Valefor
-                state.can_reach_location(world.location_id_to_name[ 9 | PartyMemberOffset], world.player) and   # Ifrit
-                state.can_reach_location(world.location_id_to_name[10 | PartyMemberOffset], world.player) and   # Ixion
-                state.can_reach_location(world.location_id_to_name[11 | PartyMemberOffset], world.player) and   # Shiva
-                state.can_reach_location(world.location_id_to_name[12 | PartyMemberOffset], world.player) and   # Bahamut
-                state.can_reach_location(world.location_id_to_name[37 | BossOffset       ], world.player)       # Yunalesca
-            )
+    world.multiworld.completion_condition[world.player] = lambda state: state.has("Victory", world.player)    
+    final_aeon.access_rule = lambda state: goal_requirement_rule(state) and primer_requirement_rule(state)
 
 
         #world.get_location("Monster Arena: Nemesis"                  ).progress_type = LocationProgressType.EXCLUDED
