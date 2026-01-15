@@ -366,7 +366,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Guadosalam: House - Back Wall (Chest)",                                                        64, False),  # Gil: 3000 [1Eh]
     ("Guadosalam: East of Mansion (Chest)",                                                          65, False),  # Item: 1x Mega-Potion [2003h]
     ("Guadosalam: Upper Level, South Side (Chest)",                                                  66, False),  # Item: 1x Elixir [2008h]
-    ("Guadosalam: Mansion, Entrance- Upper Level (Chest)",                                             67, False),  # Item: 2x Hi-Potion [2001h]
+    ("Guadosalam: Mansion, Entrance- Upper Level (Chest)",                                           67, False),  # Item: 2x Hi-Potion [2001h]
     ("Macalania Woods: South - Near North Exit (Chest)",                                             68, False),  # Gil: 2000 [14h]
     ("Macalania Woods: South - Hidden Behind Tree in Middle of S-Bend (Chest)",                      69, False),  # Gear: buki_get #20 [14h] { Lulu [05h], Weapon {Sleeptouch [803Fh]} }
     ("Macalania Woods: Central - Hidden Behind Tree Before Spiral Down (Chest)",                     70, False),  # Item: 3x Phoenix Down [2006h]
@@ -398,11 +398,11 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Mi'ihen: North End - Donate 10000 (NPC)",                                                      96, False),  # Gear: buki_get #29 [1Dh] { Yuna [01h], Armor {SOS Shell [8059h], SOS Protect [805Ah]} }
     ("Mi'ihen: Agency - Exit After Resting (Event) (1)",                                             97, False),  # Item: 2x Mega-Potion [2003h]
     ("MRR: Aftermath - Under Overhang, West Side (Chest)",                                           98, False),  # Item: 1x Hi-Potion [2001h]
-    #("MRR: Second Visit - Up Elevator in West Alcove, North Side (Event)",                          99, False),  # Gear: buki_get #30 [1Eh] { Auron [02h], Weapon Formula=Celestial Auron [13h] {No AP [8014h], Empty, Empty, Empty} }
+    ("MRR: Second Visit - Up Elevator in West Alcove, North Side (Event)",                           99, False),  # Gear: buki_get #30 [1Eh] { Auron [02h], Weapon Formula=Celestial Auron [13h] {No AP [8014h], Empty, Empty, Empty} }
     ("Bevelle: Underwater After Evrae Altana, Right Side After First Turn (Chest)",                 100, False),  # Gear: buki_get #31 [1Fh] { Tidus [00h], Weapon {Counterattack [8003h]} }
     ("Bevelle: Underwater After Evrae Altana, Right Side Before First Turn (Chest)",                101, False),  # Gear: buki_get #32 [20h] { Wakka [04h], Weapon {Evade & Counter [8004h]} }
     ("Bevelle: Cloister - Left of Exit, 2 Bevelle Spheres Required (Chest)",                        102, False),  # Gear: buki_get #33 [21h] { Kimahri [03h], Weapon {Strength +3% [8062h], Strength +5% [8063h], Strength +10% [8064h]} }
-    # ("Treasure 103 (Trashed)",                                                                    103, False),  # Item: 1x Potion [2000h]
+    #("Treasure 103 (Trashed)",                                                                     103, False),  # Item: 1x Potion [2000h]
     ("Bevelle: Via Purifico - Southwest Room Near Glyph (Chest)",                                   104, False),  # Item: 1x Elixir [2008h]
     ("Bevelle: Via Purifico - West Room With Lulu (Chest)",                                         105, False),  # Item: 1x Wht Magic Sphere [204Eh]
     ("Bevelle: Via Purifico - Puzzle Room Right (Chest)",                                           106, False),  # Item: 1x Skill Sphere [204Dh]
@@ -411,14 +411,14 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Bevelle: Via Purifico - Room Northeast of Central Teleporter (Chest)",                        109, False),  # Item: 1x Blk Magic Sphere [204Fh]
     ("Bevelle: Via Purifico - East Room With Kimahri (Chest)",                                      110, False),  # Item: 1x Mega-Potion [2003h]
     ("Macalania Woods: Bring Cloudy Mirror to Celestial Flower (Event)",                            111, False),  # Key Item: Celestial Mirror [A003h]
-    # ("Treasure 112 (Trashed)",                                                                    112, False),  # Item: 1x Potion [2000h]
+    #("Treasure 112 (Trashed)",                                                                     112, False),  # Item: 1x Potion [2000h]
     ("Monster Arena: Capture Every Calm Lands Fiend (Chest)",                                       113, False),  # Gear: buki_get #36 [24h] { Yuna [01h], Weapon Formula=Celestial MP-based [12h] {No AP [8014h], Empty, Empty, Empty} }
     ("Calm Lands: North - NW Corner, Blocked Until Winning Catcher Chocobo (Event)",                114, False),  # Gear: buki_get #37 [25h] { Tidus [00h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
     ("Calm Lands: South - Southeast Corner, Left (Chest)",                                          115, False),  # Gil: 10000 [64h]
     ("Calm Lands: South - Southeast Corner, Right (Chest)",                                         116, False),  # Gil: 5000 [32h]
     ("Calm Lands: Central - Behind Agency Tent (Chest)",                                            117, False),  # Item: 1x Lv. 2 Key Sphere [2052h]
     ("Calm Lands: Gorge Bottom - Rusty Sword Between Two Rocks, East End (Event)",                  118, False),  # Key Item: Rusty Sword [A021h]
-    # ("Treasure 119 (Trashed)",                                                                    119, False),  # Gear: buki_get #38 [26h] { Kimahri [03h], Armor {HP +10% [8073h], Empty, Empty, Empty} }
+    #("Treasure 119 (Trashed)",                                                                     119, False),  # Gear: buki_get #38 [26h] { Kimahri [03h], Armor {HP +10% [8073h], Empty, Empty, Empty} }
     ("CotSF: First Branch East (Chest)",                                                            120, False),  # Item: 1x Megalixir [2009h]
     ("CotSF: Chamber East of First Intersection (Chest)",                                           121, False),  # Item: 1x Lv. 2 Key Sphere [2052h]
     ("CotSF: Dead End North of Second Intersection (Chest)",                                        122, False),  # Item: 1x Fortune Sphere [204Ah]
@@ -426,31 +426,31 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("CotSF: Teleport West from Back of Cavern (Chest)",                                            124, False),  # Gear: buki_get #39 [27h] { Rikku [06h], Weapon {Empty, Empty, Empty, Empty} }
     ("CotSF: Teleport East from Back of Cavern, Bottom (Chest)",                                    125, False),  # Item: 1x MP Sphere [2056h]
     ("CotSF: Teleport East from Back of Cavern, Top (Chest)",                                       126, False),  # Item: 2x X-Potion [2002h]
-    # ("Treasure 127 (Trashed)",                                                                    127, False),  # Item: 1x Potion [2000h]
+    #("Treasure 127 (Trashed)",                                                                     127, False),  # Item: 1x Potion [2000h]
     ("Gagazet: Trail - Top of Right Ridge Near South Exit (Chest)",                                 128, False),  # Gil: 20000 [C8h]
     ("Gagazet: Trail - Left Alcove Near South Exit (Chest)",                                        129, False),  # Item: 2x Mega-Potion [2003h]
     ("Gagazet: Trail - West Branch Before Bridge to Wantz (Chest)",                                 130, False),  # Gear: buki_get #40 [28h] { Auron [02h], Armor {Stoneproof [8038h], Poisonproof [803Ch]} }
     ("Gagazet: Trail - Under Bridge After Wantz Right (Chest)",                                     131, False),  # Item: 1x Lv. 4 Key Sphere [2054h]
     ("Gagazet: Trail - Under Bridge After Wantz Left (Chest)",                                      132, False),  # Item: 1x HP Sphere [2055h]
-    # ("Treasure 133 (Trashed)",                                                                    133, False),  # Item: 1x Potion [2000h]
-    # ("Treasure 134 (Trashed)",                                                                    134, False),  # Item: 1x Potion [2000h]
+    #("Treasure 133 (Trashed)",                                                                     133, False),  # Item: 1x Potion [2000h]
+    #("Treasure 134 (Trashed)",                                                                     134, False),  # Item: 1x Potion [2000h]
     ("Gagazet: Cave - After Both Trials, Left Alcove, Northwest of Save Sphere (Chest)",            135, False), # Gear: buki_get #41 [29h] { Wakka [04h], Armor {SOS NulFrost [805Fh], SOS NulShock [8060h], SOS NulBlaze [8061h]} }
     ("Gagazet: Submerged Passage - Reward from First Trial (Chest)",                                136, False),  # Item: 1x Lv. 1 Key Sphere [2051h]
     ("Gagazet: Submerged Passage - Reward From Second Trial (Chest)",                               137, False),  # Item: 1x Fortune Sphere [204Ah]
     ("Gagazet: Submerged Passage - After Both Trials, East Exit From Save Sphere, Left (Chest)",    138, False),  # Item: 1x Return Sphere [2060h]
     ("Gagazet: Submerged Passage - After Both Trials, East Exit From Save Sphere, Right (Chest)",   139, False),  # Gear: buki_get #42 [2Ah] { Yuna [01h], Armor {HP Stroll [801Bh]} }
-    # ("Treasure 140 (Trashed)",                                                                    140, False),  # Item: 1x Potion [2000h]
-    # ("Treasure 141 (Trashed)",                                                                    141, False),  # Item: 1x Potion [2000h]
-    # ("Treasure 142 (Trashed)",                                                                    142, False),  # Item: 1x Potion [2000h]
-    # ("Treasure 143 (Trashed)",                                                                    143, False),  # Item: 1x Potion [2000h]
-    # ("Treasure 144 (Trashed)",                                                                    144, False),  # Item: 1x Potion [2000h]
+    #("Treasure 140 (Trashed)",                                                                     140, False),  # Item: 1x Potion [2000h]
+    #("Treasure 141 (Trashed)",                                                                     141, False),  # Item: 1x Potion [2000h]
+    #("Treasure 142 (Trashed)",                                                                     142, False),  # Item: 1x Potion [2000h]
+    #("Treasure 143 (Trashed)",                                                                     143, False),  # Item: 1x Potion [2000h]
+    #("Treasure 144 (Trashed)",                                                                     144, False),  # Item: 1x Potion [2000h]
     ("Zanarkand: Overpass - South Side, West Bend (Chest)",                                         145, False),  # Item: 1x Fortune Sphere [204Ah]
     ("Zanarkand: Overpass - North Side, Left Alcove (Chest)",                                       146, False),  # Gear: buki_get #43 [2Bh] { Rikku [06h], Armor {MP Stroll [801Ch]} }
     ("Zanarkand: Dome Interior - Road Above Underpass (Chest)",                                     147, False),  # Gil: 10000 [64h]
     ("Zanarkand: Dome Interior - West From 4-Way Intersection (Chest)",                             148, False),  # Item: 1x Friend Sphere [2061h]
     ("Zanarkand: Dome Interior - Rubble Path Down Before Circular Doorway (Chest)",                 149, False),  # Item: 1x Lv. 3 Key Sphere [2053h]
     ("Zanarkand: Dome Corridor - Right Side (Chest)",                                               150, False),  # Item: 1x Luck Sphere [205Eh]
-    # ("Treasure 151 (Trashed)",                                                                    151, False),  # Item: 1x Potion [2000h]
+    #("Treasure 151 (Trashed)",                                                                     151, False),  # Item: 1x Potion [2000h]
     ("Omega Ruins: 1st Chest Reward for Minigame (Chest)",                                          152, False),  # Item: 1x Lv. 4 Key Sphere [2054h]
     ("Omega Ruins: 2nd Chest Reward for Minigame (Chest)",                                          153, False),  # Gear: buki_get #44 [2Ch] { Auron [02h], Armor {Silenceproof [8044h], Darkproof [8048h]} }
     ("Omega Ruins: 3rd Chest Reward for Minigame (Chest)",                                          154, False),  # Gear: buki_get #45 [2Dh] { Wakka [04h], Weapon {Magic Counter [8005h], Counterattack [8003h]} }
@@ -494,15 +494,15 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Thunder Plains: Lightning Dodger - 50 Consecutive Dodges (Event)",                            192, False),  # Item: 3x Strength Sphere [2057h]
     ("Thunder Plains: Lightning Dodger - 100 Consecutive Dodges (Event)",                           193, False),  # Item: 3x HP Sphere [2055h]
     ("Thunder Plains: Lightning Dodger - 150 Consecutive Dodges (Event)",                           194, False),  # Item: 4x Megalixir [2009h]
-    # ("Treasure 195 (Trashed)",                                                                    195, False),  # Item: 1x Ether [2004h]
-    # ("Treasure 196 (Trashed)",                                                                    196, False),  # Item: 1x Elixir [2008h]
+    #("Treasure 195 (Trashed)",                                                                     195, False),  # Item: 1x Ether [2004h]
+    #("Treasure 196 (Trashed)",                                                                     196, False),  # Item: 1x Elixir [2008h]
     ("Moonflow: South Bank Road - West Corner as Path Bends East (Chest)",                          197, False),  # Item: 1x X-Potion [2002h]
     ("Moonflow: South Wharf - Near O'aka XXIII (Chest)",                                            198, False),  # Item: 2x Phoenix Down [2006h]
     ("Moonflow: South Wharf - Behind Lulu (Chest)",                                                 199, False),  # Gil: 5000 [32h]
     ("Moonflow: North Wharf: Near Bench (Chest)",                                                   200, False),  # Item: 1x Ether [2004h]
     ("Moonflow: North Bank - East Side, Right After the Wooden Bridge (Chest)",                     201, False),  # Item: 4x Antidote [200Ah]
     ("Moonflow: North Bank Road - West Side, Before Guadosalam (Chest)",                            202, False),  # Item: 1x Mega-Potion [2003h]
-    # ("Baaj Temple: Grenades from Rikku",                                                          203, False),  # Item: 2x Grenade [2023h]
+    #("Baaj Temple: Grenades from Rikku",                                                           203, False),  # Item: 2x Grenade [2023h]
     ("Baaj: Antechamber - Right Side (Chest)",                                                      204, False),  # Item: 1x Megalixir [2009h]
     ("Baaj: Antechamber - Left Side (Chest)",                                                       205, False),  # Item: 4x Mega Phoenix [2007h]
     ("Luca: Dock 5 - End, Hidden Behind Boxes, Right (Chest)",                                      206, False),  # Item: 1x Magic Sphere [2059h]
@@ -513,7 +513,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Bikanel: Desert, East - Near First Tent, Left (Chest)",                                       211, False),  # Item: 8x Al Bhed Potion [2014h]
     ("Bikanel: Desert, Central - Right of Save Sphere (Chest)",                                     212, False),  # Item: 8x Al Bhed Potion [2014h]
     ("Baaj: Hall - South Side of East Door (Chest)",                                                213, False),  # Item: 1x X-Potion [2002h]
-    # ("MRR: Code GODHAND",                                                                           214, False),  # Gear: buki_get #61 [3Dh] { Rikku [06h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
+    #("MRR: Code GODHAND",                                                                          214, False),  # Gear: buki_get #61 [3Dh] { Rikku [06h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
     ("Besaid: Village - Behind Shop, Middle (Chest)",                                               215, False),  # Gil: 400 [04h]
     ("Besaid: Village - Behind Shop, Top (Chest)",                                                  216, False),  # Item: 2x Potion [2000h]
     ("Bevelle: Cloister - End (Chest)",                                                             217, False),  # Item: 1x HP Sphere [2055h]
@@ -593,7 +593,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Kilika: Woods - Luzzu Before Beating Lord Ochu (NPC)",                                        291, False),  # Item: 4x Antidote [200Ah]
     ("Kilika: Woods - Luzzu After Beating Lord Ochu (NPC)",                                         292, False),  # Item: 1x Elixir [2008h]
     ("Kilika: Woods - Crusader Commander West of Lord Ochu (NPC)",                                  293, False),  # Item: 1x Remedy [200Fh]
-    # ("Kilika: Phoenix Down x3 (Guard NPC, fight Ochu from west and run?)",                        294, False),  # Item: 3x Phoenix Down [2006h]
+    #("Kilika: Phoenix Down x3 (Guard NPC, fight Ochu from west and run?)",                         294, False),  # Item: 3x Phoenix Down [2006h]
     ("Kilika: Woods - Crusader Commander North of Lord Ochu (NPC)",                                 295, False),  # Item: 1x Hi-Potion [2001h]
     ("Al Bhed Ship: Deck - Yellow Al Bhed, on Left (NPC)",                                          296, False),  # Item: 3x Potion [2000h]
     ("Djose: Highroad - South End, Silver/Purple Armor (NPC)",                                      297, False),  # Gear: buki_get #63 [3Fh] { Tidus [00h], Weapon {Strength +3% [8062h], Empty, Empty, Empty} }
@@ -632,18 +632,18 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Omega Ruins: Press Both Glyphs, Then Take Narrow Central Path (Chest)",                       330, False),  # Item: 1x Teleport Sphere [2062h]
     ("Omega Ruins: Zone After Ultima, West Path (Chest)",                                           331, False),  # Item: 1x Friend Sphere [2061h]
     ("Omega Ruins: Omega Boss Arena (Chest)",                                                       332, False),  # Item: 1x Magic Sphere [2059h]
-    # ("Treasure 333 (Old Entry?)",                                                                 333, False),  # Key Item: Blossom Crown [A032h]
+    #("Treasure 333 (Old Entry?)",                                                                  333, False),  # Key Item: Blossom Crown [A032h]
     ("Calm Lands: Remiem Temple - Defeat Bahamut (Boss)",                                           334, False),  # Key Item: Flower Scepter [A033h]
-    # ("Treasure 335 (Trashed)",                                                                    335, False),  # Item: 1x Potion [2000h]
+    #("Treasure 335 (Trashed)",                                                                     335, False),  # Item: 1x Potion [2000h]
     ("S.S. Liki: Clasko, After Breeder Encouragement in Macalania (Event)",                         336, False),  # Item: 1x Friend Sphere [2061h] # Talk to Clasko before Crawler and make sure to have him become a Chocobo Breeder
     ("Calm Lands: Wobbly Chocobo Minigame (Event)",                                                 337, False),  # Item: 1x Elixir [2008h]
     ("Calm Lands: Dodger Chocobo Minigame (Event)",                                                 338, False),  # Item: 1x Lv. 1 Key Sphere [2051h]
     ("Calm Lands: Hyper Dodger Chocobo Minigame (Event)",                                           339, False),  # Item: 1x Lv. 2 Key Sphere [2052h]
     ("Calm Lands: Catcher Chocobo Minigame (Event)",                                                340, False),  # Item: 1x Lv. 3 Key Sphere [2053h]
-    # ("Treasure 341 (Trashed)",                                                                    341, False),  # Item: 1x X-Potion [2002h]
-    # ("Treasure 342 (Trashed)",                                                                    342, False),  # Item: 1x Mega-Potion [2003h]
-    # ("Treasure 343 (Trashed)",                                                                    343, False),  # Item: 1x Ether [2004h]
-    # ("Treasure 344 (Trashed)",                                                                    344, False),  # Item: 1x Turbo Ether [2005h]
+    #("Treasure 341 (Trashed)",                                                                     341, False),  # Item: 1x X-Potion [2002h]
+    #("Treasure 342 (Trashed)",                                                                     342, False),  # Item: 1x Mega-Potion [2003h]
+    #("Treasure 343 (Trashed)",                                                                     343, False),  # Item: 1x Ether [2004h]
+    #("Treasure 344 (Trashed)",                                                                     344, False),  # Item: 1x Turbo Ether [2005h]
     ("Thunder Plains: Agency Front (Ground Item)",                                                  345, False),  # Gear: buki_get #69 [45h] { Tidus [00h], Armor {Lightningproof [8028h], Empty} }
     ("Bikanel: Oasis - In Southwest Corner of Water (Chest)",                                       346, False),  # Item: 4x Remedy [200Fh]
     ("Bikanel: Desert, East - Near First Tent, Right (Chest)",                                      347, False),  # Item: 2x Ether [2004h]
@@ -667,8 +667,8 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("S.S. Winno: Deck - Top Floor, Counting Gulls (NPC)",                                          365, False),  # Gear: buki_get #70 [46h] { Wakka [04h], Weapon {Magic +20% [8069h], Magic +10% [8068h], Magic +5% [8067h], Magic +3% [8066h]} }
     ("Mi'ihen: South End - Fight Belgemine (Lose) (Event)",                                         366, False),  # Gear: buki_get #71 [47h] { Yuna [01h], Armor {HP +10% [8073h], Empty} }
     ("Home: Keyakku, on Ground (NPC)",                                                              367, False),  # Item: 2x Hi-Potion [2001h]
-    # ("MRR: Valley - Code VICTORIOUS",                                                             368, False),  # Gear: buki_get #72 [48h] { Rikku [06h], Armor {Lightningproof [8028h], Fireproof [8020h], Iceproof [8024h], Empty} }
-    # ("Besaid: Besaid Ruins - Code MURASAME",                                                      369, False),  # Gear: buki_get #73 [49h] { Auron [02h], Weapon {Piercing [800Bh], One MP Cost [800Dh], Empty, Empty} }
+    #("MRR: Valley - Code VICTORIOUS",                                                              368, False),  # Gear: buki_get #72 [48h] { Rikku [06h], Armor {Lightningproof [8028h], Fireproof [8020h], Iceproof [8024h], Empty} }
+    #("Besaid: Besaid Ruins - Code MURASAME",                                                       369, False),  # Gear: buki_get #73 [49h] { Auron [02h], Weapon {Piercing [800Bh], One MP Cost [800Dh], Empty, Empty} }
     ("Calm Lands: Speed Sphere x30 (Lose Aeon Fight)",                                              370, False),  # Item: 30x Speed Sphere [2048h]
     ("Defeat Belgemine Twice",                                                                      371, False),  # Key Item: Aeon's Soul [A01Fh]
     ("Moonflow: South Bank Road - Fight Belgemine (Win) (Event) (1)",                               372, False),  # Item: 2x Dragon Scale [2021h]
@@ -709,19 +709,19 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Besaid: Fayth Revisit - Northeast (Chest)",                                                   407, False),  # Item: 1x Elixir [2008h]
     ("Besaid: Fayth Revisit - Southwest (Chest)",                                                   408, False),  # Item: 1x Hi-Potion [2001h]
     ("Besaid: Fayth Revisit - Southeast (Chest)",                                                   409, False),  # Item: 2x Potion [2000h]
-    # ("S.S Liki: Potion (Yuna's suitcase)",                                                        410, False),  # Item: 1x Potion [2000h] # Definitely Yuna's Suitcase
-    # ("Treasure 411 (Trashed)",                                                                    411, False),  # Item: 1x Potion [2000h]
-    # ("Treasure 412 (Trashed)",                                                                    412, False),  # Item: 1x Potion [2000h]
-    # ("Treasure 413 (Trashed)",                                                                    413, False),  # Item: 1x Potion [2000h]
-    # ("Treasure 414 (Trashed)",                                                                    414, False),  # Item: 1x Potion [2000h]
-    # ("Treasure 415 (Trashed)",                                                                    415, False),  # Item: 1x Potion [2000h]
-    # ("Treasure 416 (Trashed)",                                                                    416, False),  # Item: 1x Potion [2000h]
+    #("S.S Liki: Potion (Yuna's suitcase)",                                                         410, False),  # Item: 1x Potion [2000h] # Definitely Yuna's Suitcase
+    #("Treasure 411 (Trashed)",                                                                     411, False),  # Item: 1x Potion [2000h]
+    #("Treasure 412 (Trashed)",                                                                     412, False),  # Item: 1x Potion [2000h]
+    #("Treasure 413 (Trashed)",                                                                     413, False),  # Item: 1x Potion [2000h]
+    #("Treasure 414 (Trashed)",                                                                     414, False),  # Item: 1x Potion [2000h]
+    #("Treasure 415 (Trashed)",                                                                     415, False),  # Item: 1x Potion [2000h]
+    #("Treasure 416 (Trashed)",                                                                     416, False),  # Item: 1x Potion [2000h]
     ("Calm Lands: 1st Chest in Chocobo Race",                                                       417, False),  # Item: 1x Elixir [2008h]
     ("Calm Lands: 2nd Chest in Chocobo Race",                                                       418, False),  # Item: 1x Megalixir [2009h]
     ("Calm Lands: 3rd Chest in Chocobo Race",                                                       419, False),  # Item: 60x Three Stars [2045h]
     ("Calm Lands: 4th Chest in Chocobo Race",                                                       420, False),  # Item: 30x Pendulum [2069h]
     ("Calm Lands: 5th Chest in Chocobo Race",                                                       421, False),  # Item: 30x Wings to Discovery [206Ch]
-    # ("Treasure 422",                                                                              422, False),  # Item: 1x Potion [2000h]
+    #("Treasure 422",                                                                               422, False),  # Item: 1x Potion [2000h]
     ("Mi'ihen: Agency - Green NPC After Resting (Event)",                                           423, False),  # Item: 1x Lv. 1 Key Sphere [2051h]
     ("Monster Arena: Capture Every Besaid Fiend (Chest)",                                           424, False),  # Item: 99x Stamina Tonic [2043h]
     ("Monster Arena: Capture Every Kilika Fiend (Chest)",                                           425, False),  # Item: 99x Poison Fang [202Dh]
