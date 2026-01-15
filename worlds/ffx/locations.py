@@ -303,11 +303,11 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Baaj: Submerged Ruins - Northwest Structure (Chest)",                                           1, False),  # Item: 2x Potion [2000h]
     ("Baaj: Stairs - Flowers in Sconce on Right Wall, North End (Event)",                             2, False),  # Key Item: Withered Bouquet [A000h]
     ("Baaj: Small Room - Flint Inside Desk (Event)",                                                  3, False),  # Key Item: Flint [A001h]
-    ("Treasure 4 (Potentially Trashed Chest)",                                                        4, False),  # Gear: buki_get #2 [02h] { Yuna [01h], Weapon {One MP Cost [800Dh], Empty, Empty, Empty} } SHOULD GET COMMENTED OUT
+    #("Treasure 4 (Potentially Trashed Chest)",                                                        4, False),  # Gear: buki_get #2 [02h] { Yuna [01h], Weapon {One MP Cost [800Dh], Empty, Empty, Empty} }
     ("Baaj: Underwater Hall - South Side Hidden Under Rocks (Chest)",                                 5, False),  # Gear: buki_get #3 [03h] { Lulu [05h], Weapon Formula=Celestial MP-based [12h] {No AP [8014h], Empty, Empty, Empty} }
     ("Baaj: Stairs - South End (Chest)",                                                              6, False),  # Item: 1x Ether [2004h]
     ("Baaj: Hall - North exit from Stairs, East End (Chest)",                                         7, False),  # Item: 1x Hi-Potion [2001h]
-    ("Treasure 8 (Potentially Trashed Chest)",                                                        8, False),  # Item: 1x Phoenix Down [2006h] SHOULD GET COMMENTED OUT
+    #("Treasure 8 (Potentially Trashed Chest)",                                                        8, False),  # Item: 1x Phoenix Down [2006h]
     ("Besaid: Beach - West Near Huts (Chest)",                                                        9, False),  # Item: 2x Antidote [200Ah]
     #("Treasure 10 (Potentially Trashed Chest)",                                                     10, False),  # Gil: 200 [02h]
     #("Treasure 11 (Potentially Trashed Chest)",                                                     11, False),  # Gear: buki_get #4 [04h] { Tidus [00h], Weapon {Firestrike [801Eh]} }
@@ -329,7 +329,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Kilika: Woods - East of First Intersection (Chest)",                                           27, False),  # Item: 2x Mana Sphere [2047h]
     ("Kilika: Woods - West of First Intersection, First North Fork (Chest)",                         28, False),  # Gear: buki_get #8 [08h] { Wakka [04h], Weapon {Icestrike [8022h], Sensor [8000h]} }
     ("Kilika: Woods - Path North of Lord Ochu, Curving West (Chest)",                                29, False),  # Item: 1x Luck Sphere [205Eh]
-    ("Kilika: NulBlaze Shield (Woman NPC after defeating Lord Ochu)",                                30, False),  # Gear: buki_get #9 [09h] { Tidus [00h], Armor {SOS NulBlaze [8061h]} } SHOULD GET COMMENTED OUT
+    #("Kilika: NulBlaze Shield (Woman NPC after defeating Lord Ochu)",                               30, False),  # Gear: buki_get #9 [09h] { Tidus [00h], Armor {SOS NulBlaze [8061h]} } COMMENT OUT??
     ("S.S. Winno: Cabin - Left, Between Aurochs and Goers (Chest)",                                  31, False),  # Item: 1x Hi-Potion [2001h]
     ("Luca: Dock 2 - Left Side (Chest)",                                                             32, False),  # Item: 2x Phoenix Down [2006h]
     ("Luca: Dock 1 - Right Side (Chest)",                                                            33, False),  # Gil: 600 [06h]
@@ -392,7 +392,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Besaid: Valley - South of Spawn, Right Side (Chest)",                                          90, False),  # Item: 1x Phoenix Down [2006h]
     ("Besaid: Valley - South Side, Hidden Behind Right Wall (Chest)",                                91, False),  # Item: 1x Hi-Potion [2001h]
     ("Besaid: Valley - East Side, Right of Path (Chest)",                                            92, False),  # Item: 2x Antidote [200Ah]
-    ("Luca: Cafe - Talk to Owner After Placing at Least Third in a Tournament (Chest)",              93,False),  # Gear: buki_get #26 [1Ah] { Wakka [04h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
+    ("Luca: Cafe - Talk to Owner After Placing at Least Third in a Tournament (Chest)",              93, False),  # Gear: buki_get #26 [1Ah] { Wakka [04h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
     ("Mi'ihen: North End - Donate 100 (NPC)",                                                        94, False),  # Gear: buki_get #27 [1Bh] { Wakka [04h], Weapon {Sensor [8000h]} }
     ("Mi'ihen: North End - Donate 1000 (NPC)",                                                       95, False),  # Gear: buki_get #28 [1Ch] { Kimahri [03h], Weapon {Piercing [800Bh], Icestrike [8022h]} }
     ("Mi'ihen: North End - Donate 10000 (NPC)",                                                      96, False),  # Gear: buki_get #29 [1Dh] { Yuna [01h], Armor {SOS Shell [8059h], SOS Protect [805Ah]} }
@@ -513,7 +513,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Bikanel: Desert, East - Near First Tent, Left (Chest)",                                       211, False),  # Item: 8x Al Bhed Potion [2014h]
     ("Bikanel: Desert, Central - Right of Save Sphere (Chest)",                                     212, False),  # Item: 8x Al Bhed Potion [2014h]
     ("Baaj: Hall - South Side of East Door (Chest)",                                                213, False),  # Item: 1x X-Potion [2002h]
-    ("MRR: Code GODHAND",                                                                           214, False),  # Gear: buki_get #61 [3Dh] { Rikku [06h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} } SHOULD GET COMMENTED OUT UNTIL CODES ARE INCORPORATED
+    #("MRR: Code GODHAND",                                                                          214, False),  # Gear: buki_get #61 [3Dh] { Rikku [06h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} } UNCOMMENT WHEN CODES ARE INCORPORATED
     ("Besaid: Village - Behind Shop, Middle (Chest)",                                               215, False),  # Gil: 400 [04h]
     ("Besaid: Village - Behind Shop, Top (Chest)",                                                  216, False),  # Item: 2x Potion [2000h]
     ("Bevelle: Cloister - End (Chest)",                                                             217, False),  # Item: 1x HP Sphere [2055h]
@@ -632,7 +632,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Omega Ruins: Press Both Glyphs, Then Take Narrow Central Path (Chest)",                       330, False),  # Item: 1x Teleport Sphere [2062h]
     ("Omega Ruins: Zone After Ultima, West Path (Chest)",                                           331, False),  # Item: 1x Friend Sphere [2061h]
     ("Omega Ruins: Omega Boss Arena (Chest)",                                                       332, False),  # Item: 1x Magic Sphere [2059h]
-    ("Treasure 333 (Old Entry?)",                                                                   333, False),  # Key Item: Blossom Crown [A032h] SHOULD GET COMMENTED OUT
+    #("Treasure 333 (Old Entry?)",                                                                  333, False),  # Key Item: Blossom Crown [A032h]
     ("Calm Lands: Remiem Temple - Defeat Bahamut (Boss)",                                           334, False),  # Key Item: Flower Scepter [A033h]
     #("Treasure 335 (Trashed)",                                                                     335, False),  # Item: 1x Potion [2000h]
     ("S.S. Liki: Clasko, After Breeder Encouragement in Macalania (Event)",                         336, False),  # Item: 1x Friend Sphere [2061h] # Talk to Clasko before Crawler and make sure to have him become a Chocobo Breeder
@@ -667,8 +667,8 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("S.S. Winno: Deck - Top Floor, Counting Gulls (NPC)",                                          365, False),  # Gear: buki_get #70 [46h] { Wakka [04h], Weapon {Magic +20% [8069h], Magic +10% [8068h], Magic +5% [8067h], Magic +3% [8066h]} }
     ("Mi'ihen: South End - Fight Belgemine (Lose) (Event)",                                         366, False),  # Gear: buki_get #71 [47h] { Yuna [01h], Armor {HP +10% [8073h], Empty} }
     ("Home: Keyakku, on Ground (NPC)",                                                              367, False),  # Item: 2x Hi-Potion [2001h]
-    ("MRR: Valley - Code VICTORIOUS",                                                               368, False),  # Gear: buki_get #72 [48h] { Rikku [06h], Armor {Lightningproof [8028h], Fireproof [8020h], Iceproof [8024h], Empty} } SHOULD GET COMMENTED OUT UNTIL CODES ARE INCORPORATED
-    ("Besaid: Besaid Ruins - Code MURASAME",                                                        369, False),  # Gear: buki_get #73 [49h] { Auron [02h], Weapon {Piercing [800Bh], One MP Cost [800Dh], Empty, Empty} } SHOULD GET COMMENTED OUT UNTIL CODES ARE INCORPORATED
+    #("MRR: Valley - Code VICTORIOUS",                                                              368, False),  # Gear: buki_get #72 [48h] { Rikku [06h], Armor {Lightningproof [8028h], Fireproof [8020h], Iceproof [8024h], Empty} } UNCOMMENT WHEN CODES ARE INCORPORATED
+    #("Besaid: Besaid Ruins - Code MURASAME",                                                       369, False),  # Gear: buki_get #73 [49h] { Auron [02h], Weapon {Piercing [800Bh], One MP Cost [800Dh], Empty, Empty} } UNCOMMENT WHEN CODES ARE INCORPORATED
     ("Calm Lands: Speed Sphere x30 (Lose Aeon Fight)",                                              370, False),  # Item: 30x Speed Sphere [2048h]
     ("Defeat Belgemine Twice",                                                                      371, False),  # Key Item: Aeon's Soul [A01Fh]
     ("Moonflow: South Bank Road - Fight Belgemine (Win) (Event) (1)",                               372, False),  # Item: 2x Dragon Scale [2021h]
@@ -698,12 +698,12 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Home: Living Quarters, East of Main Corridor - Password (Chest)",                             396, False),  # Item: 1x Special Sphere [204Ch]
     ("Home: Living Quarters, South of Main Corridor - Vocabulary Test (Chest)",                     397, False),  # Item: 1x Friend Sphere [2061h]
     ("Home: Living Quarters, South of Main Corridorh - What do I contain? (Chest)",                 398, False),  # Item: 1x Elixir [2008h]
-    ("Treasure 399 (Trashed)",                                                                      399, False),  # Item: 1x Hi-Potion [2001h] SHOULD GET COMMENTED OUT
-    ("Treasure 400 (Trashed)",                                                                      400, False),  # Item: 1x Mega-Potion [2003h] SHOULD GET COMMENTED OUT
-    ("Treasure 401 (Trashed)",                                                                      401, False),  # Item: 1x Soft [200Bh] SHOULD GET COMMENTED OUT
-    ("Treasure 402 (Trashed)",                                                                      402, False),  # Item: 1x Potion [2000h] SHOULD GET COMMENTED OUT
-    ("Treasure 403 (Trashed)",                                                                      403, False),  # Item: 1x Remedy [200Fh] SHOULD GET COMMENTED OUT
-    ("Treasure 404 (Trashed)",                                                                      404, False),  # Item: 2x Potion [2000h] SHOULD GET COMMENTED OUT
+    #("Treasure 399 (Trashed)",                                                                     399, False),  # Item: 1x Hi-Potion [2001h] 
+    #("Treasure 400 (Trashed)",                                                                     400, False),  # Item: 1x Mega-Potion [2003h] 
+    #("Treasure 401 (Trashed)",                                                                     401, False),  # Item: 1x Soft [200Bh] 
+    #("Treasure 402 (Trashed)",                                                                     402, False),  # Item: 1x Potion [2000h]
+    #("Treasure 403 (Trashed)",                                                                     403, False),  # Item: 1x Remedy [200Fh]
+    #("Treasure 404 (Trashed)",                                                                     404, False),  # Item: 2x Potion [2000h]
     ("Airship: Collect All Primers, Talk to Rin (NPC)",                                             405, False),  # Item: 99x Underdog's Secret [206Eh]
     ("Besaid: Fayth Revisit - Northwest (Chest)",                                                   406, False),  # Item: 1x Wht Magic Sphere [204Eh]
     ("Besaid: Fayth Revisit - Northeast (Chest)",                                                   407, False),  # Item: 1x Elixir [2008h]
@@ -795,7 +795,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Inside Sin: Wicked Cait Sith (Point of No Return)",                                           493, False),  # Gear: buki_get #84 [54h] { Lulu [05h], Weapon {Deathstrike [802Eh], Empty, Empty, Empty} }
     ("Inside Sin: Attribute Sphere x1 (Point of No Return)",                                        494, False),  # Item: 1x Attribute Sphere [204Bh]
     ("Inside Sin: Hrunting (Point of No Return)",                                                   495, False),  # Gear: buki_get #85 [55h] { Tidus [00h], Weapon {SOS Overdrive [8010h]} }
-    ("Mark of Conquest",                                                                            496, False),  # Key Item: Mark of Conquest [A029h]
+    ("Monster Arena: Defeat Nemesis",                                                               496, False),  # Key Item: Mark of Conquest [A029h]
     ("Luca: Win the Story Blitzball Tournament (Event)",                                            497, False),  # Item: 1x Strength Sphere [2057h]
 ]]
 
