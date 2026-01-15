@@ -304,14 +304,14 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Baaj: Stairs - Flowers in Sconce on Right Wall, North End (Event)",                             2, False),  # Key Item: Withered Bouquet [A000h]
     ("Baaj: Small Room - Flint Inside Desk (Event)",                                                  3, False),  # Key Item: Flint [A001h]
     #("Treasure 4 (Potentially Trashed Chest)",                                                       4, False),  # Gear: buki_get #2 [02h] { Yuna [01h], Weapon {One MP Cost [800Dh], Empty, Empty, Empty} }
-    ("Baaj: Underwater Hall - South SIde Hidden Under Rocks (Chest)",                                 5, False),  # Gear: buki_get #3 [03h] { Lulu [05h], Weapon Formula=Celestial MP-based [12h] {No AP [8014h], Empty, Empty, Empty} }
+    ("Baaj: Underwater Hall - South Side Hidden Under Rocks (Chest)",                                 5, False),  # Gear: buki_get #3 [03h] { Lulu [05h], Weapon Formula=Celestial MP-based [12h] {No AP [8014h], Empty, Empty, Empty} }
     ("Baaj: Stairs - South End (Chest)",                                                              6, False),  # Item: 1x Ether [2004h]
     ("Baaj: Hall - North exit from Stairs, East End (Chest)",                                         7, False),  # Item: 1x Hi-Potion [2001h]
     #("Treasure 8 (Potentially Trashed Chest)",                                                       8, False),  # Item: 1x Phoenix Down [2006h]
     ("Besaid: Beach - West Near Huts (Chest)",                                                        9, False),  # Item: 2x Antidote [200Ah]
-    # ("Treasure 10 (Potentially Trashed Chest)",                                                    10, False),  # Gil: 200 [02h]
-    # ("Treasure 11 (Potentially Trashed Chest)",                                                    11, False),  # Gear: buki_get #4 [04h] { Tidus [00h], Weapon {Firestrike [801Eh]} }
-    # ("Treasure 12 (Potentially Trashed Chest)",                                                    12, False),  # Item: 1x Potion [2000h]
+    #("Treasure 10 (Potentially Trashed Chest)",                                                     10, False),  # Gil: 200 [02h]
+    #("Treasure 11 (Potentially Trashed Chest)",                                                     11, False),  # Gear: buki_get #4 [04h] { Tidus [00h], Weapon {Firestrike [801Eh]} }
+    #("Treasure 12 (Potentially Trashed Chest)",                                                     12, False),  # Item: 1x Potion [2000h]
     ("Besaid: Village - Front of Shop (Chest)",                                                      13, False),  # Item: 1x Phoenix Down [2006h]
     ("Besaid: Village - Behind Shop, Bottom (Chest)",                                                14, False),  # Item: 1x Hi-Potion [2001h]
     ("Besaid: Cloister - Destruction Sphere (Chest)",                                                15, False),  # Gear: buki_get #5 [05h] { Yuna [01h], Weapon {Magic +5% [8067h], !Magic +3% [8066h], !Sensor [8000h]} }
@@ -398,7 +398,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Mi'ihen: North End - Donate 10000 (NPC)",                                                      96, False),  # Gear: buki_get #29 [1Dh] { Yuna [01h], Armor {SOS Shell [8059h], SOS Protect [805Ah]} }
     ("Mi'ihen: Agency - Exit After Resting (Event) (1)",                                             97, False),  # Item: 2x Mega-Potion [2003h]
     ("MRR: Aftermath - Under Overhang, West Side (Chest)",                                           98, False),  # Item: 1x Hi-Potion [2001h]
-    ("MRR: Second Visit - Up Elevator in West Alcove, North Side (Event)",                           99, False),  # Gear: buki_get #30 [1Eh] { Auron [02h], Weapon Formula=Celestial Auron [13h] {No AP [8014h], Empty, Empty, Empty} }
+    #("MRR: Second Visit - Up Elevator in West Alcove, North Side (Event)",                          99, False),  # Gear: buki_get #30 [1Eh] { Auron [02h], Weapon Formula=Celestial Auron [13h] {No AP [8014h], Empty, Empty, Empty} }
     ("Bevelle: Underwater After Evrae Altana, Right Side After First Turn (Chest)",                 100, False),  # Gear: buki_get #31 [1Fh] { Tidus [00h], Weapon {Counterattack [8003h]} }
     ("Bevelle: Underwater After Evrae Altana, Right Side Before First Turn (Chest)",                101, False),  # Gear: buki_get #32 [20h] { Wakka [04h], Weapon {Evade & Counter [8004h]} }
     ("Bevelle: Cloister - Left of Exit, 2 Bevelle Spheres Required (Chest)",                        102, False),  # Gear: buki_get #33 [21h] { Kimahri [03h], Weapon {Strength +3% [8062h], Strength +5% [8063h], Strength +10% [8064h]} }
@@ -513,7 +513,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Bikanel: Desert, East - Near First Tent, Left (Chest)",                                       211, False),  # Item: 8x Al Bhed Potion [2014h]
     ("Bikanel: Desert, Central - Right of Save Sphere (Chest)",                                     212, False),  # Item: 8x Al Bhed Potion [2014h]
     ("Baaj: Hall - South Side of East Door (Chest)",                                                213, False),  # Item: 1x X-Potion [2002h]
-    ("MRR: Code GODHAND",                                                                           214, False),  # Gear: buki_get #61 [3Dh] { Rikku [06h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
+    # ("MRR: Code GODHAND",                                                                           214, False),  # Gear: buki_get #61 [3Dh] { Rikku [06h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
     ("Besaid: Village - Behind Shop, Middle (Chest)",                                               215, False),  # Gil: 400 [04h]
     ("Besaid: Village - Behind Shop, Top (Chest)",                                                  216, False),  # Item: 2x Potion [2000h]
     ("Bevelle: Cloister - End (Chest)",                                                             217, False),  # Item: 1x HP Sphere [2055h]
@@ -667,8 +667,8 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("S.S. Winno: Deck - Top Floor, Counting Gulls (NPC)",                                          365, False),  # Gear: buki_get #70 [46h] { Wakka [04h], Weapon {Magic +20% [8069h], Magic +10% [8068h], Magic +5% [8067h], Magic +3% [8066h]} }
     ("Mi'ihen: South End - Fight Belgemine (Lose) (Event)",                                         366, False),  # Gear: buki_get #71 [47h] { Yuna [01h], Armor {HP +10% [8073h], Empty} }
     ("Home: Keyakku, on Ground (NPC)",                                                              367, False),  # Item: 2x Hi-Potion [2001h]
-    ("MRR: Valley - Code VICTORIOUS",                                                               368, False),  # Gear: buki_get #72 [48h] { Rikku [06h], Armor {Lightningproof [8028h], Fireproof [8020h], Iceproof [8024h], Empty} }
-    ("Besaid: Besaid Ruins - Code MURASAME",                                                        369, False),  # Gear: buki_get #73 [49h] { Auron [02h], Weapon {Piercing [800Bh], One MP Cost [800Dh], Empty, Empty} }
+    # ("MRR: Valley - Code VICTORIOUS",                                                             368, False),  # Gear: buki_get #72 [48h] { Rikku [06h], Armor {Lightningproof [8028h], Fireproof [8020h], Iceproof [8024h], Empty} }
+    # ("Besaid: Besaid Ruins - Code MURASAME",                                                      369, False),  # Gear: buki_get #73 [49h] { Auron [02h], Weapon {Piercing [800Bh], One MP Cost [800Dh], Empty, Empty} }
     ("Calm Lands: Speed Sphere x30 (Lose Aeon Fight)",                                              370, False),  # Item: 30x Speed Sphere [2048h]
     ("Defeat Belgemine Twice",                                                                      371, False),  # Key Item: Aeon's Soul [A01Fh]
     ("Moonflow: South Bank Road - Fight Belgemine (Win) (Event) (1)",                               372, False),  # Item: 2x Dragon Scale [2021h]
