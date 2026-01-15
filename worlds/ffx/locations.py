@@ -91,7 +91,7 @@ encounter_to_id = {
     "MRR: Defeat Dark Sandy (Superboss)"            : ["kino00_70", "kino01_70", "kino01_72", "kino05_70"],
     "MRR: Defeat Dark Cindy (Superboss)"            : ["kino00_70", "kino01_70", "kino01_71"],
     "Baaj: Defeat Geosgaeno (Boss)"                 : ["bjyt02_02"],
-    "Bikanel: Defeat Zu (Boss)"                    : ["bika00_10"],
+    "Bikanel: Defeat Zu (Boss)"                     : ["bika00_10"],
 }
 
 
@@ -145,7 +145,7 @@ FFXBossLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+BossOffs
     ("MRR: Defeat Dark Sandy (Superboss)",                     46, False),
     ("MRR: Defeat Dark Cindy (Superboss)",                     47, False),
     ("Baaj: Defeat Geosgaeno (Boss)",                          48, False),
-    ("Bikanel: Defeat Zu (Boss)",                             49, False),
+    ("Bikanel: Defeat Zu (Boss)",                              49, False),
 ]]
 
 FFXOverdriveLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+OverdriveOffset, *location) for location in [
@@ -366,7 +366,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Guadosalam: House - Back Wall (Chest)",                                                        64, False),  # Gil: 3000 [1Eh]
     ("Guadosalam: East of Mansion (Chest)",                                                          65, False),  # Item: 1x Mega-Potion [2003h]
     ("Guadosalam: Upper Level, South Side (Chest)",                                                  66, False),  # Item: 1x Elixir [2008h]
-    ("Macalania Woods: South - Near North Exit (Chest)",                                             67, False),  # Item: 2x Hi-Potion [2001h]
+    ("Guadosalam: Mansion, Entrance- Upper Level (Chest)",                                             67, False),  # Item: 2x Hi-Potion [2001h]
     ("Macalania Woods: South - Near North Exit (Chest)",                                             68, False),  # Gil: 2000 [14h]
     ("Macalania Woods: South - Hidden Behind Tree in Middle of S-Bend (Chest)",                      69, False),  # Gear: buki_get #20 [14h] { Lulu [05h], Weapon {Sleeptouch [803Fh]} }
     ("Macalania Woods: Central - Hidden Behind Tree Before Spiral Down (Chest)",                     70, False),  # Item: 3x Phoenix Down [2006h]
