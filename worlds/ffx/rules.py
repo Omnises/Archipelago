@@ -48,7 +48,7 @@ region_to_first_visit: dict[str, str] = {
 "Guadosalam":                 "Guadosalam 1st visit",
 "Thunder Plains":             "Thunder Plains 1st visit",
 "Macalania":                  "Macalania Woods 1st visit: Pre-Spherimorph",
-"Bikanel":                    "Bikanel 1st visit",
+"Bikanel":                    "Bikanel 1st visit: Pre-Zu",
 "Bevelle":                    "Bevelle 1st visit: Pre-Isaaru",
 "Calm Lands":                 "Calm Lands 1st visit: Pre-Defender X",
 "Cavern of the Stolen Fayth": "Cavern of the Stolen Fayth 1st visit",
