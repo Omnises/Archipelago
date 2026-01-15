@@ -456,16 +456,28 @@
   },
 
   {
-    "name": "Bikanel 1st visit",
+    "name": "Bikanel 1st visit: Pre-Zu",
     "id": 37,
-    "treasures": [346, 210, 347, 211, 348, 351, 350, 349, 212, 352, 354, 353, 358, 359, 355, 273, 356, 357],
+    "treasures": [346],
     "party_members": [],
     "bosses": [],
+    "overdrives": [],
+    "other": [],
+    "recruits": [],
+    "leads_to": [74],
+    "rules": ["Bikanel"]
+  },
+  {
+    "name": "Bikanel 1st visit: Post-Zu",
+    "id": 74,
+    "treasures": [210, 347, 211, 348, 351, 350, 349, 212, 352, 354, 353, 358, 359, 355, 273, 356, 357],
+    "party_members": [],
+    "bosses": [49],
     "overdrives": [],
     "other": [19, 18, 17],
     "recruits": [],
     "leads_to": [38],
-    "rules": ["Bikanel"]
+    "rules": []
   },
   {
     "name": "Home 1st visit",
