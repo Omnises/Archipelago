@@ -768,7 +768,7 @@
   {
     "name": "Zanarkand Ruins 1st visit: Pre-Spectral Keeper",
     "id": 170,
-    "treasures": [145, 146, 147, 148, 149, 150, 209],
+    "treasures": [145, 146, 147, 148, 149, 150],
     "party_members": [],
     "bosses": [],
     "overdrives": [],
@@ -804,7 +804,7 @@
   {
     "name": "Zanarkand Ruins 2nd visit",
     "id": 173,
-    "treasures": [],
+    "treasures": [209],
     "party_members": [],
     "bosses": [38],
     "overdrives": [],
