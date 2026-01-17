@@ -145,7 +145,7 @@ FFXBossLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+BossOffs
     ("MRR: Defeat Dark Sandy (Superboss)",                     46, False),
     ("MRR: Defeat Dark Cindy (Superboss)",                     47, False),
     ("Baaj: Defeat Geosgaeno (Boss)",                          48, False),
-    ("Bikanel: Defeat Zu (Boss)",                              49, False),
+    ("Bikanel: Defeat Zu (Boss)",                              84, False),
 ]]
 
 FFXOverdriveLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+OverdriveOffset, *location) for location in [
@@ -412,7 +412,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Bevelle: Via Purifico - East Room With Kimahri (Chest)",                                      110, False),  # Item: 1x Mega-Potion [2003h]
     ("Macalania Woods: Bring Cloudy Mirror to Celestial Flower (Event)",                            111, False),  # Key Item: Celestial Mirror [A003h]
     #("Treasure 112 (Trashed)",                                                                     112, False),  # Item: 1x Potion [2000h]
-    ("Monster Arena: Capture Every Calm Lands Fiend (Chest)",                                       113, False),  # Gear: buki_get #36 [24h] { Yuna [01h], Weapon Formula=Celestial MP-based [12h] {No AP [8014h], Empty, Empty, Empty} }
+    ("Monster Arena: Capture Every Calm Lands Fiend, Nirvana (Chest)",                                       113, False),  # Gear: buki_get #36 [24h] { Yuna [01h], Weapon Formula=Celestial MP-based [12h] {No AP [8014h], Empty, Empty, Empty} }
     ("Calm Lands: North - NW Corner, Blocked Until Winning Catcher Chocobo (Event)",                114, False),  # Gear: buki_get #37 [25h] { Tidus [00h], Weapon Formula=Celestial HP-based [11h] {No AP [8014h], Empty, Empty, Empty} }
     ("Calm Lands: South - Southeast Corner, Left (Chest)",                                          115, False),  # Gil: 10000 [64h]
     ("Calm Lands: South - Southeast Corner, Right (Chest)",                                         116, False),  # Gil: 5000 [32h]
