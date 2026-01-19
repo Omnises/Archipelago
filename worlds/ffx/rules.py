@@ -402,7 +402,7 @@ def set_rules(world: FFXWorld) -> None:
     boss = world.get_location(world.location_id_to_name[82 | BossOffset])
     add_rule(location, lambda state: state.can_reach_region("Mt. Gagazet 1st visit: Post-Seymour Flux", world.player))
     add_rule(boss, lambda state: state.can_reach_location(location.name, world.player))
-    add_rule(boss, ruleDict["Monster Arena: Shinryu"](world))
+    add_rule(boss, ruleDict[boss.name](world))
 
 
     # Nemesis requires killing all other creations
