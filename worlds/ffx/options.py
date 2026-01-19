@@ -11,6 +11,7 @@ class GoalRequirement(Choice):
     Party Members: Requires unlocking a number of party members (not counting Aeons).
     Party Members and Aeons: Requires unlocking a number of party members (including Aeons).
     Pilgrimage: Complete all required temples, and defeat the boss in Zanarkand Ruins.
+    Nemesis: Requires defeating Nemesis in the Monster Arena. Capture Sanity & Super Bosses must be enabled if this option is selected
     """
     display_name = "Goal Requirement"
     default = 0
@@ -18,6 +19,7 @@ class GoalRequirement(Choice):
     option_party_members = 1
     option_pilgrimage = 2
     option_party_members_and_aeons = 3
+    option_nemesis = 4
 
 
 class RequiredPartyMembers(Range):
@@ -66,6 +68,7 @@ class SphereGridRandomization(Choice):
 class SuperBosses(Toggle):
     """
     Sets whether super boss locations are included or not. If off they will only have filler items.
+    Monster Arena super boss locations are always excluded if Capture Sanity is not enabled.
     Default is off.
     """
     display_name = "Super Bosses"
@@ -84,12 +87,26 @@ class MiniGames(Toggle):
     option_off = 0
     option_on = 1
 
+
 class RecruitSanity(Toggle):
     """
     Sets whether Blitzball Free Agents are included or not. If off they will only have filler items.
     Default is off.
     """
     display_name = "Recruit Sanity"
+    default = 0
+    option_off = 0
+    option_on = 1
+
+
+class CaptureSanity(Toggle):
+    """
+    Sets whether Fiend Captures are included or not. If off they will only have filler items.
+    Includes a location for each unique capture, as well as each Monster Arena creation reward.
+    Monster Arena boss kill locations are always excluded if Super Bosses is not enabled.
+    Default is off.
+    """
+    display_name = "Capture Sanity"
     default = 0
     option_off = 0
     option_on = 1
@@ -126,5 +143,6 @@ class FFXOptions(PerGameCommonOptions):
     super_bosses: SuperBosses
     mini_games: MiniGames
     recruit_sanity: RecruitSanity
+    capture_sanity: CaptureSanity
     trap_percentage: TrapPercentage
     logic_difficulty: LogicDifficulty
