@@ -474,7 +474,7 @@
     "party_members": [],
     "bosses": [84],
     "overdrives": [],
-    "other": [19, 18, 17],
+    "other": [18, 17],
     "recruits": [],
     "leads_to": [112],
     "rules": ["Zu"]
@@ -486,7 +486,7 @@
     "party_members": [],
     "bosses": [],
     "overdrives": [],
-    "other": [21, 20],
+    "other": [19, 21, 20],
     "recruits": [],
     "leads_to": [113],
     "rules": []

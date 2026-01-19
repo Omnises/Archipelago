@@ -151,52 +151,52 @@ ruleDict: dict[str, Callable[[FFXWorld], CollectionRule]] = {
     "Omega Weapon":        lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
     "Geosgaeno":           lambda world: lambda state: create_level_rule(world, 15)(state) and create_min_swimmers_rule(world, 3)(state),
 
-    "Dark Valefor":        lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state) and state.has("Party Member: Yuna", world.player),
-    "Dark Ifrit":          lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
-    "Dark Ixion":          lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
-    "Dark Shiva":          lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
-    "Dark Bahamut":        lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
-    "Dark Anima":          lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
-    "Dark Yojimbo":        lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
-    "Dark Magus Sisters":  lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "Besaid: Defeat Dark Valefor (Superboss)":              lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state) and state.has("Party Member: Yuna", world.player),
+    "Bikanel: Defeat Dark Ifrit (Superboss)":               lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "Thunder Plains: Defeat Dark Ixion (Superboss)":        lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "Lake Macalania: Defeat Dark Shiva (Superboss)":        lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "Zanarkand: Defeat Dark Bahamut (Superboss)":           lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "Gagazet: Defeat Dark Anima (Superboss)":               lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "CotSF: Defeat Dark Yojimbo (Superboss)":               lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "MRR: Defeat Dark Mindy (Superboss)":                   lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
 
-    "Monster Arena: Stratoavis":          lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Malboro Menace":      lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Kottos":              lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Coeurlregina":        lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Jormungand":          lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Cactuar King":        lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Espada":              lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Abyss Worm":          lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Chimerageist":        lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Don Tonberry":        lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Catoblepas":          lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Abaddon":             lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Vorban":              lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Stratoavis (Superboss)":         lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Malboro Menace (Superboss)":     lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Kottos (Superboss)":             lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Coeurlregina (Superboss)":       lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Jormungand (Superboss)":         lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Cactuar King (Superboss)":       lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Espada (Superboss)":             lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Abyss Worm (Superboss)":         lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Chimerageist (Superboss)":       lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Don Tonberry (Superboss)":       lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Catoblepas (Superboss)":         lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Abaddon (Superboss)":            lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Vorban (Superboss)":             lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
 
-    "Monster Arena: Fenrir":              lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Ornitholestes":       lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Pteryx":              lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Hornet":              lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Vidatu":              lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: One-Eye":             lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Jumbo Flan":          lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Nega Elemental":      lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Tanket":              lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Fafnir":              lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Sleep Sprout":        lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Bomb King":           lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Juggernaut":          lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Ironclad":            lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Fenrir (Superboss)":             lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Ornitholestes (Superboss)":      lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Pteryx (Superboss)":             lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Hornet (Superboss)":             lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Vidatu (Superboss)":             lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat One-Eye (Superboss)":            lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Jumbo Flan (Superboss)":         lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Nega Elemental (Superboss)":     lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Tanket (Superboss)":             lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Fafnir (Superboss)":             lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Sleep Sprout (Superboss)":       lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Bomb King (Superboss)":          lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Juggernaut (Superboss)":         lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Ironclad (Superboss)":           lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
     
-    "Monster Arena: Earth Eater":         lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Greater Sphere":      lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Catastrophe":         lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Th'uban":             lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Neslug":              lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Ultima Buster":       lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
-    "Monster Arena: Shinryu":             lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_swimmers_rule(world, 3)(state),
-    "Monster Arena: Nemesis":             lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Earth Eater (Superboss)":        lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Greater Sphere (Superboss)":     lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Catastrophe (Superboss)":        lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Th'uban (Superboss)":            lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Neslug (Superboss)":             lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Ultima Buster (Superboss)":      lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "Monster Arena: Defeat Shinryu (Superboss)":            lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_swimmers_rule(world, 3)(state),
+    "Monster Arena: Defeat Nemesis (Superboss)":            lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
 
     "Baaj Temple":                lambda world: create_region_access_rule(world, "Baaj Temple"), # lambda state: state.has("Region: Baaj Temple", world.player),
     "Besaid":                     lambda world: create_region_access_rule(world, "Besaid"),
@@ -254,20 +254,20 @@ def set_rules(world: FFXWorld) -> None:
 
     ## Dark Aeons
     dark_aeons = [
-        ( 2, "Dark Valefor"      ),  # "Besaid: Dark Valefor
-        (13, "Dark Ifrit"        ),  # "Thunder Plains: Dark Ixion
-        (18, "Dark Ixion"        ),  # "Lake Macalania: Dark Shiva
-        (19, "Dark Shiva"        ),  # "Bikanel: Dark Ifrit
-        (31, "Dark Bahamut"      ),  # "Cavern of the Stolen Fayth: Dark Yojimbo
-        (34, "Dark Anima"        ),  # "Gagazet (Outside): Dark Anima
-        (38, "Dark Yojimbo"      ),  # "Zanarkand: Dark Bahamut
-        (45, "Dark Magus Sisters"),  # "Mushroom Rock Road: Dark Mindy
-        (46, "Dark Magus Sisters"),  # "Mushroom Rock Road: Dark Sandy
-        (47, "Dark Magus Sisters"),  # "Mushroom Rock Road: Dark Cindy
+         2,  # "Besaid: Dark Valefor
+        13,  # "Thunder Plains: Dark Ixion
+        18,  # "Lake Macalania: Dark Shiva
+        19,  # "Bikanel: Dark Ifrit
+        31,  # "Cavern of the Stolen Fayth: Dark Yojimbo
+        34,  # "Gagazet (Outside): Dark Anima
+        38,  # "Zanarkand: Dark Bahamut
+        45,  # "Mushroom Rock Road: Dark Mindy
+        46,  # "Mushroom Rock Road: Dark Sandy
+        47,  # "Mushroom Rock Road: Dark Cindy
     ]
-    for location_id, aeon in dark_aeons:
-        add_rule(world.get_location(world.location_id_to_name[location_id | BossOffset]),
-                 ruleDict[aeon](world))
+    for boss_id in dark_aeons:
+        boss = world.get_location(world.location_id_to_name[boss_id | BossOffset])
+        add_rule(boss, ruleDict[boss.name](world))
 
     ## Aeons
     # Anima
