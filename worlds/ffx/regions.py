@@ -120,7 +120,7 @@ def create_regions(world: FFXWorld, player) -> None:
     9: "Mi'ihen Highroad 1st visit: Pre-Chocobo Eater",     # Mi'ihen Fang
     10: "Djose 1st visit",                                  # Garm
     11: "Lake Macalania 1st visit: Pre-Crawler",            # Snow Wolf
-    12: "Bikanel 1st visit",                                # Sand Wolf
+    12: "Bikanel 1st visit: Post-Zu",                       # Sand Wolf
     13: "Calm Lands 1st visit: Pre-Defender X",             # Skoll
     14: "Mt. Gagazet 1st visit: Post-Biran and Yenke",      # Bandersnatch
     15: "Besaid Island 1st visit",                          # Water Flan
@@ -137,7 +137,7 @@ def create_regions(world: FFXWorld, player) -> None:
     26: "Cavern of the Stolen Fayth 1st visit",             # Yowie
     27: "Besaid Island 1st visit",                          # Condor
     28: "Djose 1st visit",                                  # Simurgh
-    29: "Bikanel 1st visit",                                # Alcyone
+    29: "Bikanel 1st visit: Post-Zu",                       # Alcyone
     30: "Kilika 1st visit: Pre-Geneaux",                    # Killer Bee
     31: "Djose 1st visit",                                  # Bite Bug
     32: "Macalania Woods 1st visit: Pre-Spherimorph",       # Wasp
@@ -149,8 +149,8 @@ def create_regions(world: FFXWorld, player) -> None:
     38: "Kilika 1st visit: Pre-Geneaux",                    # Ragora
     39: "Mt. Gagazet 1st visit: Post-Biran and Yenke",      # Grat
     40: "Mushroom Rock Road 1st visit: Pre-Sinspawn Gui",   # Garuda
-    41: "Bikanel 1st visit",                                # Zu
-    42: "Bikanel 1st visit",                                # Sand Worm
+    41: "Bikanel 1st visit: Post-Zu",                       # Zu
+    42: "Bikanel 1st visit: Post-Zu",                       # Sand Worm
   # 43: "Unused Arena Index",
     44: "Cavern of the Stolen Fayth 1st visit",             # Ghost
     45: "Mt. Gagazet 1st visit: Post-Seymour Flux",         # Achelous
@@ -161,7 +161,7 @@ def create_regions(world: FFXWorld, player) -> None:
     50: "Mi'ihen Highroad 1st visit: Post-Chocobo Eater",   # Vouivre
     51: "Mushroom Rock Road 1st visit: Pre-Sinspawn Gui",   # Lamashtuv
     52: "Thunder Plains 1st visit",                         # Kusariqqu
-    53: "Bikanel 1st visit",                                # Mushussu
+    53: "Bikanel 1st visit: Post-Zu",                       # Mushussu
     54: "Cavern of the Stolen Fayth 1st visit",             # Nidhogg
     55: "Calm Lands 1st visit: Pre-Defender X",             # Malboro
     56: "Sin: Post-Seymour Omnis",                          # Great Malboro
@@ -196,7 +196,7 @@ def create_regions(world: FFXWorld, player) -> None:
     85: "Mi'ihen Highroad 1st visit: Pre-Chocobo Eater",    # Bomb
     86: "Mt. Gagazet 1st visit: Post-Biran and Yenke",      # Grenade
     87: "Thunder Plains 1st visit",                         # Qactuar
-    88: "Bikanel 1st visit",                                # Cactuar
+    88: "Bikanel 1st visit: Post-Zu",                       # Cactuar
     89: "Thunder Plains 1st visit",                         # Larva
     90: "Sin: Post-Seymour Omnis",                          # Barbatos
     91: "Mushroom Rock Road 1st visit: Pre-Sinspawn Gui",   # Funguar
