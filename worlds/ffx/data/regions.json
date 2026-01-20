@@ -18,9 +18,9 @@
     "party_members": [],
     "bosses": [1],
     "overdrives": [],
-    "other": [1],
+    "other": [],
     "recruits": [],
-    "leads_to": [2],
+    "leads_to": [2, 1000],
     "rules": []
   },
   {
@@ -55,9 +55,9 @@
     "party_members": [3],
     "bosses": [3, 4],
     "overdrives": [],
-    "other": [3],
+    "other": [],
     "recruits": [],
-    "leads_to": [12],
+    "leads_to": [12, 1001],
     "rules": ["Sin Fin", "Sinspawn Echuilles"]
   },
   {
@@ -117,9 +117,9 @@
     "party_members": [],
     "bosses": [],
     "overdrives": [],
-    "other": [5, 36],
+    "other": [36],
     "recruits": [5],
-    "leads_to": [23],
+    "leads_to": [23, 1002],
     "rules": []
   },
   {
@@ -205,7 +205,7 @@
     "overdrives": [],
     "other": [9],
     "recruits": [],
-    "leads_to": [42],
+    "leads_to": [42, 1005],
     "rules": ["Chocobo Eater"]
   },
   {
@@ -230,7 +230,7 @@
     "overdrives": [],
     "other": [10],
     "recruits": [],
-    "leads_to": [51],
+    "leads_to": [51, 1005],
     "rules": ["Mushroom Rock Road"]
   },
   {
@@ -352,9 +352,9 @@
     "party_members": [],
     "bosses": [],
     "overdrives": [],
-    "other": [14],
+    "other": [],
     "recruits": [9],
-    "leads_to": [91],
+    "leads_to": [91, 1004],
     "rules": ["Thunder Plains"]
   },
   {
@@ -464,7 +464,7 @@
     "overdrives": [],
     "other": [],
     "recruits": [],
-    "leads_to": [111],
+    "leads_to": [111, 1000],
     "rules": ["Bikanel"]
   },
   {
@@ -476,7 +476,7 @@
     "overdrives": [],
     "other": [18, 17],
     "recruits": [],
-    "leads_to": [112],
+    "leads_to": [112, 1001, 1002, 1003],
     "rules": ["Zu"]
   },
   {
@@ -684,7 +684,7 @@
     "overdrives": [],
     "other": [25],
     "recruits": [],
-    "leads_to": [151],
+    "leads_to": [151, 1006],
     "rules": ["Cavern of the Stolen Fayth"]
   },
 
@@ -737,7 +737,7 @@
     "overdrives": [],
     "other": [35],
     "recruits": [],
-    "leads_to": [162],
+    "leads_to": [162, 1006],
     "rules": ["Biran and Yenke"]
   },
   {
@@ -749,7 +749,7 @@
     "overdrives": [],
     "other": [],
     "recruits": [],
-    "leads_to": [163],
+    "leads_to": [163, 1007],
     "rules": ["Seymour Flux"]
   },
   {
@@ -774,7 +774,7 @@
     "overdrives": [],
     "other": [],
     "recruits": [],
-    "leads_to": [171],
+    "leads_to": [171, 1007],
     "rules": ["Zanarkand Ruins"]
   },
   {
@@ -823,7 +823,7 @@
     "overdrives": [],
     "other": [],
     "recruits": [],
-    "leads_to": [181],
+    "leads_to": [181, 1008],
     "rules": ["Sin"]
   },
   {
@@ -835,7 +835,7 @@
     "overdrives": [],
     "other": [],
     "recruits": [],
-    "leads_to": [182],
+    "leads_to": [182, 1009],
     "rules": ["Seymour Omnis"]
   },
   {
@@ -860,7 +860,7 @@
     "overdrives": [],
     "other": [26],
     "recruits": [],
-    "leads_to": [191],
+    "leads_to": [191, 1008, 1009],
     "rules": ["Omega Ruins"]
   },
   {
@@ -886,5 +886,126 @@
     "recruits": [],
     "leads_to": [],
     "rules": ["Omega Weapon"]
+  },
+
+  {
+    "name": "Al Bhed Primer I",
+    "id": 1000,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [1],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
+  },
+  {
+    "name": "Al Bhed Primer III",
+    "id": 1001,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [3],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
+  },
+  {
+    "name": "Al Bhed Primer V",
+    "id": 1002,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [5],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
+  },
+  {
+    "name": "Al Bhed Primer XIV",
+    "id": 1003,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [14],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
+  },
+  {
+    "name": "Al Bhed Primer V",
+    "id": 1004,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [5],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
+  },
+  {
+    "name": "Oldroad & MRR",
+    "id": 1005,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
+  },
+  {
+    "name": "CotSF & Gagazet",
+    "id": 1006,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
+  },
+  {
+    "name": "Gagazet Cave & Zanarkand",
+    "id": 1007,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
+  },
+  {
+    "name": "Inside Sin & Omega Ruins",
+    "id": 1008,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
+  },
+  {
+    "name": "City of Dying Dreams & Omega Ruins",
+    "id": 1009,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
   }
 ]
