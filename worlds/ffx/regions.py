@@ -115,7 +115,7 @@ def create_regions(world: FFXWorld, player) -> None:
     4: "Calm Lands 1st visit: Pre-Defender X",              # Shred
     5: "Mushroom Rock Road 1st visit: Pre-Sinspawn Gui",    # Gandarewa
     6: "Thunder Plains 1st visit",                          # Aerouge
-    7: "Cavern of the Stolen Fayth 1st visit",              # Imp
+    7: "CotSF & Gagazet",                                   # Imp
     8: "Besaid Island 1st visit",                           # Dingo
     9: "Mi'ihen Highroad 1st visit: Pre-Chocobo Eater",     # Mi'ihen Fang
     10: "Djose 1st visit",                                  # Garm
@@ -130,7 +130,7 @@ def create_regions(world: FFXWorld, player) -> None:
     19: "Calm Lands 1st visit: Pre-Defender X",             # Flame Flan
     20: "Cavern of the Stolen Fayth 1st visit",             # Dark Element
     21: "Kilika 1st visit: Pre-Geneaux",                    # Dinonix
-    22: "Mi'ihen Highroad 1st visit: Post-Chocobo Eater",   # Ipiria
+    22: "Oldroad & MRR",                                    # Ipiria
     23: "Mushroom Rock Road 1st visit: Pre-Sinspawn Gui",   # Raptor
     24: "Thunder Plains 1st visit",                         # Melusine
     25: "Macalania Woods 1st visit: Pre-Spherimorph",       # Iguion
@@ -145,7 +145,7 @@ def create_regions(world: FFXWorld, player) -> None:
     34: "Mi'ihen Highroad 1st visit: Pre-Chocobo Eater",    # Floating Eye
     35: "Thunder Plains 1st visit",                         # Buer
     36: "Lake Macalania 1st visit: Pre-Crawler",            # Evil Eye
-    37: "Mt. Gagazet 1st visit: Post-Seymour Flux",         # Ahriman
+    37: "Gagazet Cave & Zanarkand",                         # Ahriman
     38: "Kilika 1st visit: Pre-Geneaux",                    # Ragora
     39: "Mt. Gagazet 1st visit: Post-Biran and Yenke",      # Grat
     40: "Mushroom Rock Road 1st visit: Pre-Sinspawn Gui",   # Garuda
@@ -157,14 +157,14 @@ def create_regions(world: FFXWorld, player) -> None:
     46: "Mt. Gagazet 1st visit: Post-Seymour Flux",         # Maelspike
     47: "Mi'ihen Highroad 1st visit: Pre-Chocobo Eater",    # Dual Horn
     48: "Cavern of the Stolen Fayth 1st visit",             # Valaha
-    49: "Mt. Gagazet 1st visit: Post-Seymour Flux",         # Grendel
-    50: "Mi'ihen Highroad 1st visit: Post-Chocobo Eater",   # Vouivre
+    49: "Gagazet Cave & Zanarkand",                         # Grendel
+    50: "Oldroad & MRR",                                    # Vouivre
     51: "Mushroom Rock Road 1st visit: Pre-Sinspawn Gui",   # Lamashtuv
     52: "Thunder Plains 1st visit",                         # Kusariqqu
     53: "Bikanel 1st visit: Post-Zu",                       # Mushussu
-    54: "Cavern of the Stolen Fayth 1st visit",             # Nidhogg
+    54: "CotSF & Gagazet",                                  # Nidhogg
     55: "Calm Lands 1st visit: Pre-Defender X",             # Malboro
-    56: "Sin: Post-Seymour Omnis",                          # Great Malboro
+    56: "City of Dying Dreams & Omega Ruins",               # Great Malboro
     57: "Calm Lands 1st visit: Pre-Defender X",             # Ogre
     58: "Mt. Gagazet 1st visit: Post-Biran and Yenke",      # Bashura
   # 59: "Unused Arena Index",
@@ -174,26 +174,26 @@ def create_regions(world: FFXWorld, player) -> None:
     63: "Mushroom Rock Road 1st visit: Pre-Sinspawn Gui",   # Red Element
     64: "Thunder Plains 1st visit",                         # Gold Element
     65: "Macalania Woods 1st visit: Pre-Spherimorph",       # Blue Element
-    66: "Mt. Gagazet 1st visit: Post-Seymour Flux",         # Dark Flan
+    66: "Gagazet Cave & Zanarkand",                         # Dark Flan
     67: "Omega Ruins: Pre-Ultima Weapon",                   # Black Element
     68: "Cavern of the Stolen Fayth 1st visit",             # Epaaj
-    69: "Mt. Gagazet 1st visit: Post-Seymour Flux",         # Behemoth
-    70: "Sin: Pre-Seymour Omnis",                           # Behemoth King
+    69: "Gagazet Cave & Zanarkand",                         # Behemoth
+    70: "Inside Sin & Omega Ruins",                         # Behemoth King
     71: "Macalania Woods 1st visit: Pre-Spherimorph",       # Chimera
     72: "Calm Lands 1st visit: Pre-Defender X",             # Chimera Brain
     73: "Calm Lands 1st visit: Pre-Defender X",             # Coeurl
     74: "Omega Ruins: Pre-Ultima Weapon",                   # Master Coeurl
-    75: "Sin: Post-Seymour Omnis",                          # Demonolith
+    75: "City of Dying Dreams & Omega Ruins",               # Demonolith
     76: "Thunder Plains 1st visit",                         # Iron Giant
-    77: "Sin: Pre-Seymour Omnis",                           # Gemini Sword
-    78: "Sin: Pre-Seymour Omnis",                           # Gemini Club
+    77: "Inside Sin & Omega Ruins",                         # Gemini Sword
+    78: "Inside Sin & Omega Ruins",                         # Gemini Club
     79: "Djose 1st visit",                                  # Basilisk
     80: "Calm Lands 1st visit: Pre-Defender X",             # Anacondaur
-    81: "Sin: Pre-Seymour Omnis",                           # Adamantoise
+    81: "Inside Sin & Omega Ruins",                         # Adamantoise
     82: "Omega Ruins: Pre-Ultima Weapon",                   # Varuna
     83: "Moonflow 1st visit: Pre-Extractor",                # Ochu
-    84: "Mt. Gagazet 1st visit: Post-Seymour Flux",         # Mandragora
-    85: "Mi'ihen Highroad 1st visit: Pre-Chocobo Eater",    # Bomb
+    84: "Gagazet Cave & Zanarkand",                         # Mandragora
+    85: "Oldroad & MRR",                                    # Bomb
     86: "Mt. Gagazet 1st visit: Post-Biran and Yenke",      # Grenade
     87: "Thunder Plains 1st visit",                         # Qactuar
     88: "Bikanel 1st visit: Post-Zu",                       # Cactuar
@@ -205,7 +205,7 @@ def create_regions(world: FFXWorld, player) -> None:
     94: "Macalania Woods 1st visit: Pre-Spherimorph",       # Xiphos
     95: "Omega Ruins: Pre-Ultima Weapon",                   # Puroboros
     96: "Omega Ruins: Pre-Ultima Weapon",                   # Spirit
-    97: "Sin: Post-Seymour Omnis",                          # Wraith    
+    97: "City of Dying Dreams & Omega Ruins",               # Wraith    
     98: "Cavern of the Stolen Fayth 1st visit",             # Tonberry
     99: "Omega Ruins: Pre-Ultima Weapon",                   # Master Tonberry
     100: "Omega Ruins: Pre-Ultima Weapon",                  # Zaurus
