@@ -159,6 +159,8 @@ ruleDict: dict[str, Callable[[FFXWorld], CollectionRule]] = {
     "Gagazet: Defeat Dark Anima (Superboss)":               lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
     "CotSF: Defeat Dark Yojimbo (Superboss)":               lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
     "MRR: Defeat Dark Mindy (Superboss)":                   lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "MRR: Defeat Dark Sandy (Superboss)":                   lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
+    "MRR: Defeat Dark Cindy (Superboss)":                   lambda world: lambda state: create_level_rule(world, 18)(state) and create_min_party_rule   (world, 3)(state),
 
     "Monster Arena: Defeat Stratoavis (Superboss)":         lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
     "Monster Arena: Defeat Malboro Menace (Superboss)":     lambda world: lambda state: create_level_rule(world, 17)(state) and create_min_party_rule   (world, 3)(state),
@@ -400,7 +402,7 @@ def set_rules(world: FFXWorld) -> None:
     boss = world.get_location(world.location_id_to_name[82 | BossOffset])
     add_rule(location, lambda state: state.can_reach_region("Mt. Gagazet 1st visit: Post-Seymour Flux", world.player))
     add_rule(boss, lambda state: state.can_reach_location(location.name, world.player))
-    add_rule(boss, ruleDict["Monster Arena: Shinryu"](world))
+    add_rule(boss, ruleDict[boss.name](world))
 
 
     # Nemesis requires killing all other creations
