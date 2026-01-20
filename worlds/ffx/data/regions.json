@@ -18,9 +18,9 @@
     "party_members": [],
     "bosses": [1],
     "overdrives": [],
-    "other": [1],
+    "other": [],
     "recruits": [],
-    "leads_to": [2],
+    "leads_to": [2, 1000],
     "rules": []
   },
   {
@@ -55,9 +55,9 @@
     "party_members": [3],
     "bosses": [3, 4],
     "overdrives": [],
-    "other": [3],
+    "other": [],
     "recruits": [],
-    "leads_to": [12],
+    "leads_to": [12, 1001],
     "rules": ["Sin Fin", "Sinspawn Echuilles"]
   },
   {
@@ -117,9 +117,9 @@
     "party_members": [],
     "bosses": [],
     "overdrives": [],
-    "other": [5, 36],
+    "other": [36],
     "recruits": [5],
-    "leads_to": [23],
+    "leads_to": [23, 1002],
     "rules": []
   },
   {
@@ -352,9 +352,9 @@
     "party_members": [],
     "bosses": [],
     "overdrives": [],
-    "other": [14],
+    "other": [],
     "recruits": [9],
-    "leads_to": [91],
+    "leads_to": [91, 1003],
     "rules": ["Thunder Plains"]
   },
   {
@@ -464,7 +464,7 @@
     "overdrives": [],
     "other": [],
     "recruits": [],
-    "leads_to": [111],
+    "leads_to": [111, 1000],
     "rules": ["Bikanel"]
   },
   {
@@ -476,7 +476,7 @@
     "overdrives": [],
     "other": [18, 17],
     "recruits": [],
-    "leads_to": [112],
+    "leads_to": [112, 1001, 1002, 1003],
     "rules": ["Zu"]
   },
   {
@@ -886,5 +886,54 @@
     "recruits": [],
     "leads_to": [],
     "rules": ["Omega Weapon"]
+  },
+
+  {
+    "name": "Al Bhed Primer I",
+    "id": 1000,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [1],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
+  },
+  {
+    "name": "Al Bhed Primer III",
+    "id": 1001,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [3],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
+  },
+  {
+    "name": "Al Bhed Primer V",
+    "id": 1002,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [5],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
+  },
+  {
+    "name": "Al Bhed Primer XIV",
+    "id": 1003,
+    "treasures": [],
+    "party_members": [],
+    "bosses": [],
+    "overdrives": [],
+    "other": [14],
+    "recruits": [],
+    "leads_to": [],
+    "rules": [""]
   }
 ]
