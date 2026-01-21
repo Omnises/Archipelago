@@ -205,7 +205,7 @@
     "overdrives": [],
     "other": [9],
     "recruits": [],
-    "leads_to": [42, 1005],
+    "leads_to": [42, 1004],
     "rules": ["Chocobo Eater"]
   },
   {
@@ -230,7 +230,7 @@
     "overdrives": [],
     "other": [10],
     "recruits": [],
-    "leads_to": [51, 1005],
+    "leads_to": [51, 1004],
     "rules": ["Mushroom Rock Road"]
   },
   {
@@ -684,7 +684,7 @@
     "overdrives": [],
     "other": [25],
     "recruits": [],
-    "leads_to": [151, 1006],
+    "leads_to": [151, 1005],
     "rules": ["Cavern of the Stolen Fayth"]
   },
 
@@ -737,7 +737,7 @@
     "overdrives": [],
     "other": [35],
     "recruits": [],
-    "leads_to": [162, 1006],
+    "leads_to": [162, 1005],
     "rules": ["Biran and Yenke"]
   },
   {
@@ -749,7 +749,7 @@
     "overdrives": [],
     "other": [],
     "recruits": [],
-    "leads_to": [163, 1007],
+    "leads_to": [163, 1006],
     "rules": ["Seymour Flux"]
   },
   {
@@ -774,7 +774,7 @@
     "overdrives": [],
     "other": [],
     "recruits": [],
-    "leads_to": [171, 1007],
+    "leads_to": [171, 1006],
     "rules": ["Zanarkand Ruins"]
   },
   {
@@ -823,7 +823,7 @@
     "overdrives": [],
     "other": [],
     "recruits": [],
-    "leads_to": [181, 1008],
+    "leads_to": [181, 1007],
     "rules": ["Sin"]
   },
   {
@@ -835,7 +835,7 @@
     "overdrives": [],
     "other": [],
     "recruits": [],
-    "leads_to": [182, 1009],
+    "leads_to": [182, 1008],
     "rules": ["Seymour Omnis"]
   },
   {
@@ -860,7 +860,7 @@
     "overdrives": [],
     "other": [26],
     "recruits": [],
-    "leads_to": [191, 1008, 1009],
+    "leads_to": [191, 1007, 1008],
     "rules": ["Omega Ruins"]
   },
   {
@@ -937,20 +937,8 @@
     "rules": [""]
   },
   {
-    "name": "Al Bhed Primer V",
-    "id": 1004,
-    "treasures": [],
-    "party_members": [],
-    "bosses": [],
-    "overdrives": [],
-    "other": [5],
-    "recruits": [],
-    "leads_to": [],
-    "rules": [""]
-  },
-  {
     "name": "Captures: Oldroad & MRR",
-    "id": 1005,
+    "id": 1004,
     "treasures": [],
     "party_members": [],
     "bosses": [],
@@ -962,7 +950,7 @@
   },
   {
     "name": "Captures: CotSF & Gagazet",
-    "id": 1006,
+    "id": 1005,
     "treasures": [],
     "party_members": [],
     "bosses": [],
@@ -974,7 +962,7 @@
   },
   {
     "name": "Captures: Gagazet Cave & Zanarkand",
-    "id": 1007,
+    "id": 1006,
     "treasures": [],
     "party_members": [],
     "bosses": [],
@@ -986,7 +974,7 @@
   },
   {
     "name": "Captures: Inside Sin & Omega Ruins",
-    "id": 1008,
+    "id": 1007,
     "treasures": [],
     "party_members": [],
     "bosses": [],
@@ -998,7 +986,7 @@
   },
   {
     "name": "Captures: City of Dying Dreams & Omega Ruins",
-    "id": 1009,
+    "id": 1008,
     "treasures": [],
     "party_members": [],
     "bosses": [],
