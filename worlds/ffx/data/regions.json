@@ -898,7 +898,7 @@
     "other": [1],
     "recruits": [],
     "leads_to": [],
-    "rules": [""]
+    "rules": []
   },
   {
     "name": "Al Bhed Primer III",
@@ -910,7 +910,7 @@
     "other": [3],
     "recruits": [],
     "leads_to": [],
-    "rules": [""]
+    "rules": []
   },
   {
     "name": "Al Bhed Primer V",
@@ -922,7 +922,7 @@
     "other": [5],
     "recruits": [],
     "leads_to": [],
-    "rules": [""]
+    "rules": []
   },
   {
     "name": "Al Bhed Primer XIV",
@@ -934,7 +934,7 @@
     "other": [14],
     "recruits": [],
     "leads_to": [],
-    "rules": [""]
+    "rules": []
   },
   {
     "name": "Captures: Oldroad & MRR",
@@ -946,7 +946,7 @@
     "other": [],
     "recruits": [],
     "leads_to": [],
-    "rules": [""]
+    "rules": []
   },
   {
     "name": "Captures: CotSF & Gagazet",
@@ -958,7 +958,7 @@
     "other": [],
     "recruits": [],
     "leads_to": [],
-    "rules": [""]
+    "rules": []
   },
   {
     "name": "Captures: Gagazet Cave & Zanarkand",
@@ -970,7 +970,7 @@
     "other": [],
     "recruits": [],
     "leads_to": [],
-    "rules": [""]
+    "rules": []
   },
   {
     "name": "Captures: Inside Sin & Omega Ruins",
@@ -982,7 +982,7 @@
     "other": [],
     "recruits": [],
     "leads_to": [],
-    "rules": [""]
+    "rules": []
   },
   {
     "name": "Captures: City of Dying Dreams & Omega Ruins",
@@ -994,6 +994,6 @@
     "other": [],
     "recruits": [],
     "leads_to": [],
-    "rules": [""]
+    "rules": []
   }
 ]
