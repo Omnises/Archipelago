@@ -199,6 +199,6 @@ class FFXWorld(World):
     def generate_output(self, output_directory: str) -> None:
 
         # Visualize regions
-        visualize_regions(self.multiworld.get_region("Menu", self.player), f"ffx {self.player}.puml", show_entrance_names=True)
+        #visualize_regions(self.multiworld.get_region("Menu", self.player), f"ffx {self.player}.puml", show_entrance_names=True)
 
         generate_output(self, self.player, output_directory)
