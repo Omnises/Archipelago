@@ -242,7 +242,7 @@
     "overdrives": [],
     "other": [],
     "recruits": [],
-    "leads_to": [52, 60],
+    "leads_to": [52],
     "rules": ["Sinspawn Gui"]
   },
   {
@@ -472,7 +472,7 @@
     "id": 111,
     "treasures": [210, 347, 211, 348, 351, 350, 349, 212, 352, 354, 353, 358, 359, 355, 273, 356, 357],
     "party_members": [],
-    "bosses": [84],
+    "bosses": [],
     "overdrives": [],
     "other": [18, 17],
     "recruits": [],
@@ -557,7 +557,7 @@
     "id": 124,
     "treasures": [],
     "party_members": [],
-    "bosses": [25],
+    "bosses": [],
     "overdrives": [],
     "other": [],
     "recruits": [],
@@ -635,7 +635,7 @@
     "overdrives": [],
     "other": [23],
     "recruits": [11, 17],
-    "leads_to": [141, 142, 200, 1015],
+    "leads_to": [141, 142, 1015],
     "rules": ["Calm Lands"]
   },
   {
@@ -659,7 +659,7 @@
     "overdrives": [],
     "other": [],
     "recruits": [3],
-    "leads_to": [143, 150],
+    "leads_to": [143],
     "rules": ["Defender X"]
   },
   {
@@ -712,7 +712,7 @@
     "other": [],
     "recruits": [],
     "leads_to": [],
-    "rules": []
+    "rules": ["Monster Arena"]
   },
 
 
@@ -835,7 +835,7 @@
     "overdrives": [],
     "other": [],
     "recruits": [],
-    "leads_to": [182, 1021, 1019],
+    "leads_to": [182, 1019, 1021],
     "rules": ["Seymour Omnis"]
   },
   {
