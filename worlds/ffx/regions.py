@@ -325,9 +325,10 @@ def create_regions(world: FFXWorld, player) -> None:
 
     if not world.options.mini_games.value:
         mini_game_location_ids = [
-            338, # "Calm Lands: Lv. 1 Key Sphere x1 (Dodger Chocobo Minigame Reward)"
-            339, # "Calm Lands: Lv. 2 Key Sphere x1 x1 (Hyper Dodger Chocobo Minigame Reward)"
-            340, # "Calm Lands: Lv. 3 Key Sphere x1 x1 (Catcher Chocobo Minigame Reward)"
+            337, # "Calm Lands: Wobbly Chocobo Minigame (Event)"
+            338, # "Calm Lands: Dodger Chocobo Minigame (Event)"
+            339, # "Calm Lands: Hyper Dodger Chocobo Minigame (Event)"
+            340, # "Calm Lands: Catcher Chocobo Minigame (Event)"
             417, # "Calm Lands: Elixir x1 (Chocobo Race Reward)"
             418, # "Calm Lands: Megalixir x1 (Chocobo Race Reward)"
             419, # "Calm Lands: Three Stars x60 (Chocobo Race Reward)"
@@ -352,6 +353,11 @@ def create_regions(world: FFXWorld, player) -> None:
         for id in mini_game_location_ids:
             location_name = world.location_id_to_name[id | TreasureOffset]
             world.options.exclude_locations.value.add(location_name)
+        calm_lands_to_remiem = world.get_region("Remiem Temple").entrances[0]
+        new_parent = world.get_region("Calm Lands 1st visit: Post-Defender X")
+        calm_lands_to_remiem.parent_region.exits.remove(calm_lands_to_remiem)
+        calm_lands_to_remiem.parent_region = new_parent
+        new_parent.exits.append(calm_lands_to_remiem)
 
     if not world.options.recruit_sanity.value:
         recruit_location_ids = []
