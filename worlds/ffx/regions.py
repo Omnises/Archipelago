@@ -2,10 +2,10 @@ from BaseClasses import Entrance, ItemClassification, Region, Location, Location
 import json
 import pkgutil
 import typing
-from typing import NamedTuple
+from typing import NamedTuple, List
 
 from .locations import FFXLocation, FFXTreasureLocations, FFXPartyMemberLocations, FFXBossLocations, \
-    FFXOverdriveLocations, FFXOtherLocations, FFXRecruitLocations, FFXSphereGridLocations, FFXLocationData, TreasureOffset, BossOffset, PartyMemberOffset, RecruitOffset
+    FFXOverdriveLocations, FFXOtherLocations, FFXRecruitLocations, FFXSphereGridLocations, FFXCaptureLocations, FFXLocationData, TreasureOffset, BossOffset, PartyMemberOffset, RecruitOffset, CaptureOffset
 from .rules import ruleDict
 from .items import party_member_items, key_items, FFXItem
 from worlds.generic.Rules import add_rule
@@ -41,6 +41,9 @@ class RegionData(dict):
     @property
     def recruits(self) -> list[int]:
         return self["recruits"]
+    @property
+    def captures(self) -> list[int]:
+        return self["captures"]
     @property
     def leads_to(self) -> list[int]:
         return self["leads_to"]
@@ -92,6 +95,10 @@ def create_regions(world: FFXWorld, player) -> None:
                     state.can_reach_location(world.location_id_to_name[12 | PartyMemberOffset], world.player) and   # Bahamut
                     state.can_reach_location(world.location_id_to_name[37 | BossOffset       ], world.player)       # Yunalesca
                 )
+            case world.options.goal_requirement.option_nemesis:
+                return (
+                    state.can_reach_location(world.location_id_to_name[83 | BossOffset       ], world.player)       # Nemesis
+                )
     
     def primer_requirement_rule(state):
         if world.options.required_primers.value > 0:
@@ -99,6 +106,113 @@ def create_regions(world: FFXWorld, player) -> None:
                 [primer.itemName for primer in key_items[4:30]], world.player, world.options.required_primers.value) 
         else:
             return True
+        
+    captureDict: dict [int, str]= {
+    0:   "Mi'ihen Highroad 1st visit: Pre-Chocobo Eater",                   # Raldo
+    1:   "Captures: Djose Highroad & Moonflow",                             # Bunyip
+    2:   "Macalania Woods 1st visit: Pre-Spherimorph",                      # Murussu
+    3:   "Lake Macalania 1st visit: Pre-Crawler",                           # Mafdet
+    4:   "Calm Lands 1st visit: Pre-Defender X",                            # Shred
+    5:   "Captures: MRR, Djose Highroad & Moonflow",                        # Gandarewa
+    6:   "Thunder Plains 1st visit",                                        # Aerouge
+    7:   "Captures: Cavern of the Stolen Fayth & Mt. Gagazet",              # Imp
+    8:   "Besaid Island 1st visit",                                         # Dingo
+    9:   "Mi'ihen Highroad 1st visit: Pre-Chocobo Eater",                   # Mi'ihen Fang
+    10:  "Captures: Djose Highroad & Moonflow",                             # Garm
+    11:  "Lake Macalania 1st visit: Pre-Crawler",                           # Snow Wolf
+    12:  "Bikanel 1st visit: Post-Zu",                                      # Sand Wolf
+    13:  "Calm Lands 1st visit: Pre-Defender X",                            # Skoll
+    14:  "Mt. Gagazet 1st visit: Post-Biran and Yenke",                     # Bandersnatch
+    15:  "Besaid Island 1st visit",                                         # Water Flan
+    16:  "Captures: Miihen Oldroad & MRR",                                  # Thunder Flan
+    17:  "Djose 1st visit",                                                 # Snow Flan
+    18:  "Lake Macalania 1st visit: Pre-Crawler",                           # Ice Flan
+    19:  "Calm Lands 1st visit: Pre-Defender X",                            # Flame Flan
+    20:  "Captures: Mt. Gagazet Caves & Zanarkand",                         # Dark Flan
+    21:  "Kilika 1st visit: Pre-Geneaux",                                   # Dinonix
+    22:  "Captures: Miihen Oldroad & MRR",                                  # Ipiria
+    23:  "Captures: MRR & Djose Highroad",                                  # Raptor
+    24:  "Thunder Plains 1st visit",                                        # Melusine
+    25:  "Macalania Woods 1st visit: Pre-Spherimorph",                      # Iguion
+    26:  "Cavern of the Stolen Fayth 1st visit",                            # Yowie
+    27:  "Besaid Island 1st visit",                                         # Condor
+    28:  "Djose 1st visit",                                                 # Simurgh
+    29:  "Bikanel 1st visit: Post-Zu",                                      # Alcyone
+    30:  "Kilika 1st visit: Pre-Geneaux",                                   # Killer Bee
+    31:  "Captures: Djose Highroad & Moonflow",                             # Bite Bug
+    32:  "Macalania Woods 1st visit: Pre-Spherimorph",                      # Wasp
+    33:  "Calm Lands 1st visit: Pre-Defender X",                            # Nebiros
+    34:  "Captures: Miihen Highroad & MRR",                                 # Floating Eye
+    35:  "Thunder Plains 1st visit",                                        # Buer
+    36:  "Lake Macalania 1st visit: Pre-Crawler",                           # Evil Eye
+    37:  "Captures: Mt. Gagazet Caves, Zanarkand & City of Dying Dreams",   # Ahriman
+    38:  "Kilika 1st visit: Pre-Geneaux",                                   # Ragora
+    39:  "Mt. Gagazet 1st visit: Post-Biran and Yenke",                     # Grat
+    40:  "Mushroom Rock Road 1st visit: Pre-Sinspawn Gui",                  # Garuda
+    41:  "Bikanel 1st visit: Post-Zu",                                      # Zu
+    42:  "Bikanel 1st visit: Post-Zu",                                      # Sand Worm
+  # 43:  "Unused Arena Index",
+    44:  "Cavern of the Stolen Fayth 1st visit",                            # Ghost
+    45:  "Mt. Gagazet 1st visit: Post-Seymour Flux",                        # Achelous
+    46:  "Mt. Gagazet 1st visit: Post-Seymour Flux",                        # Maelspike
+    47:  "Captures: Miihen Highroad & MRR",                                 # Dual Horn
+    48:  "Cavern of the Stolen Fayth 1st visit",                            # Valaha
+    49:  "Captures: Mt. Gagazet Caves & Zanarkand",                         # Grendel
+    50:  "Captures: Miihen Oldroad & MRR",                                  # Vouivre
+    51:  "Captures: MRR & Djose Highroad",                                  # Lamashtu
+    52:  "Thunder Plains 1st visit",                                        # Kusariqqu
+    53:  "Bikanel 1st visit: Post-Zu",                                      # Mushussu
+    54:  "Captures: Cavern of the Stolen Fayth & Mt. Gagazet",              # Nidhogg
+    55:  "Captures: Calm Lands & Cavern of the Stolen Fayth",               # Malboro
+    56:  "Captures: City of Dying Dreams & Omega Ruins",                    # Great Malboro
+    57:  "Calm Lands 1st visit: Pre-Defender X",                            # Ogre
+    58:  "Captures: Mt. Gagazet Slope & Zanarkand",                         # Bashura
+  # 59:  "Unused Arena Index",
+    60:  "Mt. Gagazet 1st visit: Post-Seymour Flux",                        # Splasher
+    61:  "Kilika 1st visit: Pre-Geneaux",                                   # Yellow Element
+    62:  "Mi'ihen Highroad 1st visit: Pre-Chocobo Eater",                   # White Element
+    63:  "Mushroom Rock Road 1st visit: Pre-Sinspawn Gui",                  # Red Element
+    64:  "Thunder Plains 1st visit",                                        # Gold Element
+    65:  "Macalania Woods 1st visit: Pre-Spherimorph",                      # Blue Element
+    66:  "Cavern of the Stolen Fayth 1st visit",                            # Dark Element
+    67:  "Omega Ruins: Pre-Ultima Weapon",                                  # Black Element
+    68:  "Cavern of the Stolen Fayth 1st visit",                            # Epaaj
+    69:  "Captures: Mt. Gagazet Caves & Zanarkand",                         # Behemoth
+    70:  "Sin: Pre-Seymour Omnis",                                          # Behemoth King
+    71:  "Macalania Woods 1st visit: Pre-Spherimorph",                      # Chimera
+    72:  "Calm Lands 1st visit: Pre-Defender X",                            # Chimera Brain
+    73:  "Captures: Calm Lands & Cavern of the Stolen Fayth",               # Coeurl
+    74:  "Omega Ruins: Pre-Ultima Weapon",                                  # Master Coeurl
+    75:  "Captures: City of Dying Dreams & Omega Ruins",                    # Demonolith
+    76:  "Thunder Plains 1st visit",                                        # Iron Giant
+    77:  "Captures: Inside Sin & Omega Ruins",                              # Gemini Sword
+    78:  "Captures: Inside Sin & Omega Ruins",                              # Gemini Club
+    79:  "Djose 1st visit",                                                 # Basilisk
+    80:  "Calm Lands 1st visit: Pre-Defender X",                            # Anacondaur
+    81:  "Captures: Inside Sin & Omega Ruins",                              # Adamantoise
+    82:  "Captures: City of Dying Dreams & Omega Ruins",                    # Varuna
+    83:  "Moonflow 1st visit: Pre-Extractor",                               # Ochu
+    84:  "Captures: Mt. Gagazet Caves & Zanarkand",                         # Mandragora
+    85:  "Captures: Miihen Highroad & MRR",                                 # Bomb
+    86:  "Mt. Gagazet 1st visit: Post-Biran and Yenke",                     # Grenade
+    87:  "Thunder Plains 1st visit",                                        # Qactuar
+    88:  "Bikanel 1st visit: Post-Zu",                                      # Cactuar
+    89:  "Thunder Plains 1st visit",                                        # Larva
+    90:  "Sin: Post-Seymour Omnis",                                         # Barbatos
+    91:  "Captures: MRR & Djose Highroad",                                  # Funguar
+    92:  "Cavern of the Stolen Fayth 1st visit",                            # Thorn
+    93:  "Sin: Pre-Seymour Omnis",                                          # Exoray
+    94:  "Macalania Woods 1st visit: Pre-Spherimorph",                      # Xiphos
+    95:  "Omega Ruins: Pre-Ultima Weapon",                                  # Puroboros
+    96:  "Omega Ruins: Pre-Ultima Weapon",                                  # Spirit
+    97:  "Captures: City of Dying Dreams & Omega Ruins",                    # Wraith    
+    98:  "Cavern of the Stolen Fayth 1st visit",                            # Tonberry
+    99:  "Omega Ruins: Pre-Ultima Weapon",                                  # Master Tonberry
+    100: "Omega Ruins: Pre-Ultima Weapon",                                  # Zaurus
+    101: "Omega Ruins: Pre-Ultima Weapon",                                  # Halma
+    102: "Omega Ruins: Pre-Ultima Weapon",                                  # Floating Death
+    103: "Omega Ruins: Pre-Ultima Weapon",                                  # Machea
+}
 
 
     menu_region = Region("Menu", player, world.multiworld)
@@ -131,7 +245,6 @@ def create_regions(world: FFXWorld, player) -> None:
         #     new_region.locations.append(new_location)
         #     all_locations.append(new_location)
 
-        # TODO: Implement in client
         add_locations_by_ids(new_region, region_data.party_members, FFXPartyMemberLocations, "Party Member")
         # for id in region_data.party_members:
         #     print(region_data.name, id)
@@ -163,7 +276,6 @@ def create_regions(world: FFXWorld, player) -> None:
         #     new_region.locations.append(new_location)
         #     all_locations.append(new_location)
 
-        # TODO: Implement in client
         add_locations_by_ids(new_region, region_data.other, FFXOtherLocations, "Other")
         # for id in region_data.other:
         #     print(region_data.name, id)
@@ -175,6 +287,11 @@ def create_regions(world: FFXWorld, player) -> None:
         #     all_locations.append(new_location)
 
         add_locations_by_ids(new_region, region_data.recruits, FFXRecruitLocations, "Recruit")
+
+        # add_locations_by_ids(new_region, region_data.captures, FFXCaptureLocations, "Capture")
+
+    for location_id, region_name in captureDict.items():
+        add_locations_by_ids(world.get_region(region_name), [location_id], FFXCaptureLocations, "Capture")
 
     for region_data in region_data_list:
         curr_region = region_dict[region_data.id]
@@ -220,7 +337,41 @@ def create_regions(world: FFXWorld, player) -> None:
             34, # "Gagazet (Outside): Dark Anima"
             25, # "Airship: Penance"
             44, # "Omega Ruins: Omega Weapon"
-            #30, # "Monster Arena: Nemesis"
+            49, # Stratoavis
+            50, # Malboro Menace
+            51, # Kottos
+            52, # Coeurlregina
+            53, # Jormungand
+            54, # Cactuar King
+            55, # Espada
+            56, # Abyss Worm
+            57, # Chimerageist
+            58, # Don Tonberry
+            59, # Catoblepas
+            60, # Abaddon
+            61, # Vorban
+            62, # Fenrir
+            63, # Ornitholestes
+            64, # Pteryx
+            65, # Hornet
+            66, # Vidatu
+            67, # One-Eye
+            68, # Jumbo Flan
+            69, # Nega Elemental
+            70, # Tanket
+            71, # Fafnir
+            72, # Sleep Sprout
+            73, # Bomb King
+            74, # Juggernaut
+            75, # Ironclad
+            76, # Earth Eater
+            77, # Greater Sphere
+            78, # Catastrophe
+            79, # Th'uban
+            80, # Neslug
+            81, # Ultima Buster
+            82, # Shinryu
+            83, # Nemesis
         ]
         for id in super_boss_location_ids:
             location_name = world.location_id_to_name[id | BossOffset]
@@ -268,6 +419,28 @@ def create_regions(world: FFXWorld, player) -> None:
         for id in recruit_location_ids:
             location_name = world.location_id_to_name[id | RecruitOffset]
             world.options.exclude_locations.value.add(location_name)
+    
+    if not world.options.capture_sanity.value:
+        reward_locations = [
+            113, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436,   # Area Conquest
+            437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450,   # Species Conquest
+            451, 452, 453, 454, 455, 456, 457, 458                                  # Original Creations
+        ]
+        boss_locations = [
+            49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61,                     # Area Conquest
+            62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75,                 # Species Conquest
+            76, 77, 78, 79, 80, 81, 82, 83                                          # Original Creations
+        ]
+        for capture_location in FFXCaptureLocations:
+            world.options.exclude_locations.value.add(capture_location.name)
+        for reward_id in reward_locations:  # Monster Arena Reward Locations
+            reward_name = world.location_id_to_name[reward_id | TreasureOffset]
+            world.options.exclude_locations.value.add(reward_name)
+        if world.options.super_bosses.value:
+            for boss_id in boss_locations: # Monster Arena Super Bosses
+                boss_name = world.location_id_to_name[boss_id | BossOffset]
+                world.options.exclude_locations.value.add(boss_name)
+
 
     final_region = world.get_region("Sin: Braska's Final Aeon")
     final_region.add_event("Sin: Braska's Final Aeon", "Victory", location_type=FFXLocation, item_type=FFXItem)
