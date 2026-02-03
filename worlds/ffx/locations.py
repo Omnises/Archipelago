@@ -297,7 +297,7 @@ FFXPartyMemberLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+P
     ("Besaid: Enter the Valley (Event)",                           4, False), # Party Member: Wakka
     ("Besaid: Village Slope - Element Tutorial (Event)",           5, False), # Party Member: Lulu
     ("Moonflow: North Bank - Mix Tutorial (Event)",                6, False), # Party Member: Rikku
-    ("Party Member: Seymour",                                      7, False), # Party Member: Seymour
+    ("MRR: Encounter Sinspawn Gui Second Phase (Boss)",            7, False), # Party Member: Seymour
     ("Besaid: Name Valefor (Event)",                               8, False), # Party Member: Valefor
     ("Kilika: Name Ifrit (Event)",                                 9, False), # Party Member: Ifrit
     ("Djose: Name Ixion (Event)",                                 10, False), # Party Member: Ixion
@@ -403,7 +403,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Guadosalam: House - Back Wall (Chest)",                                                        64, False),  # Gil: 3000 [1Eh]
     ("Guadosalam: East of Mansion (Chest)",                                                          65, False),  # Item: 1x Mega-Potion [2003h]
     ("Guadosalam: Upper Level, South Side (Chest)",                                                  66, False),  # Item: 1x Elixir [2008h]
-    ("Guadosalam: Mansion, Entrance- Upper Level (Chest)",                                           67, False),  # Item: 2x Hi-Potion [2001h]
+    ("Guadosalam: Mansion, Entrance - Upper Level (Chest)",                                          67, False),  # Item: 2x Hi-Potion [2001h]
     ("Macalania Woods: South - Near North Exit (Chest)",                                             68, False),  # Gil: 2000 [14h]
     ("Macalania Woods: South - Hidden Behind Tree in Middle of S-Bend (Chest)",                      69, False),  # Gear: buki_get #20 [14h] { Lulu [05h], Weapon {Sleeptouch [803Fh]} }
     ("Macalania Woods: Central - Hidden Behind Tree Before Spiral Down (Chest)",                     70, False),  # Item: 3x Phoenix Down [2006h]
