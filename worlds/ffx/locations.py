@@ -504,7 +504,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Sin: Sea of Sorrow - West Alcove (Chest)",                                                    166, False),  # Gear: buki_get #51 [33h] { Yuna [01h], Armor {Water Eater [802Dh], Fire Eater [8021h], Lightning Eater [8029h], Empty} }
     ("Sin: Sea of Sorrow - Atop Western Falls (Chest)",                                             167, False),  # Item: 1x Special Sphere [204Ch]
     ("Sin: City of Dying Dreams - East Glyph Near South Exit, Defeat 10/10/15 Fiends (Chest)",      168, False),  # Item: 1x Lv. 4 Key Sphere [2054h]
-    ("Sin: City of Dying Dreams-South Side, Lift on Small Bridge (Chest)",                          169, False),  # Gear: buki_get #52 [34h] { Wakka [04h], Weapon {Waterstrike [802Ah], Firestrike [801Eh], Lightningstrike [8026h], Icestrike [8022h]} }
+    ("Sin: City of Dying Dreams - South Side, Lift on Small Bridge (Chest)",                          169, False),  # Gear: buki_get #52 [34h] { Wakka [04h], Weapon {Waterstrike [802Ah], Firestrike [801Eh], Lightningstrike [8026h], Icestrike [8022h]} }
     ("Sin: City of Dying Dreams - South of First Open Area, Push North Wall Down (Chest)",          170, False),  # Gear: buki_get #53 [35h] { Auron [02h], Armor {Darkproof [8048h], Deathproof [8030h], Empty, Empty} }
     ("Sin: City of Dying Dreams - First Open Area, Ramp Down in Center (Chest)",                    171, False),  # Gil: 20000 [C8h]
     ("Sin: City of Dying Dreams - Lift Up in Center of First Open Area (Chest)",                    172, False),  # Item: 1x HP Sphere [2055h]
@@ -694,7 +694,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Bikanel: Desert, West - Second Western Alcove, Hidden Behind Rock (Chest)",                   356, False),  # Item: 3x Mega-Potion [2003h]
     ("Bikanel: Desert, West - Second Western Alcove, North Side (Chest)",                           357, False),  # Item: 2x X-Potion [2002h]
     ("Bikanel: Desert, West - Left Sinkhole on Main Path (Chest)",                                  358, False),  # Item: 3x Megalixir [2009h]
-    ("Bikanel: Desert, West - Right Sinkhole on  Main Path (Chest)",                                359, False),  # Item: 2x Teleport Sphere [2062h]
+    ("Bikanel: Desert, West - Right Sinkhole on Main Path (Chest)",                                359, False),  # Item: 2x Teleport Sphere [2062h]
     ("Home: Main Corridor - North Hall, Left (Chest)",                                              360, False),  # Item: 6x Al Bhed Potion [2014h]
     ("Home: Main Corridor - Bottom of South Stairs, Hidden Behind Left Smoke (Chest)",              361, False),  # Item: 4x Al Bhed Potion [2014h]
     ("Home: Outside Summoner's Sanctum - Right (Chest)",                                            362, False),  # Item: 1x Lv. 2 Key Sphere [2052h]
