@@ -123,7 +123,7 @@ FFXBossLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+BossOffs
     ("Airship: Defeat Sin Right Fin (Boss)",                   22, False),
     ("Airship: Defeat Sin Core (Boss)",                        23, False),
     ("Airship: Defeat Overdrive Sin (Boss)",                   24, False),
-    # ("Airship: Defeat Penance (Superboss)",                    25, False),
+    # ("Airship: Defeat Penance (Superboss)",                  25, False),
     ("Bevelle: Defeat Isaaru (Boss)",                          26, False),
     ("Bevelle: Defeat Evrae Altana (Boss)",                    27, False),
     ("Bevelle: Defeat Seymour Natus (Boss)",                   28, False),
@@ -237,7 +237,7 @@ FFXOtherLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+OtherOf
     ("S.S. Liki: Power Room & Bikanel: Oasis (Primer)",                             3, False), # Al Bhed Primer III
     ("Kilika: Tavern - On Counter (Primer)",                                        4, False), # Al Bhed Primer IV
     ("S.S. Winno: Bridge & Bikanel: Desert, East (Primer)",                         5, False), # Al Bhed Primer V
-    ("Luca: Stadium Basement B - Behind Isken (Primer)",                             6, False), # Al Bhed Primer VI
+    ("Luca: Stadium Basement B - Behind Isken (Primer)",                            6, False), # Al Bhed Primer VI
     ("Luca: Theater Reception - Bottom of Stairs, Left Side (Primer)",              7, False), # Al Bhed Primer VII
     ("Mi'ihen: Agency - Exit After Resting (Event) (2)",                            8, False), # Al Bhed Primer VIII
     ("Mi'ihen: Newroad, North - Peak of South Bend Before Shelinda (Primer)",       9, False), # Al Bhed Primer IX
@@ -504,7 +504,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Sin: Sea of Sorrow - West Alcove (Chest)",                                                    166, False),  # Gear: buki_get #51 [33h] { Yuna [01h], Armor {Water Eater [802Dh], Fire Eater [8021h], Lightning Eater [8029h], Empty} }
     ("Sin: Sea of Sorrow - Atop Western Falls (Chest)",                                             167, False),  # Item: 1x Special Sphere [204Ch]
     ("Sin: City of Dying Dreams - East Glyph Near South Exit, Defeat 10/10/15 Fiends (Chest)",      168, False),  # Item: 1x Lv. 4 Key Sphere [2054h]
-    ("Sin: City of Dying Dreams - South Side, Lift on Small Bridge (Chest)",                          169, False),  # Gear: buki_get #52 [34h] { Wakka [04h], Weapon {Waterstrike [802Ah], Firestrike [801Eh], Lightningstrike [8026h], Icestrike [8022h]} }
+    ("Sin: City of Dying Dreams - South Side, Lift on Small Bridge (Chest)",                        169, False),  # Gear: buki_get #52 [34h] { Wakka [04h], Weapon {Waterstrike [802Ah], Firestrike [801Eh], Lightningstrike [8026h], Icestrike [8022h]} }
     ("Sin: City of Dying Dreams - South of First Open Area, Push North Wall Down (Chest)",          170, False),  # Gear: buki_get #53 [35h] { Auron [02h], Armor {Darkproof [8048h], Deathproof [8030h], Empty, Empty} }
     ("Sin: City of Dying Dreams - First Open Area, Ramp Down in Center (Chest)",                    171, False),  # Gil: 20000 [C8h]
     ("Sin: City of Dying Dreams - Lift Up in Center of First Open Area (Chest)",                    172, False),  # Item: 1x HP Sphere [2055h]
@@ -516,7 +516,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Thunder Plains: South - West Side, South of Save Sphere (Chest)",                             178, False),  # Item: 2x Phoenix Down [2006h]
     ("Thunder Plains: South - West Side, North of Save Sphere (Chest)",                             179, False),  # Item: 2x Hi-Potion [2001h]
     ("Thunder Plains: South - West Side, Behind First Cactuar Statue (Chest)",                      180, False),  # Gil: 5000 [32h]
-    ("Thunder Plains: South - East Side, Alcove With Second Cactuar Statue (Chest)",                        181, False),  # Gear: buki_get #55 [37h] { Wakka [04h], Weapon {Waterstrike [802Ah], Empty} }
+    ("Thunder Plains: South - East Side, Alcove With Second Cactuar Statue (Chest)",                181, False),  # Gear: buki_get #55 [37h] { Wakka [04h], Weapon {Waterstrike [802Ah], Empty} }
     ("Thunder Plains: North - East Side, Near Southeast Exit (Chest)",                              182, False),  # Item: 1x X-Potion [2002h]
     ("Thunder Plains: North - West Side, Behind Sheltered Lightning Rod (Chest)",                   183, False),  # Item: 1x Ether [2004h]
     ("Thunder Plains: North - West Side, Near North Exit (Chest)",                                  184, False),  # Item: 1x Remedy [200Fh]
@@ -609,7 +609,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Luca: Stadium Locker Room - Inside Back Right Locker (Event)",                                271, False),  # Key Item: Jupiter Crest [A02Ch]
     ("Guadosalam: Farplane - West Side (Chest)",                                                    272, False),  # Key Item: Venus Crest [A02Eh]
     ("Bikanel: Desert, West - First Western Alcove, Sinkhole (Chest)",                              273, False),  # Key Item: Mercury Crest [A030h]
-    ("Calm Lands: Catcher chocobo Minigame, Time Under 0.00 (Event)",                               274, False),  # Key Item: Sun Sigil [A024h]
+    ("Calm Lands: Catcher Chocobo Minigame, Time Under 0.00 (Event)",                               274, False),  # Key Item: Sun Sigil [A024h]
     ("Calm Lands: Remiem Temple - Defeat All Aeons and Send Belgemine (Event)",                     275, False),  # Key Item: Moon Sigil [A026h]
     ("Monster Arena: Unlock Ten Arena Creations (Event)",                                           276, False),  # Key Item: Mars Sigil [A028h]
     ("Macalania Woods: Finish Butterfly Minigame (Event)",                                          277, False),  # Key Item: Saturn Sigil [A02Bh]
@@ -694,7 +694,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("Bikanel: Desert, West - Second Western Alcove, Hidden Behind Rock (Chest)",                   356, False),  # Item: 3x Mega-Potion [2003h]
     ("Bikanel: Desert, West - Second Western Alcove, North Side (Chest)",                           357, False),  # Item: 2x X-Potion [2002h]
     ("Bikanel: Desert, West - Left Sinkhole on Main Path (Chest)",                                  358, False),  # Item: 3x Megalixir [2009h]
-    ("Bikanel: Desert, West - Right Sinkhole on Main Path (Chest)",                                359, False),  # Item: 2x Teleport Sphere [2062h]
+    ("Bikanel: Desert, West - Right Sinkhole on Main Path (Chest)",                                 359, False),  # Item: 2x Teleport Sphere [2062h]
     ("Home: Main Corridor - North Hall, Left (Chest)",                                              360, False),  # Item: 6x Al Bhed Potion [2014h]
     ("Home: Main Corridor - Bottom of South Stairs, Hidden Behind Left Smoke (Chest)",              361, False),  # Item: 4x Al Bhed Potion [2014h]
     ("Home: Outside Summoner's Sanctum - Right (Chest)",                                            362, False),  # Item: 1x Lv. 2 Key Sphere [2052h]
