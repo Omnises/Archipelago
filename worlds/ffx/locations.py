@@ -330,7 +330,7 @@ FFXRecruitLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Recru
     ("Recruit: Wakka",      20, False),
     ("Recruit: Wedge",      21, False),
     ("Recruit: Yuma Guado", 22, False),
-    ("Recruit: Zalits",     23, False),
+    ("Recruit: Zalitz",     23, False),
     ("Recruit: Zev Ronso",  24, False)
 ]]
 
@@ -470,7 +470,7 @@ FFXTreasureLocations: List[FFXLocationData] = [ FFXLocationData(location[1]+Trea
     ("MTGS: Trail - Under Bridge After Wantz Left (Chest)",                                         132, False),  # Item: 1x HP Sphere [2055h]
     #("Treasure 133 (Trashed)",                                                                     133, False),  # Item: 1x Potion [2000h]
     #("Treasure 134 (Trashed)",                                                                     134, False),  # Item: 1x Potion [2000h]
-    ("MTGC: Cave - After Both Trials, Left Alcove, Northwest of Save Sphere (Chest)",               135, False), # Gear: buki_get #41 [29h] { Wakka [04h], Armor {SOS NulFrost [805Fh], SOS NulShock [8060h], SOS NulBlaze [8061h]} }
+    ("MTGC: Cave - After Both Trials, Left Alcove, Northwest of Save Sphere (Chest)",               135, False),  # Gear: buki_get #41 [29h] { Wakka [04h], Armor {SOS NulFrost [805Fh], SOS NulShock [8060h], SOS NulBlaze [8061h]} }
     ("MTGC: Submerged Passage - Reward from First Trial (Chest)",                                   136, False),  # Item: 1x Lv. 1 Key Sphere [2051h]
     ("MTGC: Submerged Passage - Reward From Second Trial (Chest)",                                  137, False),  # Item: 1x Fortune Sphere [204Ah]
     ("MTGC: Submerged Passage - After Both Trials, East Exit From Save Sphere, Left (Chest)",       138, False),  # Item: 1x Return Sphere [2060h]
